@@ -1,6 +1,6 @@
 <script>
-	import {saved} from '../stores/saved.js';
-    import SavedValues from '../components/SavedValues.svelte'
+	import { saved } from '../stores/saved.js';
+	import SavedValues from '../components/SavedValues.svelte';
 
 	let valueSystem = 'smallValue'; //also available: "trueValue"
 
@@ -9,7 +9,6 @@
 	let totalTrueValue = 0;
 	let totalMaghribiSmallValue = 0;
 	let totalMaghribiTrueValue = 0;
-    
 
 	let letterSystem = 'lettersMashriqi';
 
@@ -59,28 +58,52 @@
 		totalTrueValue = calc('trueValue');
 		totalSmallValue = calc('smallValue');
 
-        totalMaghribiSmallValue = calc('maghribiSmall');
-        totalMaghribiTrueValue = calc('maghribiTrue');
+		totalMaghribiSmallValue = calc('maghribiSmall');
+		totalMaghribiTrueValue = calc('maghribiTrue');
 	}
-    function saveItem(newItem, systemUsed) {
-        saved.update(items => [...items, {name: letterInput, value: newItem, system: systemUsed}])
-        console.log($saved)
-    }
+	function saveItem(newItem, systemUsed) {
+		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]);
+		console.log($saved);
+	}
 </script>
 
-<textarea bind:value={letterInput} on:input={() => calcHandler()} />
+<div>
+	<textarea bind:value={letterInput} on:input={() => calcHandler()} />
+</div>
 
-<p>المدخول: {letterInput}</p>
 <h2>النظام المشرقي</h2>
-<p>الجمل الصغير: {JSON.stringify(totalSmallValue)}</p> 
-<button on:click={() => saveItem(JSON.stringify(totalSmallValue), "الجمل الصغير المشرقي")}>احفظ</button>
-<p>الجمل الكبير: {JSON.stringify(totalTrueValue)}</p>
+<div>
+	<span>الجمل الصغير: {JSON.stringify(totalSmallValue)}</span>
+	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الصغير المشرقي')}
+		>احفظ</button
+	>
+</div>
+<div>
+	<span>الجمل الكبير: {JSON.stringify(totalTrueValue)}</span>
+	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الكبير المشرقي')}
+		>احفظ</button
+	>
+</div>
 
+<hr />
 
 <h2>النظام المغربي</h2>
-<p>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</p>
-<p>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</p>
+<div>
+	<span>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</span>
+	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الصغير المغربي')}
+		>احفظ</button
+	>
+</div>
 
+<div>
+	<span>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</span>
+
+	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الكبير المغربي')}
+		>احفظ</button
+	>
+</div>
+
+<hr />
 
 <style>
 	textArea {
