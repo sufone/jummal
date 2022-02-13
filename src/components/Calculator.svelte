@@ -1,4 +1,7 @@
 <script>
+	import {saved} from '../stores/saved.js';
+    import SavedValues from '../components/SavedValues.svelte'
+
 	let valueSystem = 'smallValue'; //also available: "trueValue"
 
 	let letterInput = '';
@@ -59,19 +62,25 @@
         totalMaghribiSmallValue = calc('maghribiSmall');
         totalMaghribiTrueValue = calc('maghribiTrue');
 	}
+    function saveItem(newItem, systemUsed) {
+        saved.update(items => [...items, {name: letterInput, value: newItem, system: systemUsed}])
+        console.log($saved)
+    }
 </script>
 
 <textarea bind:value={letterInput} on:input={() => calcHandler()} />
 
 <p>المدخول: {letterInput}</p>
 <h2>النظام المشرقي</h2>
-<p>الجمل الصغير: {JSON.stringify(totalSmallValue)}</p>
+<p>الجمل الصغير: {JSON.stringify(totalSmallValue)}</p> 
+<button on:click={() => saveItem(JSON.stringify(totalSmallValue), "الجمل الصغير المشرقي")}>احفظ</button>
 <p>الجمل الكبير: {JSON.stringify(totalTrueValue)}</p>
 
 
 <h2>النظام المغربي</h2>
 <p>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</p>
 <p>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</p>
+
 
 <style>
 	textArea {
