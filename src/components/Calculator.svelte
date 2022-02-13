@@ -3,7 +3,12 @@
 
 	let letterInput = '';
 	let totalSmallValue = 0;
-    let totalTrueValue = 0;
+	let totalTrueValue = 0;
+	let totalMaghribiSmallValue = 0;
+	let totalMaghribiTrueValue = 0;
+    
+
+	let letterSystem = 'lettersMashriqi';
 
 	const letters = {
 		ا: { trueValue: 1, smallValue: 1 },
@@ -61,4 +66,8 @@
 
 
 <style>
+	textArea {
+		font-size: 3rem;
+		text-align: center;
+	}
 </style>
