@@ -67,7 +67,7 @@
 
 <style>
 	textArea {
-		font-size: 3rem;
+		font-size: 2rem;
 		text-align: center;
 	}
 </style>
