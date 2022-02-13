@@ -10,7 +10,7 @@
 </script>
 
 <h2>قائمة المحفوظات</h2>
-{#each $saved as savedItem, index (savedItem.name)}
+{#each $saved as savedItem, index }
 	<div>
 		<span>{savedItem.name}: </span>
 		<span>{savedItem.value}: </span>
