@@ -1,15 +1,27 @@
 <script>
+    	import SavedValues from '../components/SavedValues.svelte';
+
+    	import { onMount } from 'svelte';
+
+        onMount(() => {
+		mounted = true;
+	});
+	let mounted = false;
     import Calculator from '../components/Calculator.svelte'
-    import SavedValues from '../components/SavedValues.svelte'
 
 </script>
 
 <index>
 
-<h1>حساب الجمل</h1>
-
+    <h1>حساب الجمل</h1>
 <Calculator />
+
+
+{#if mounted}
 <SavedValues />
+
+{/if}
+
 </index>
 
 

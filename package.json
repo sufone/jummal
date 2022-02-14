@@ -17,10 +17,13 @@
     "eslint-plugin-svelte3": "^3.2.1",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.5.0",
-    "svelte": "^3.44.0"
+    "svelte": "^3.44.0",
+    "svelte-simple-datatables": "^0.2.3"
   },
   "type": "module",
   "dependencies": {
+    "gridjs": "^5.0.2",
+    "gridjs-svelte": "^2.1.0",
     "svelte-local-storage-store": "^0.2.6"
   }
 }

@@ -1,6 +1,6 @@
 <script>
 	import { saved } from '../stores/saved.js';
-	import SavedValues from '../components/SavedValues.svelte';
+	import SavedValues from './SavedValues.svelte';
 
 	let valueSystem = 'smallValue'; //also available: "trueValue"
 
@@ -80,7 +80,7 @@
 </div>
 <div>
 	<span>الجمل الكبير: {JSON.stringify(totalTrueValue)}</span>
-	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الكبير المشرقي')}
+	<button on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الجمل الكبير المشرقي')}
 		>احفظ</button
 	>
 </div>
@@ -90,7 +90,7 @@
 <h2>النظام المغربي</h2>
 <div>
 	<span>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</span>
-	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الصغير المغربي')}
+	<button on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الجمل الصغير المغربي')}
 		>احفظ</button
 	>
 </div>
@@ -98,7 +98,7 @@
 <div>
 	<span>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</span>
 
-	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الكبير المغربي')}
+	<button on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الجمل الكبير المغربي')}
 		>احفظ</button
 	>
 </div>
