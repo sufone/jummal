@@ -73,7 +73,9 @@
 
 <div>
 	<textarea bind:value={letterInput} on:input={() => calcHandler()} />
+
 </div>
+<button on:click={() => {letterInput = ""; letterInputCleaned =""; calcHandler()}}>تفريغ</button>
 
 <h2>النظام المشرقي</h2>
 <div>
@@ -113,5 +115,9 @@
 	textArea {
 		font-size: 2rem;
 		text-align: center;
+	}
+	button {
+		text-align: center;
+		margin: 0 auto;
 	}
 </style>
