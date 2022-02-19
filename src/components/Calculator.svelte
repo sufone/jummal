@@ -7,8 +7,7 @@
 	let totalMaghribiSmallValue = 0;
 	let totalMaghribiTrueValue = 0;
 
-	let letterSystem = 'lettersMashriqi';
-
+	// Complete list of values, easy to extend inshaAllah 
 	const letters = {
 		ا: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
 		أ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
@@ -43,14 +42,17 @@
 		غ: { trueValue: 1000, smallValue: 1, maghribiTrue: 900, maghribiSmall: 9, }
 	};
 
+	// Universal function to handle calculating from any system
 	function calc(system) {
 		let value = 0;
-		for (let i = 0; i < letterInput.length; i += 1) {
-			console.log(letterInput);
-			value += letters[letterInput.charAt(i)][system];
+		for (let i = 0; i < letterInputCleaned.length; i += 1) {
+			console.log(letterInputCleaned);
+			value += letters[letterInputCleaned.charAt(i)][system];
 		}
 		return value;
-	}
+	}	
+
+	// Function called on input
 	function calcHandler() {
 		totalTrueValue = calc('trueValue');
 		totalSmallValue = calc('smallValue');
@@ -58,6 +60,7 @@
 		totalMaghribiSmallValue = calc('maghribiSmall');
 		totalMaghribiTrueValue = calc('maghribiTrue');
 	}
+	
 	function saveItem(newItem, systemUsed) {
 		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]);
 	}
