@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { saved } from '../stores/saved.js';
 	import { Datatable } from 'svelte-simple-datatables';
 
@@ -26,10 +27,14 @@
 
 	console.log($saved[0]);
 
+	let mounted = false;
+	onMount(() => {
+		mounted = true;
+	});
 </script>
 
 <h2>قائمة المحفوظات</h2>
-
+{#if mounted}
 	<div>
 		<Datatable {settings} data={$saved} bind:dataRows={rows}>
 			<thead>
@@ -44,13 +49,14 @@
 							<td>{row.name}</td>
 							<td>{row.value}</td>
 							<td>{row.system}</td>
-							<td><button on:click={saved.update((n) => {n.splice(index, 1) ; return n})}>احذف</button></td>
+							<!-- <td><button on:click={saved.update((n) => {n.splice(index, 1) ; return n})}>احذف</button></td> -->
 						</tr>
 					{/each}
 				{/if}
 			</tbody>
 		</Datatable>
 	</div>
+{/if}
 
 <style>
 	td {

@@ -1,3 +1,3 @@
-import { writable } from 'svelte-local-storage-store';
+import { writable } from 'svelte/store';
 
-export const saved = writable("saved", []);
+export const saved = writable([{ name: "الله", value: 12, system: "الجمل الصغير المشرقي" }]);

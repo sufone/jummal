@@ -1,8 +1,5 @@
 <script>
 	import { saved } from '../stores/saved.js';
-	import SavedValues from './SavedValues.svelte';
-
-	let valueSystem = 'smallValue'; //also available: "trueValue"
 
 	let letterInput = '';
 	let totalSmallValue = 0;
@@ -63,7 +60,6 @@
 	}
 	function saveItem(newItem, systemUsed) {
 		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]);
-		console.log($saved);
 	}
 </script>
 
