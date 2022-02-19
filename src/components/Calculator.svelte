@@ -152,4 +152,14 @@
 			gap: 5px;
 		}
 	}
+	button {
+		background-color: #fdd5db;
+		border-radius: 8px;
+		border: 1px solid gray;
+		font-size: 0.75rem;
+		padding: 0 2px;;
+	}
+	button:hover, button:focus {
+		background-color: #fcb1bd;
+	}
 </style>
