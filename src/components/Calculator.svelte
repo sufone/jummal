@@ -93,13 +93,13 @@
 		<h2>النظام المشرقي</h2>
 
 		<div>
-			<span>الجمل الصغير: {JSON.stringify(totalSmallValue)}</span>
+			<span>الجمل الصغير: <strong>{JSON.stringify(totalSmallValue)}</strong> </span>
 			<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
 				>حفظ</button
 			>
 		</div>
 		<div>
-			<span>الجمل الكبير: {JSON.stringify(totalTrueValue)}</span>
+			<span>الجمل الكبير: <strong>{JSON.stringify(totalTrueValue)}</strong></span>
 			<button on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
 				>حفظ</button
 			>
@@ -109,13 +109,13 @@
 	<div>
 		<h2>النظام المغربي</h2>
 		<div>
-			<span>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</span>
+			<span>الجمل الصغير: <strong>{JSON.stringify(totalMaghribiSmallValue)}</strong></span>
 			<button on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
 				>حفظ</button
 			>
 		</div>
 		<div>
-			<span>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</span>
+			<span>الجمل الكبير: <strong>{JSON.stringify(totalMaghribiTrueValue)}</strong></span>
 
 			<button on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
 				>حفظ</button
