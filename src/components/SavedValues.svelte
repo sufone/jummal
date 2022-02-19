@@ -34,6 +34,7 @@
 </script>
 
 <h2>قائمة المحفوظات</h2>
+<h6>غير محفوظة بعد الخروج من الصفحة</h6>
 {#if mounted}
 	<div>
 		<Datatable {settings} data={$saved} bind:dataRows={rows}>
@@ -62,5 +63,11 @@
 	td {
 		text-align: center;
 		padding: 4px 0;
+	}
+	h2 {
+		margin-bottom: 0;
+	}
+	h6 {
+		margin: 0;
 	}
 </style>
