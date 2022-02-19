@@ -73,7 +73,8 @@
 </script>
 
 <div>
-	<textarea bind:value={letterInput} on:input={() => calcHandler()} />
+	<textarea cols="120" style="max-width:100%;" bind:value={letterInput} on:input={() => calcHandler()} />
+		
 </div>
 
 <div class="details-below-textbox">
