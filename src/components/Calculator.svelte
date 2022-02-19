@@ -17,6 +17,7 @@
 		أ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
 		إ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
 		آ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
+		ء: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
 		ب: { trueValue: 2, smallValue: 2, maghribiTrue: 2, maghribiSmall: 2, },
 		ج: { trueValue: 3, smallValue: 3, maghribiTrue: 3, maghribiSmall: 3, },
 		د: { trueValue: 4, smallValue: 4, maghribiTrue: 4, maghribiSmall: 4, },
