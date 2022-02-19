@@ -1,7 +1,11 @@
 <script>
 	import { saved } from '../stores/saved.js';
 
+	// Input cleaning
 	let letterInput = '';
+	$: letterInputCleaned = letterInput.replace(/\s+/g, '')
+
+	// Default values, modified when calculating
 	let totalSmallValue = 0;
 	let totalTrueValue = 0;
 	let totalMaghribiSmallValue = 0;
