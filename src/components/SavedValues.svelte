@@ -40,7 +40,7 @@
 			<thead>
 				<th data-key="name">الكلمة</th>
 				<th data-key="value">الحساب</th>
-				<th data-key="system">النظام</th>
+				<th data-key="system">نظام الجمل</th>
 			</thead>
 			<tbody>
 				{#if rows}
