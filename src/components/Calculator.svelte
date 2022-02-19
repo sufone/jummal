@@ -64,7 +64,7 @@
 		totalMaghribiSmallValue = calc('maghribiSmall');
 		totalMaghribiTrueValue = calc('maghribiTrue');
 	}
-	
+
 	function saveItem(newItem, systemUsed) {
 		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]);
 	}
@@ -78,13 +78,13 @@
 <div>
 	<span>الجمل الصغير: {JSON.stringify(totalSmallValue)}</span>
 	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الجمل الصغير المشرقي')}
-		>احفظ</button
+		>حفظ</button
 	>
 </div>
 <div>
 	<span>الجمل الكبير: {JSON.stringify(totalTrueValue)}</span>
 	<button on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الجمل الكبير المشرقي')}
-		>احفظ</button
+		>حفظ</button
 	>
 </div>
 
@@ -94,7 +94,7 @@
 <div>
 	<span>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</span>
 	<button on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الجمل الصغير المغربي')}
-		>احفظ</button
+		>حفظ</button
 	>
 </div>
 
@@ -102,7 +102,7 @@
 	<span>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</span>
 
 	<button on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الجمل الكبير المغربي')}
-		>احفظ</button
+		>حفظ</button
 	>
 </div>
 

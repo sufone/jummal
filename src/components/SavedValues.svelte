@@ -11,7 +11,7 @@
 		columnFilter: true,
 		css: true,
 		labels: {
-			search: 'ابحث...', // search input placeholer
+			search: 'بحث', // search input placeholer
 			filter: 'Filter', // filter inputs placeholder
 			noRows: 'No entries to found',
 			info: 'Showing {start} to {end} of {rows} entries',
