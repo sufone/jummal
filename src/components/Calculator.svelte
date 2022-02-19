@@ -12,6 +12,7 @@
 	let totalMaghribiTrueValue = 0;
 
 	// Complete list of values, easy to extend inshaAllah 
+	// TODO: This is missing: ى ئ ؤ ة
 	const letters = {
 		ا: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
 		أ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1, },
@@ -75,7 +76,11 @@
 	<textarea bind:value={letterInput} on:input={() => calcHandler()} />
 
 </div>
+
+<div class="details-below-textbox">
 <button on:click={() => {letterInput = ""; letterInputCleaned =""; calcHandler()}}>تفريغ</button>
+<p>ملاحظة: التطبيق لا يدعم الأحرف التالية حاليا: ى ئ ؤ ة</p>
+</div>
 
 <h2>النظام المشرقي</h2>
 <div>
