@@ -1,3 +1,13 @@
+# Jummal
+
+Really rough but functional calculator: https://jummal.com
+
+Inspired by the excellent https://www.abjadcalc.com/, but targeting a different UX and workflow, and also using Svelte
+
+The default readme follows (for now):
+
+------
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
