@@ -1,6 +1,6 @@
 # Jummal
 
-Really rough but functional calculator
+Really rough but functional calculator: https://jummal.com
 
 Inspired by the excellent https://www.abjadcalc.com/, but targeting a different UX and workflow, and also using Svelte
 
