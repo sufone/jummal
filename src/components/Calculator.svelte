@@ -56,7 +56,7 @@
 			value += letters[letterInputCleaned.charAt(i)][system];
 		}
 		return value;
-	}	
+	}
 
 	// Function called on input
 	function calcHandler() {
@@ -74,47 +74,54 @@
 
 <div>
 	<textarea bind:value={letterInput} on:input={() => calcHandler()} />
-
 </div>
 
 <div class="details-below-textbox">
-<button on:click={() => {letterInput = ""; letterInputCleaned =""; calcHandler()}}>تفريغ</button>
-<p>ملاحظة: التطبيق لا يدعم الأحرف التالية حاليا: ى ئ ؤ ة</p>
-</div>
-
-<h2>النظام المشرقي</h2>
-<div>
-	<span>الجمل الصغير: {JSON.stringify(totalSmallValue)}</span>
-	<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
-		>حفظ</button
+	<button
+		on:click={() => {
+			letterInput = '';
+			letterInputCleaned = '';
+			calcHandler();
+		}}>تفريغ</button
 	>
-</div>
-<div>
-	<span>الجمل الكبير: {JSON.stringify(totalTrueValue)}</span>
-	<button on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
-		>حفظ</button
-	>
+	<p>ملاحظة: التطبيق لا يدعم الأحرف التالية حاليا: ى ئ ؤ ة</p>
 </div>
 
-<hr />
+<div id="results">
+	<div>
+		<h2>النظام المشرقي</h2>
 
-<h2>النظام المغربي</h2>
-<div>
-	<span>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</span>
-	<button on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
-		>حفظ</button
-	>
+		<div>
+			<span>الجمل الصغير: {JSON.stringify(totalSmallValue)}</span>
+			<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
+				>حفظ</button
+			>
+		</div>
+		<div>
+			<span>الجمل الكبير: {JSON.stringify(totalTrueValue)}</span>
+			<button on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
+				>حفظ</button
+			>
+		</div>
+	</div>
+
+	<div>
+		<h2>النظام المغربي</h2>
+		<div>
+			<span>الجمل الصغير: {JSON.stringify(totalMaghribiSmallValue)}</span>
+			<button on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
+				>حفظ</button
+			>
+		</div>
+		<div>
+			<span>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</span>
+
+			<button on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
+				>حفظ</button
+			>
+		</div>
+	</div>
 </div>
-
-<div>
-	<span>الجمل الكبير: {JSON.stringify(totalMaghribiTrueValue)}</span>
-
-	<button on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
-		>حفظ</button
-	>
-</div>
-
-<hr />
 
 <style>
 	textArea {
@@ -124,5 +131,24 @@
 	button {
 		text-align: center;
 		margin: 0 auto;
+	}
+	div#results {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin: 10px 0;
+		gap: 20px;
+	}
+	hr {
+		margin: 0 20px;
+	}
+	@media (max-width: 360px) {
+		div#results {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin: 10px 0;
+			gap: 5px;
+		}
 	}
 </style>
