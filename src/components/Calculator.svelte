@@ -126,7 +126,6 @@
 	<textarea
 		placeholder="اكتبوا هنا النص"
 		cols="120"
-		style="max-width:100%;"
 		bind:value={letterInput}
 		on:input={() => calcHandler()}
 	/>
@@ -145,6 +144,9 @@
 	textArea {
 		font-size: 2rem;
 		text-align: center;
+		max-width: 800px;
+		background-color: aliceblue;
+		border-radius: 4px;
 	}
 	button {
 		text-align: center;
