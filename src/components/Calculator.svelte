@@ -12,17 +12,20 @@
 	let totalMaghribiTrueValue = 0;
 
 	// Complete list of values, easy to extend inshaAllah
-	// TODO: This is missing: ى ئ ؤ ة
 	const letters = {
 		ا: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
+		ى: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
 		أ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
 		إ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
 		آ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
 		ء: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
+		ئ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
+		ؤ: { trueValue: 1, smallValue: 1, maghribiTrue: 1, maghribiSmall: 1 },
 		ب: { trueValue: 2, smallValue: 2, maghribiTrue: 2, maghribiSmall: 2 },
 		ج: { trueValue: 3, smallValue: 3, maghribiTrue: 3, maghribiSmall: 3 },
 		د: { trueValue: 4, smallValue: 4, maghribiTrue: 4, maghribiSmall: 4 },
 		ه: { trueValue: 5, smallValue: 5, maghribiTrue: 5, maghribiSmall: 5 },
+		ة: { trueValue: 5, smallValue: 5, maghribiTrue: 5, maghribiSmall: 5 },
 		و: { trueValue: 6, smallValue: 6, maghribiTrue: 6, maghribiSmall: 6 },
 		ز: { trueValue: 7, smallValue: 7, maghribiTrue: 7, maghribiSmall: 7 },
 		ح: { trueValue: 8, smallValue: 8, maghribiTrue: 8, maghribiSmall: 8 },
@@ -106,17 +109,6 @@
 	</table>
 </div>
 
-<div class="details-below-textbox">
-	<p>حاليا لا دعم للأحرف: ى ئ ؤ ة</p>
-
-	<button
-		on:click={() => {
-			letterInput = '';
-			letterInputCleaned = '';
-			calcHandler();
-		}}>تفريغ</button
-	>
-</div>
 
 <div>
 	<textarea
@@ -128,6 +120,15 @@
 	/>
 </div>
 
+<div class="details-below-textbox">
+	<button
+		on:click={() => {
+			letterInput = '';
+			letterInputCleaned = '';
+			calcHandler();
+		}}>تفريغ</button
+	>
+</div>
 <style>
 	textArea {
 		font-size: 2rem;
@@ -169,13 +170,14 @@
 	tbody {
 		font-size: 1.25rem;
 	}
-	td, th {
-  border: 1px solid #999;
-  padding: 0.5rem;
-}
-table {
-  border-collapse: collapse;
-}
+	td,
+	th {
+		border: 1px solid #999;
+		padding: 0.5rem;
+	}
+	table {
+		border-collapse: collapse;
+	}
 
 	@media (max-width: 360px) {
 		div.details-below-textbox {
