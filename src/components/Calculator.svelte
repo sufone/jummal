@@ -3,7 +3,7 @@
 
 	// Input cleaning
 	let letterInput = '';
-	$: letterInputCleaned = letterInput.replace(/\s+/g, '');
+	$: letterInputCleaned = letterInput.replace(/[\sًٌٍَُِّْ]+/g, '');
 
 	// Default values, modified when calculating
 	let totalSmallValue = 0;
@@ -109,7 +109,7 @@
 </div>
 
 <div class="details-below-textbox">
-	<p>حاليا لا دعم للحركات أو الأحرف ى ئ ؤ ة</p>
+	<p>حاليا لا دعم للأحرف: ى ئ ؤ ة</p>
 
 	<button
 		on:click={() => {
