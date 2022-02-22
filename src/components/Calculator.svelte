@@ -72,22 +72,6 @@
 	}
 </script>
 
-<div>
-	<textarea cols="120" style="max-width:100%;" bind:value={letterInput} on:input={() => calcHandler()} />
-		
-</div>
-
-<div class="details-below-textbox">
-	<button
-		on:click={() => {
-			letterInput = '';
-			letterInputCleaned = '';
-			calcHandler();
-		}}>تفريغ</button
-	>
-	<p>ملاحظة: التطبيق لا يدعم الحركات ولا الأحرف التالية حاليا: ى ئ ؤ ة</p>
-</div>
-
 <div id="results">
 	<div>
 		<h2>النظام المشرقي</h2>
@@ -124,6 +108,23 @@
 	</div>
 </div>
 
+<div class="details-below-textbox">
+	<p>حاليا لا دعم للحركات أو الأحرف ى ئ ؤ ة</p>
+
+	<button
+		on:click={() => {
+			letterInput = '';
+			letterInputCleaned = '';
+			calcHandler();
+		}}>تفريغ</button
+	>
+</div>
+
+<div>
+	<textarea placeholder="اكتبوا هنا النص" cols="120" style="max-width:100%;" bind:value={letterInput} on:input={() => calcHandler()} />
+		
+</div>
+
 <style>
 	textArea {
 		font-size: 2rem;
@@ -131,7 +132,6 @@
 	}
 	button {
 		text-align: center;
-		margin: 0 auto;
 	}
 	div#results {
 		display: flex;
@@ -143,15 +143,6 @@
 	hr {
 		margin: 0 20px;
 	}
-	@media (max-width: 360px) {
-		div#results {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			margin: 10px 0;
-			gap: 5px;
-		}
-	}
 	button {
 		background-color: #fdd5db;
 		border-radius: 8px;
@@ -161,5 +152,30 @@
 	}
 	button:hover, button:focus {
 		background-color: #fcb1bd;
+	}
+	div.details-below-textbox {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 20px;	
+	}
+
+
+
+
+	@media (max-width: 360px) {
+		div#results {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin: 10px 0;
+			gap: 5px;
+		}
+		div.details-below-textbox {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 0px;
+		}
 	}
 </style>
