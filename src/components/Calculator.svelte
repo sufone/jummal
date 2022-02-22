@@ -68,44 +68,42 @@
 	}
 
 	function saveItem(newItem, systemUsed) {
-		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]);
+		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]); // deliberately using the uncleaned value
 	}
 </script>
 
 <div id="results">
-	<div>
-		<h2>النظام المشرقي</h2>
-
-		<div>
-			<span>الجمل الصغير: <strong>{JSON.stringify(totalSmallValue)}</strong> </span>
-			<button on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
-				>حفظ</button
-			>
-		</div>
-		<div>
-			<span>الجمل الكبير: <strong>{JSON.stringify(totalTrueValue)}</strong></span>
-			<button on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
-				>حفظ</button
-			>
-		</div>
-	</div>
-
-	<div>
-		<h2>النظام المغربي</h2>
-		<div>
-			<span>الجمل الصغير: <strong>{JSON.stringify(totalMaghribiSmallValue)}</strong></span>
-			<button on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
-				>حفظ</button
-			>
-		</div>
-		<div>
-			<span>الجمل الكبير: <strong>{JSON.stringify(totalMaghribiTrueValue)}</strong></span>
-
-			<button on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
-				>حفظ</button
-			>
-		</div>
-	</div>
+	<table>
+		<thead>
+			<th />
+			<th colspan="2">الحساب</th>
+		</thead>
+		<tbody>
+			<tr>
+				<th />
+				<th>الصغير</th>
+				<th>الكبير</th>
+			</tr>
+			<tr>
+				<td><strong>المشرقي</strong></td>
+				<td on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
+					>{totalSmallValue}
+				</td>
+				<td on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
+					>{totalTrueValue}
+				</td>
+			</tr>
+			<tr>
+				<td><strong>المغربي</strong></td>
+				<td on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
+					>{totalMaghribiSmallValue}
+				</td>
+				<td on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
+					>{totalMaghribiTrueValue}
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
 <div class="details-below-textbox">
@@ -121,8 +119,13 @@
 </div>
 
 <div>
-	<textarea placeholder="اكتبوا هنا النص" cols="120" style="max-width:100%;" bind:value={letterInput} on:input={() => calcHandler()} />
-		
+	<textarea
+		placeholder="اكتبوا هنا النص"
+		cols="120"
+		style="max-width:100%;"
+		bind:value={letterInput}
+		on:input={() => calcHandler()}
+	/>
 </div>
 
 <style>
@@ -140,37 +143,41 @@
 		margin: 10px 0;
 		gap: 20px;
 	}
-	hr {
-		margin: 0 20px;
-	}
 	button {
 		background-color: #fdd5db;
 		border-radius: 8px;
 		border: 1px solid gray;
 		font-size: 0.75rem;
-		padding: 0 2px;;
+		padding: 0 2px;
 	}
-	button:hover, button:focus {
+	button:hover,
+	button:focus {
 		background-color: #fcb1bd;
 	}
 	div.details-below-textbox {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		gap: 20px;	
+		gap: 20px;
 	}
 
-
-
+	thead > th {
+		font-weight: bold;
+		font-size: 1.25rem;
+	}
+	thead,
+	tbody {
+		font-size: 1.25rem;
+	}
+	td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
+table {
+  border-collapse: collapse;
+}
 
 	@media (max-width: 360px) {
-		div#results {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			margin: 10px 0;
-			gap: 5px;
-		}
 		div.details-below-textbox {
 			display: flex;
 			flex-direction: column;
