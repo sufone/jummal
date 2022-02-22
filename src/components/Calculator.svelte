@@ -1,5 +1,6 @@
 <script>
 	import { saved } from '../stores/saved.js';
+	import Constants from './Constants.svelte';
 
 	// Input cleaning
 	let letterInput = '';
@@ -11,7 +12,6 @@
 	let totalMaghribiSmallValue = 0;
 	let totalMaghribiTrueValue = 0;
 	let totalNafasi = 0;
-
 
 	// Complete list of values, easy to extend inshaAllah
 	const letters = {
@@ -79,48 +79,56 @@
 	}
 </script>
 
+<div id="main">
+	<div id="side-constants">
+			<Constants />
 
-<div id="results">
-	<table>
-		<thead>
-			<th />
-			<th colspan="2">الحساب</th>
-		</thead>
-		<tbody>
-			
-			<tr>
-				<td><strong>النفسي</strong></td>
-				<td colspan="2" on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'النفسي')}
-					>{totalNafasi}
-				</td>
-			</tr>
-			<tr>
+	</div>
+	<div>
+		<div id="results">
+		<table>
+			<thead>
 				<th />
-				<th>الصغير</th>
-				<th>الكبير</th>
-			</tr>
-			<tr>
-				<td><strong>المشرقي</strong></td>
-				<td on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
-					>{totalSmallValue}
-				</td>
-				<td on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
-					>{totalTrueValue}
-				</td>
-			</tr>
-			<tr>
-				<td><strong>المغربي</strong></td>
-				<td on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
-					>{totalMaghribiSmallValue}
-				</td>
-				<td on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
-					>{totalMaghribiTrueValue}
-				</td>
-			</tr>
-		</tbody>
-	</table>
+				<th colspan="2">الحساب</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>النفسي</strong></td>
+					<td
+						colspan="2"
+						on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'النفسي')}
+						>{totalNafasi}
+					</td>
+				</tr>
+				<tr>
+					<th />
+					<th>الصغير</th>
+					<th>الكبير</th>
+				</tr>
+				<tr>
+					<td><strong>المشرقي</strong></td>
+					<td on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
+						>{totalSmallValue}
+					</td>
+					<td on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
+						>{totalTrueValue}
+					</td>
+				</tr>
+				<tr>
+					<td><strong>المغربي</strong></td>
+					<td on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
+						>{totalMaghribiSmallValue}
+					</td>
+					<td on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
+						>{totalMaghribiTrueValue}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	
 </div>
-
 
 <div>
 	<textarea
@@ -140,6 +148,7 @@
 		}}>تفريغ</button
 	>
 </div>
+
 <style>
 	textArea {
 		font-size: 2rem;
@@ -192,8 +201,20 @@
 	table {
 		border-collapse: collapse;
 	}
-
+	div#main {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	div#side-constants {
+		min-width: 50%;
+	}
 	@media (max-width: 360px) {
+		div#main {
+		display: flex;
+		flex-direction: column;
+
+	}
 		div.details-below-textbox {
 			display: flex;
 			flex-direction: column;
