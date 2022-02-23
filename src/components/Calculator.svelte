@@ -105,7 +105,7 @@
 						<td><strong>النفسي</strong></td>
 						<td
 							colspan="2"
-							on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'النفسي')}
+							on:click={() => saveItem(totalMaghribiSmallValue, 'النفسي')}
 							>{totalNafasi}
 						</td>
 					</tr>
@@ -116,19 +116,19 @@
 					</tr>
 					<tr>
 						<td><strong>المشرقي</strong></td>
-						<td on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
+						<td on:click={() => saveItem(totalSmallValue, 'الصغير المشرقي')}
 							>{totalSmallValue}
 						</td>
-						<td on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
+						<td on:click={() => saveItem(totalTrueValue, 'الكبير المشرقي')}
 							>{totalTrueValue}
 						</td>
 					</tr>
 					<tr>
 						<td><strong>المغربي</strong></td>
-						<td on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
+						<td on:click={() => saveItem(totalMaghribiSmallValue, 'الصغير المغربي')}
 							>{totalMaghribiSmallValue}
 						</td>
-						<td on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
+						<td on:click={() => saveItem(totalMaghribiTrueValue, 'الكبير المغربي')}
 							>{totalMaghribiTrueValue}
 						</td>
 					</tr>
