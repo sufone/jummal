@@ -3,6 +3,8 @@
 </script>
 
 <div>
+    <h4>السور القرآنية</h4>
+
     <table>
         <thead>
             <tr>
