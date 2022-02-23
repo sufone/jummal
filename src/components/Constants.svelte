@@ -1,5 +1,5 @@
 <script context="module">
-	import 'carbon-components-svelte/css/g10.css';
+	import './Constants/tabStyle.css';
 </script>
 
 <script>
