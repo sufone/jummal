@@ -7,11 +7,11 @@
 	$: letterInputCleaned = letterInput.replace(/[\sًٌٍَُِّْ]+/g, '');
 
 	// Default values, modified when calculating
-	let totalSmallValue = 0;
-	let totalTrueValue = 0;
-	let totalMaghribiSmallValue = 0;
-	let totalMaghribiTrueValue = 0;
-	let totalNafasi = 0;
+	let totalSmallValue = '۰';
+	let totalTrueValue = '۰';
+	let totalMaghribiSmallValue = '۰';
+	let totalMaghribiTrueValue = '۰';
+	let totalNafasi = '۰';
 
 	// Complete list of values, easy to extend inshaAllah
 	const letters = {
@@ -60,7 +60,17 @@
 			console.log(letterInputCleaned);
 			value += letters[letterInputCleaned.charAt(i)][system];
 		}
-		return value;
+		return JSON.stringify(value)
+			.replace(/0/g, '۰')
+			.replace(/1/g, '۱')
+			.replace(/2/g, '۲')
+			.replace(/3/g, '۳')
+			.replace(/4/g, '٤')
+			.replace(/5/g, '٥')
+			.replace(/6/g, '٦')
+			.replace(/7/g, '۷')
+			.replace(/8/g, '۸')
+			.replace(/9/g, '۹');
 	}
 
 	// Function called on input
@@ -81,53 +91,51 @@
 
 <div id="main">
 	<div id="side-constants">
-			<Constants />
-
+		<Constants />
 	</div>
 	<div>
 		<div id="results">
-		<table>
-			<thead>
-				<th />
-				<th colspan="2">الحساب</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td><strong>النفسي</strong></td>
-					<td
-						colspan="2"
-						on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'النفسي')}
-						>{totalNafasi}
-					</td>
-				</tr>
-				<tr>
+			<table>
+				<thead>
 					<th />
-					<th>الصغير</th>
-					<th>الكبير</th>
-				</tr>
-				<tr>
-					<td><strong>المشرقي</strong></td>
-					<td on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
-						>{totalSmallValue}
-					</td>
-					<td on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
-						>{totalTrueValue}
-					</td>
-				</tr>
-				<tr>
-					<td><strong>المغربي</strong></td>
-					<td on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
-						>{totalMaghribiSmallValue}
-					</td>
-					<td on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
-						>{totalMaghribiTrueValue}
-					</td>
-				</tr>
-			</tbody>
-		</table>
+					<th colspan="2">الحساب</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>النفسي</strong></td>
+						<td
+							colspan="2"
+							on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'النفسي')}
+							>{totalNafasi}
+						</td>
+					</tr>
+					<tr>
+						<th />
+						<th>الصغير</th>
+						<th>الكبير</th>
+					</tr>
+					<tr>
+						<td><strong>المشرقي</strong></td>
+						<td on:click={() => saveItem(JSON.stringify(totalSmallValue), 'الصغير المشرقي')}
+							>{totalSmallValue}
+						</td>
+						<td on:click={() => saveItem(JSON.stringify(totalTrueValue), 'الكبير المشرقي')}
+							>{totalTrueValue}
+						</td>
+					</tr>
+					<tr>
+						<td><strong>المغربي</strong></td>
+						<td on:click={() => saveItem(JSON.stringify(totalMaghribiSmallValue), 'الصغير المغربي')}
+							>{totalMaghribiSmallValue}
+						</td>
+						<td on:click={() => saveItem(JSON.stringify(totalMaghribiTrueValue), 'الكبير المغربي')}
+							>{totalMaghribiTrueValue}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	</div>
-	
 </div>
 
 <div>
@@ -211,10 +219,9 @@
 	}
 	@media (max-width: 360px) {
 		div#main {
-		display: flex;
-		flex-direction: column;
-
-	}
+			display: flex;
+			flex-direction: column;
+		}
 		div.details-below-textbox {
 			display: flex;
 			flex-direction: column;
