@@ -1,5 +1,12 @@
 <script>
 	import { saved } from '../stores/saved.js';
+
+	import { totalSmallValue } from '../stores/totalSmallValue.js';
+	import { totalTrueValue } from '../stores/totalTrueValue.js';
+	import { totalMaghribiSmallValue } from '../stores/totalMaghribiSmallValue.js';
+	import { totalMaghribiTrueValue } from '../stores/totalMaghribiTrueValue.js';
+	import { totalNafasi } from '../stores/totalNafasi.js';
+
 	import Constants from './Constants.svelte';
 
 	// Input cleaning
@@ -7,11 +14,6 @@
 	$: letterInputCleaned = letterInput.replace(/[\sًٌٍَُِّْ]+/g, '');
 
 	// Default values, modified when calculating
-	let totalSmallValue = '۰';
-	let totalTrueValue = '۰';
-	let totalMaghribiSmallValue = '۰';
-	let totalMaghribiTrueValue = '۰';
-	let totalNafasi = '۰';
 
 	// Complete list of values, easy to extend inshaAllah
 	const letters = {
@@ -75,13 +77,13 @@
 
 	// Function called on input
 	function calcHandler() {
-		totalTrueValue = calc('trueValue');
-		totalSmallValue = calc('smallValue');
+		totalTrueValue.set(calc('trueValue'));
+		totalSmallValue.set(calc('smallValue'));
 
-		totalMaghribiSmallValue = calc('maghribiSmall');
-		totalMaghribiTrueValue = calc('maghribiTrue');
+		totalMaghribiSmallValue.set(calc('maghribiSmall'));
+		totalMaghribiTrueValue.set(calc('maghribiTrue'));
 
-		totalNafasi = calc('nafasi');
+		totalNafasi.set(calc('nafasi'));
 	}
 
 	function saveItem(newItem, systemUsed) {
@@ -105,8 +107,8 @@
 						<td><strong>النفسي</strong></td>
 						<td
 							colspan="2"
-							on:click={() => saveItem(totalMaghribiSmallValue, 'النفسي')}
-							>{totalNafasi}
+							on:click={() => saveItem($totalNafasi, 'النفسي')}
+							>{$totalNafasi}
 						</td>
 					</tr>
 					<tr>
@@ -116,20 +118,20 @@
 					</tr>
 					<tr>
 						<td><strong>المشرقي</strong></td>
-						<td on:click={() => saveItem(totalSmallValue, 'الصغير المشرقي')}
-							>{totalSmallValue}
+						<td on:click={() => saveItem($totalSmallValue, 'الصغير المشرقي')}
+							>{$totalSmallValue}
 						</td>
-						<td on:click={() => saveItem(totalTrueValue, 'الكبير المشرقي')}
-							>{totalTrueValue}
+						<td on:click={() => saveItem($totalTrueValue, 'الكبير المشرقي')}
+							>{$totalTrueValue}
 						</td>
 					</tr>
 					<tr>
 						<td><strong>المغربي</strong></td>
-						<td on:click={() => saveItem(totalMaghribiSmallValue, 'الصغير المغربي')}
-							>{totalMaghribiSmallValue}
+						<td on:click={() => saveItem($totalMaghribiSmallValue, 'الصغير المغربي')}
+							>{$totalMaghribiSmallValue}
 						</td>
-						<td on:click={() => saveItem(totalMaghribiTrueValue, 'الكبير المغربي')}
-							>{totalMaghribiTrueValue}
+						<td on:click={() => saveItem($totalMaghribiTrueValue, 'الكبير المغربي')}
+							>{$totalMaghribiTrueValue}
 						</td>
 					</tr>
 				</tbody>
