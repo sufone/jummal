@@ -2,7 +2,6 @@
 	import { saved } from '../stores/saved.js';
 	import { letterInput, letterInputCleaned } from '../stores/letterInput.js';
 
-
 	import { totalSmallValue } from '../stores/totalSmallValue.js';
 	import { totalTrueValue } from '../stores/totalTrueValue.js';
 	import { totalMaghribiSmallValue } from '../stores/totalMaghribiSmallValue.js';
@@ -51,19 +50,8 @@
 		غ: { trueValue: 1000, smallValue: 1, maghribiTrue: 900, maghribiSmall: 9, nafasi: 5 }
 	};
 
-	// Universal function to handle calculating from any system
-	function calc(system) {
-		let value = 0;
-		for (let i = 0; i < $letterInputCleaned.length; i += 1) {
-			console.log($letterInputCleaned);
-			value += letters[$letterInputCleaned.charAt(i)][system];
-		}
-		let valueString = JSON.stringify(value);
-
-		return [ //need both since for URL
-			valueString,
-			valueString
-				.replace(/0/g, '۰')
+	function convertToArabicNumbers(input) { // input MUST be string
+		return input.replace(/0/g, '۰')
 				.replace(/1/g, '۱')
 				.replace(/2/g, '۲')
 				.replace(/3/g, '۳')
@@ -73,6 +61,20 @@
 				.replace(/7/g, '۷')
 				.replace(/8/g, '۸')
 				.replace(/9/g, '۹')
+	}
+	// Universal function to handle calculating from any system
+	function calc(system) {
+		let value = 0;
+		for (let i = 0; i < $letterInputCleaned.length; i += 1) {
+			console.log($letterInputCleaned);
+			value += letters[$letterInputCleaned.charAt(i)][system];
+		}
+		let valueString = JSON.stringify(value);
+
+		return [
+			//need both since for URL
+			valueString,
+			convertToArabicNumbers(valueString)
 		];
 	}
 
@@ -90,6 +92,15 @@
 	function saveItem(newItem, systemUsed) {
 		saved.update((items) => [...items, { name: letterInput, value: newItem, system: systemUsed }]); // deliberately using the uncleaned value
 	}
+
+	function sumDigitsFromString(string) {
+    string = string.split('');                 //split into individual characters
+    var sum = 0;                               //have a storage ready
+    for (var i = 0; i < string.length; i++) {  //iterate through
+        sum += parseInt(string[i],10);         //convert from string to int
+    }
+    return convertToArabicNumbers(JSON.stringify(sum))//return when done
+}
 </script>
 
 <div id="main">
@@ -102,23 +113,35 @@
 				<thead>
 					<th />
 					<th colspan="2">الحساب</th>
+					<th colspan="2">المجموع</th>
 				</thead>
 				<tbody>
 					<tr>
 						<td><strong>النفسي</strong></td>
-						<td colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}>{$totalNafasi[1]} </td>
+						<td colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}
+							>{$totalNafasi[1]}
+						</td>
+						<th colspan="2">{sumDigitsFromString($totalNafasi[0])}</th>
 					</tr>
 					<tr>
 						<th />
+
 						<th>الصغير</th>
 						<th>الكبير</th>
+
+						<th>التفصيل</th>
+						<th>البسيط</th>
 					</tr>
 					<tr>
 						<td><strong>المشرقي</strong></td>
 						<td on:click={() => saveItem($totalSmallValue[1], 'الصغير المشرقي')}
 							>{$totalSmallValue[1]}
 						</td>
-						<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}>{$totalTrueValue[1]} </td>
+						<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}
+							>{$totalTrueValue[1]}
+						</td>
+						<th>{sumDigitsFromString($totalSmallValue[0]+$totalTrueValue[0])}</th>
+						<th>{convertToArabicNumbers(JSON.stringify(parseInt($totalSmallValue[0])+parseInt($totalTrueValue[0])))}</th>
 					</tr>
 					<tr>
 						<td><strong>المغربي</strong></td>
@@ -128,6 +151,8 @@
 						<td on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
 							>{$totalMaghribiTrueValue[1]}
 						</td>
+						<th>{sumDigitsFromString($totalMaghribiSmallValue[0]+$totalMaghribiTrueValue[0])}</th>
+						<th>{convertToArabicNumbers(JSON.stringify(parseInt($totalMaghribiSmallValue[0])+parseInt($totalMaghribiTrueValue[0])))}</th>
 					</tr>
 				</tbody>
 			</table>
