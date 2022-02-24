@@ -1,5 +1,7 @@
 <script>
 	import { saved } from '../stores/saved.js';
+	import { letterInput, letterInputCleaned } from '../stores/letterInput.js';
+
 
 	import { totalSmallValue } from '../stores/totalSmallValue.js';
 	import { totalTrueValue } from '../stores/totalTrueValue.js';
@@ -8,12 +10,6 @@
 	import { totalNafasi } from '../stores/totalNafasi.js';
 
 	import Constants from './Constants.svelte';
-
-	// Input cleaning
-	let letterInput = '';
-	$: letterInputCleaned = letterInput.replace(/[\sًٌٍَُِّْ]+/g, '');
-
-	// Default values, modified when calculating
 
 	// Complete list of values, easy to extend inshaAllah
 	const letters = {
@@ -58,9 +54,9 @@
 	// Universal function to handle calculating from any system
 	function calc(system) {
 		let value = 0;
-		for (let i = 0; i < letterInputCleaned.length; i += 1) {
-			console.log(letterInputCleaned);
-			value += letters[letterInputCleaned.charAt(i)][system];
+		for (let i = 0; i < $letterInputCleaned.length; i += 1) {
+			console.log($letterInputCleaned);
+			value += letters[$letterInputCleaned.charAt(i)][system];
 		}
 		let valueString = JSON.stringify(value);
 
@@ -143,7 +139,7 @@
 	<textarea
 		placeholder="حساب الجمل"
 		cols="120"
-		bind:value={letterInput}
+		bind:value={$letterInput}
 		on:input={() => calcHandler()}
 	/>
 </div>
