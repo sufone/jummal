@@ -62,17 +62,22 @@
 			console.log(letterInputCleaned);
 			value += letters[letterInputCleaned.charAt(i)][system];
 		}
-		return JSON.stringify(value)
-			.replace(/0/g, '۰')
-			.replace(/1/g, '۱')
-			.replace(/2/g, '۲')
-			.replace(/3/g, '۳')
-			.replace(/4/g, '٤')
-			.replace(/5/g, '٥')
-			.replace(/6/g, '٦')
-			.replace(/7/g, '۷')
-			.replace(/8/g, '۸')
-			.replace(/9/g, '۹');
+		let valueString = JSON.stringify(value);
+
+		return [ //need both since for URL
+			valueString,
+			valueString
+				.replace(/0/g, '۰')
+				.replace(/1/g, '۱')
+				.replace(/2/g, '۲')
+				.replace(/3/g, '۳')
+				.replace(/4/g, '٤')
+				.replace(/5/g, '٥')
+				.replace(/6/g, '٦')
+				.replace(/7/g, '۷')
+				.replace(/8/g, '۸')
+				.replace(/9/g, '۹')
+		];
 	}
 
 	// Function called on input
@@ -105,11 +110,7 @@
 				<tbody>
 					<tr>
 						<td><strong>النفسي</strong></td>
-						<td
-							colspan="2"
-							on:click={() => saveItem($totalNafasi, 'النفسي')}
-							>{$totalNafasi}
-						</td>
+						<td colspan="2" on:click={() => saveItem($totalNafasi[0], 'النفسي')}>{$totalNafasi[0]} </td>
 					</tr>
 					<tr>
 						<th />
@@ -118,20 +119,18 @@
 					</tr>
 					<tr>
 						<td><strong>المشرقي</strong></td>
-						<td on:click={() => saveItem($totalSmallValue, 'الصغير المشرقي')}
-							>{$totalSmallValue}
+						<td on:click={() => saveItem($totalSmallValue[0], 'الصغير المشرقي')}
+							>{$totalSmallValue[0]}
 						</td>
-						<td on:click={() => saveItem($totalTrueValue, 'الكبير المشرقي')}
-							>{$totalTrueValue}
-						</td>
+						<td on:click={() => saveItem($totalTrueValue[0], 'الكبير المشرقي')}>{$totalTrueValue[0]} </td>
 					</tr>
 					<tr>
 						<td><strong>المغربي</strong></td>
-						<td on:click={() => saveItem($totalMaghribiSmallValue, 'الصغير المغربي')}
-							>{$totalMaghribiSmallValue}
+						<td on:click={() => saveItem($totalMaghribiSmallValue[0], 'الصغير المغربي')}
+							>{$totalMaghribiSmallValue[0]}
 						</td>
-						<td on:click={() => saveItem($totalMaghribiTrueValue, 'الكبير المغربي')}
-							>{$totalMaghribiTrueValue}
+						<td on:click={() => saveItem($totalMaghribiTrueValue[0], 'الكبير المغربي')}
+							>{$totalMaghribiTrueValue[0]}
 						</td>
 					</tr>
 				</tbody>
@@ -176,7 +175,7 @@
 		padding: 10px;
 		border-radius: 8px;
 	}
-	div#results  {
+	div#results {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;

@@ -1,574 +1,576 @@
 <script>
+	import { totalNafasi } from '../../stores/totalNafasi.js';
+
 	let surahsJson = [
 		{
 			surahName: 'الفاتحة',
-			orderNormal: '١',
-			numberAyat: '٧'
+			orderNormal: '1',
+			numberAyat: '7'
 		},
 		{
 			surahName: 'البقرة',
-			orderNormal: '٢',
-			numberAyat: '٢٨٦'
+			orderNormal: '2',
+			numberAyat: '286'
 		},
 		{
 			surahName: 'آل عمران',
-			orderNormal: '٣',
-			numberAyat: '٢٠٠'
+			orderNormal: '3',
+			numberAyat: '200'
 		},
 		{
 			surahName: 'النساء',
-			orderNormal: '٤',
-			numberAyat: '١٧٦'
+			orderNormal: '4',
+			numberAyat: '176'
 		},
 		{
 			surahName: 'المائدة',
-			orderNormal: '٥',
-			numberAyat: '١٢٠'
+			orderNormal: '5',
+			numberAyat: '120'
 		},
 		{
 			surahName: 'الأنعام',
-			orderNormal: '٦',
-			numberAyat: '١٦٥'
+			orderNormal: '6',
+			numberAyat: '165'
 		},
 		{
 			surahName: 'الأعراف',
-			orderNormal: '٧',
-			numberAyat: '٢٠٦'
+			orderNormal: '7',
+			numberAyat: '206'
 		},
 		{
 			surahName: 'الأنفال',
-			orderNormal: '٨',
-			numberAyat: '٧٥'
+			orderNormal: '8',
+			numberAyat: '75'
 		},
 		{
 			surahName: 'التوبة',
-			orderNormal: '٩',
-			numberAyat: '١٢٩'
+			orderNormal: '9',
+			numberAyat: '129'
 		},
 		{
 			surahName: 'يونس',
-			orderNormal: '١٠',
-			numberAyat: '١٠٩'
+			orderNormal: '10',
+			numberAyat: '109'
 		},
 		{
 			surahName: 'هود',
-			orderNormal: '١١',
-			numberAyat: '١٢٣'
+			orderNormal: '11',
+			numberAyat: '123'
 		},
 		{
 			surahName: 'يوسف',
-			orderNormal: '١٢',
-			numberAyat: '١١١'
+			orderNormal: '12',
+			numberAyat: '111'
 		},
 		{
 			surahName: 'الرعد',
-			orderNormal: '١٣',
-			numberAyat: '٤٣'
+			orderNormal: '13',
+			numberAyat: '43'
 		},
 		{
 			surahName: 'إبراهيم',
-			orderNormal: '١٤',
-			numberAyat: '٥٢'
+			orderNormal: '14',
+			numberAyat: '52'
 		},
 		{
 			surahName: 'الحجر',
-			orderNormal: '١٥',
-			numberAyat: '٩٩'
+			orderNormal: '15',
+			numberAyat: '99'
 		},
 		{
 			surahName: 'النحل',
-			orderNormal: '١٦',
-			numberAyat: '١٢٨'
+			orderNormal: '16',
+			numberAyat: '128'
 		},
 		{
 			surahName: 'الإسراء',
-			orderNormal: '١٧',
-			numberAyat: '١١١'
+			orderNormal: '17',
+			numberAyat: '111'
 		},
 		{
 			surahName: 'الكهف',
-			orderNormal: '١٨',
-			numberAyat: '١١٠'
+			orderNormal: '18',
+			numberAyat: '110'
 		},
 		{
 			surahName: 'مريم',
-			orderNormal: '١٩',
-			numberAyat: '٩٨'
+			orderNormal: '19',
+			numberAyat: '98'
 		},
 		{
 			surahName: 'طه',
-			orderNormal: '٢٠',
-			numberAyat: '١٣٥'
+			orderNormal: '20',
+			numberAyat: '135'
 		},
 		{
 			surahName: 'الأنبياء',
-			orderNormal: '٢١',
-			numberAyat: '١١٢'
+			orderNormal: '21',
+			numberAyat: '112'
 		},
 		{
 			surahName: 'الحج',
-			orderNormal: '٢٢',
-			numberAyat: '٧٨'
+			orderNormal: '22',
+			numberAyat: '78'
 		},
 		{
 			surahName: 'المؤمنون',
-			orderNormal: '٢٣',
-			numberAyat: '١١٨'
+			orderNormal: '23',
+			numberAyat: '118'
 		},
 		{
 			surahName: 'النور',
-			orderNormal: '٢٤',
-			numberAyat: '٦٤'
+			orderNormal: '24',
+			numberAyat: '64'
 		},
 		{
 			surahName: 'الفرقان',
-			orderNormal: '٢٥',
-			numberAyat: '٧٧'
+			orderNormal: '25',
+			numberAyat: '77'
 		},
 		{
 			surahName: 'الشعراء',
-			orderNormal: '٢٦',
-			numberAyat: '٢٢٧'
+			orderNormal: '26',
+			numberAyat: '227'
 		},
 		{
 			surahName: 'النمل',
-			orderNormal: '٢٧',
-			numberAyat: '٩٣'
+			orderNormal: '27',
+			numberAyat: '93'
 		},
 		{
 			surahName: 'القصص',
-			orderNormal: '٢٨',
-			numberAyat: '٨٨'
+			orderNormal: '28',
+			numberAyat: '88'
 		},
 		{
 			surahName: 'العنكبوت',
-			orderNormal: '٢٩',
-			numberAyat: '٦٩'
+			orderNormal: '29',
+			numberAyat: '69'
 		},
 		{
 			surahName: 'الروم',
-			orderNormal: '٣٠',
-			numberAyat: '٦٠'
+			orderNormal: '30',
+			numberAyat: '60'
 		},
 		{
 			surahName: 'لقمان',
-			orderNormal: '٣١',
-			numberAyat: '٣٤'
+			orderNormal: '31',
+			numberAyat: '34'
 		},
 		{
 			surahName: 'السجدة',
-			orderNormal: '٣٢',
-			numberAyat: '٣٠'
+			orderNormal: '32',
+			numberAyat: '30'
 		},
 		{
 			surahName: 'الأحزاب',
-			orderNormal: '٣٣',
-			numberAyat: '٧٣'
+			orderNormal: '33',
+			numberAyat: '73'
 		},
 		{
 			surahName: 'سبأ',
-			orderNormal: '٣٤',
-			numberAyat: '٥٤'
+			orderNormal: '34',
+			numberAyat: '54'
 		},
 		{
 			surahName: 'فاطر',
-			orderNormal: '٣٥',
-			numberAyat: '٤٥'
+			orderNormal: '35',
+			numberAyat: '45'
 		},
 		{
 			surahName: 'يس',
-			orderNormal: '٣٦',
-			numberAyat: '٨٣'
+			orderNormal: '36',
+			numberAyat: '83'
 		},
 		{
 			surahName: 'الصافات',
-			orderNormal: '٣٧',
-			numberAyat: '١٨٢'
+			orderNormal: '37',
+			numberAyat: '182'
 		},
 		{
 			surahName: 'ص',
-			orderNormal: '٣٨',
-			numberAyat: '٨٨'
+			orderNormal: '38',
+			numberAyat: '88'
 		},
 		{
 			surahName: 'الزمر',
-			orderNormal: '٣٩',
-			numberAyat: '٧٥'
+			orderNormal: '39',
+			numberAyat: '75'
 		},
 		{
 			surahName: 'غافر',
-			orderNormal: '٤٠',
-			numberAyat: '٨٥'
+			orderNormal: '40',
+			numberAyat: '85'
 		},
 		{
 			surahName: 'فصلت',
-			orderNormal: '٤١',
-			numberAyat: '٥٤'
+			orderNormal: '41',
+			numberAyat: '54'
 		},
 		{
 			surahName: 'الشورى',
-			orderNormal: '٤٢',
-			numberAyat: '٥٣'
+			orderNormal: '42',
+			numberAyat: '53'
 		},
 		{
 			surahName: 'الزخرف',
-			orderNormal: '٤٣',
-			numberAyat: '٨٩'
+			orderNormal: '43',
+			numberAyat: '89'
 		},
 		{
 			surahName: 'الدخان',
-			orderNormal: '٤٤',
-			numberAyat: '٥٩'
+			orderNormal: '44',
+			numberAyat: '59'
 		},
 		{
 			surahName: 'الجاثية',
-			orderNormal: '٤٥',
-			numberAyat: '٣٧'
+			orderNormal: '45',
+			numberAyat: '37'
 		},
 		{
 			surahName: 'الأحقاف',
-			orderNormal: '٤٦',
-			numberAyat: '٣٥'
+			orderNormal: '46',
+			numberAyat: '35'
 		},
 		{
 			surahName: 'محمد',
-			orderNormal: '٤٧',
-			numberAyat: '٣٨'
+			orderNormal: '47',
+			numberAyat: '38'
 		},
 		{
 			surahName: 'الفتح',
-			orderNormal: '٤٨',
-			numberAyat: '٢٩'
+			orderNormal: '48',
+			numberAyat: '29'
 		},
 		{
 			surahName: 'الحجرات',
-			orderNormal: '٤٩',
-			numberAyat: '١٨'
+			orderNormal: '49',
+			numberAyat: '18'
 		},
 		{
 			surahName: 'ق',
-			orderNormal: '٥٠',
-			numberAyat: '٤٥'
+			orderNormal: '50',
+			numberAyat: '45'
 		},
 		{
 			surahName: 'الذاريات',
-			orderNormal: '٥١',
-			numberAyat: '٦٠'
+			orderNormal: '51',
+			numberAyat: '60'
 		},
 		{
 			surahName: 'الطور',
-			orderNormal: '٥٢',
-			numberAyat: '٤٩'
+			orderNormal: '52',
+			numberAyat: '49'
 		},
 		{
 			surahName: 'النجم',
-			orderNormal: '٥٣',
-			numberAyat: '٦٢'
+			orderNormal: '53',
+			numberAyat: '62'
 		},
 		{
 			surahName: 'القمر',
-			orderNormal: '٥٤',
-			numberAyat: '٥٥'
+			orderNormal: '54',
+			numberAyat: '55'
 		},
 		{
 			surahName: 'الرحمن',
-			orderNormal: '٥٥',
-			numberAyat: '٧٨'
+			orderNormal: '55',
+			numberAyat: '78'
 		},
 		{
 			surahName: 'الواقعة',
-			orderNormal: '٥٦',
-			numberAyat: '٩٦'
+			orderNormal: '56',
+			numberAyat: '96'
 		},
 		{
 			surahName: 'الحديد',
-			orderNormal: '٥٧',
-			numberAyat: '٢٩'
+			orderNormal: '57',
+			numberAyat: '29'
 		},
 		{
 			surahName: 'المجادلة',
-			orderNormal: '٥٨',
-			numberAyat: '٢٢'
+			orderNormal: '58',
+			numberAyat: '22'
 		},
 		{
 			surahName: 'الحشر',
-			orderNormal: '٥٩',
-			numberAyat: '٢٤'
+			orderNormal: '59',
+			numberAyat: '24'
 		},
 		{
 			surahName: 'الممتحنة',
-			orderNormal: '٦٠',
-			numberAyat: '١٣'
+			orderNormal: '60',
+			numberAyat: '13'
 		},
 		{
 			surahName: 'الصف',
-			orderNormal: '٦١',
-			numberAyat: '١٤'
+			orderNormal: '61',
+			numberAyat: '14'
 		},
 		{
 			surahName: 'الجمعة',
-			orderNormal: '٦٢',
-			numberAyat: '١١'
+			orderNormal: '62',
+			numberAyat: '11'
 		},
 		{
 			surahName: 'المنافقون',
-			orderNormal: '٦٣',
-			numberAyat: '١١'
+			orderNormal: '63',
+			numberAyat: '11'
 		},
 		{
 			surahName: 'التغابن',
-			orderNormal: '٦٤',
-			numberAyat: '١٨'
+			orderNormal: '64',
+			numberAyat: '18'
 		},
 		{
 			surahName: 'الطلاق',
-			orderNormal: '٦٥',
-			numberAyat: '١٢'
+			orderNormal: '65',
+			numberAyat: '12'
 		},
 		{
 			surahName: 'التحريم',
-			orderNormal: '٦٦',
-			numberAyat: '١٢'
+			orderNormal: '66',
+			numberAyat: '12'
 		},
 		{
 			surahName: 'الملك',
-			orderNormal: '٦٧',
-			numberAyat: '٣٠'
+			orderNormal: '67',
+			numberAyat: '30'
 		},
 		{
 			surahName: 'القلم',
-			orderNormal: '٦٨',
-			numberAyat: '٥٢'
+			orderNormal: '68',
+			numberAyat: '52'
 		},
 		{
 			surahName: 'الحاقة',
-			orderNormal: '٦٩',
-			numberAyat: '٥٢'
+			orderNormal: '69',
+			numberAyat: '52'
 		},
 		{
 			surahName: 'المعارج',
-			orderNormal: '٧٠',
-			numberAyat: '٤٤'
+			orderNormal: '70',
+			numberAyat: '44'
 		},
 		{
 			surahName: 'نوح',
-			orderNormal: '٧١',
-			numberAyat: '٢٨'
+			orderNormal: '71',
+			numberAyat: '28'
 		},
 		{
 			surahName: 'الجن',
-			orderNormal: '٧٢',
-			numberAyat: '٢٨'
+			orderNormal: '72',
+			numberAyat: '28'
 		},
 		{
 			surahName: 'المزمل',
-			orderNormal: '٧٣',
-			numberAyat: '٢٠'
+			orderNormal: '73',
+			numberAyat: '20'
 		},
 		{
 			surahName: 'المدثر',
-			orderNormal: '٧٤',
-			numberAyat: '٥٦'
+			orderNormal: '74',
+			numberAyat: '56'
 		},
 		{
 			surahName: 'القيامة',
-			orderNormal: '٧٥',
-			numberAyat: '٤٠'
+			orderNormal: '75',
+			numberAyat: '40'
 		},
 		{
 			surahName: 'الإنسان',
-			orderNormal: '٧٦',
-			numberAyat: '٣١'
+			orderNormal: '76',
+			numberAyat: '31'
 		},
 		{
 			surahName: 'المرسلات',
-			orderNormal: '٧٧',
-			numberAyat: '٥٠'
+			orderNormal: '77',
+			numberAyat: '50'
 		},
 		{
 			surahName: 'النبأ',
-			orderNormal: '٧٨',
-			numberAyat: '٤٠'
+			orderNormal: '78',
+			numberAyat: '40'
 		},
 		{
 			surahName: 'النازعات',
-			orderNormal: '٧٩',
-			numberAyat: '٤٦'
+			orderNormal: '79',
+			numberAyat: '46'
 		},
 		{
 			surahName: 'عبس',
-			orderNormal: '٨٠',
-			numberAyat: '٤٢'
+			orderNormal: '80',
+			numberAyat: '42'
 		},
 		{
 			surahName: 'التكوير',
-			orderNormal: '٨١',
-			numberAyat: '٢٩'
+			orderNormal: '81',
+			numberAyat: '29'
 		},
 		{
 			surahName: 'الانفطار',
-			orderNormal: '٨٢',
-			numberAyat: '١٩'
+			orderNormal: '82',
+			numberAyat: '19'
 		},
 		{
 			surahName: 'المطففين',
-			orderNormal: '٨٣',
-			numberAyat: '٣٦'
+			orderNormal: '83',
+			numberAyat: '36'
 		},
 		{
 			surahName: 'الانشقاق',
-			orderNormal: '٨٤',
-			numberAyat: '٢٥'
+			orderNormal: '84',
+			numberAyat: '25'
 		},
 		{
 			surahName: 'البروج',
-			orderNormal: '٨٥',
-			numberAyat: '٢٢'
+			orderNormal: '85',
+			numberAyat: '22'
 		},
 		{
 			surahName: 'الطارق',
-			orderNormal: '٨٦',
-			numberAyat: '١٧'
+			orderNormal: '86',
+			numberAyat: '17'
 		},
 		{
 			surahName: 'الأعلى',
-			orderNormal: '٨٧',
-			numberAyat: '١٩'
+			orderNormal: '87',
+			numberAyat: '19'
 		},
 		{
 			surahName: 'الغاشية',
-			orderNormal: '٨٨',
-			numberAyat: '٢٦'
+			orderNormal: '88',
+			numberAyat: '26'
 		},
 		{
 			surahName: 'الفجر',
-			orderNormal: '٨٩',
-			numberAyat: '٣٠'
+			orderNormal: '89',
+			numberAyat: '30'
 		},
 		{
 			surahName: 'البلد',
-			orderNormal: '٩٠',
-			numberAyat: '٢٠'
+			orderNormal: '90',
+			numberAyat: '20'
 		},
 		{
 			surahName: 'الشمس',
-			orderNormal: '٩١',
-			numberAyat: '١٥'
+			orderNormal: '91',
+			numberAyat: '15'
 		},
 		{
 			surahName: 'الليل',
-			orderNormal: '٩٢',
-			numberAyat: '٢١'
+			orderNormal: '92',
+			numberAyat: '21'
 		},
 		{
 			surahName: 'الضحى',
-			orderNormal: '٩٣',
-			numberAyat: '١١'
+			orderNormal: '93',
+			numberAyat: '11'
 		},
 		{
 			surahName: 'الشرح',
-			orderNormal: '٩٤',
-			numberAyat: '٨'
+			orderNormal: '94',
+			numberAyat: '8'
 		},
 		{
 			surahName: 'التين',
-			orderNormal: '٩٥',
-			numberAyat: '٨'
+			orderNormal: '95',
+			numberAyat: '8'
 		},
 		{
 			surahName: 'العلق',
-			orderNormal: '٩٦',
-			numberAyat: '١٩'
+			orderNormal: '96',
+			numberAyat: '19'
 		},
 		{
 			surahName: 'القدر',
-			orderNormal: '٩٧',
-			numberAyat: '٥'
+			orderNormal: '97',
+			numberAyat: '5'
 		},
 		{
 			surahName: 'البينة',
-			orderNormal: '٩٨',
-			numberAyat: '٨'
+			orderNormal: '98',
+			numberAyat: '8'
 		},
 		{
 			surahName: 'الزلزلة',
-			orderNormal: '٩٩',
-			numberAyat: '٨'
+			orderNormal: '99',
+			numberAyat: '8'
 		},
 		{
 			surahName: 'العاديات',
-			orderNormal: '١٠٠',
-			numberAyat: '١١'
+			orderNormal: '100',
+			numberAyat: '11'
 		},
 		{
 			surahName: 'القارعة',
-			orderNormal: '١٠١',
-			numberAyat: '١١'
+			orderNormal: '101',
+			numberAyat: '11'
 		},
 		{
 			surahName: 'التكاثر',
-			orderNormal: '١٠٢',
-			numberAyat: '٨'
+			orderNormal: '102',
+			numberAyat: '8'
 		},
 		{
 			surahName: 'العصر',
-			orderNormal: '١٠٣',
-			numberAyat: '٣'
+			orderNormal: '103',
+			numberAyat: '3'
 		},
 		{
 			surahName: 'الهمزة',
-			orderNormal: '١٠٤',
-			numberAyat: '٩'
+			orderNormal: '104',
+			numberAyat: '9'
 		},
 		{
 			surahName: 'الفيل',
-			orderNormal: '١٠٥',
-			numberAyat: '٥'
+			orderNormal: '105',
+			numberAyat: '5'
 		},
 		{
 			surahName: 'قريش',
-			orderNormal: '١٠٦',
-			numberAyat: '٤'
+			orderNormal: '106',
+			numberAyat: '4'
 		},
 		{
 			surahName: 'الماعون',
-			orderNormal: '١٠٧',
-			numberAyat: '٧'
+			orderNormal: '107',
+			numberAyat: '7'
 		},
 		{
 			surahName: 'الكوثر',
-			orderNormal: '١٠٨',
-			numberAyat: '٣'
+			orderNormal: '108',
+			numberAyat: '3'
 		},
 		{
 			surahName: 'الكافرون',
-			orderNormal: '١٠٩',
-			numberAyat: '٦'
+			orderNormal: '109',
+			numberAyat: '6'
 		},
 		{
 			surahName: 'النصر',
-			orderNormal: '١١٠',
-			numberAyat: '٣'
+			orderNormal: '110',
+			numberAyat: '3'
 		},
 		{
 			surahName: 'المسد',
-			orderNormal: '١١١',
-			numberAyat: '٥'
+			orderNormal: '111',
+			numberAyat: '5'
 		},
 		{
 			surahName: 'الإخلاص',
-			orderNormal: '١١٢',
-			numberAyat: '٤'
+			orderNormal: '112',
+			numberAyat: '4'
 		},
 		{
 			surahName: 'الفلق',
-			orderNormal: '١١٣',
-			numberAyat: '٥'
+			orderNormal: '113',
+			numberAyat: '5'
 		},
 		{
 			surahName: 'الناس',
-			orderNormal: '١١٤',
-			numberAyat: '٦'
+			orderNormal: '114',
+			numberAyat: '6'
 		}
 	];
 </script>
@@ -581,7 +583,8 @@
 			<tr>
 				<td>السورة</td>
 				<td>ترتيب</td>
-				<td>الآيات</td>
+				<td>عدد الآيات</td>
+				<td>الآية - ن</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -590,11 +593,15 @@
 					<td>{surah.surahName}</td>
 					<td>{surah.orderNormal}</td>
 					<td>{surah.numberAyat}</td>
+					<td
+						><a href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalNafasi[0]}"
+							>{$totalNafasi[1]}</a
+						></td
+					>
 				</tr>
 			{/each}
 		</tbody>
 	</table>
-
 </div>
 
 <style>
