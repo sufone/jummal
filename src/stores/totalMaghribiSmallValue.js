@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const totalMaghribiSmallValue = writable("۰");
+export const totalMaghribiSmallValue = writable(["0","۰"]);
