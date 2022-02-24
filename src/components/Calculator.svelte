@@ -110,7 +110,7 @@
 				<tbody>
 					<tr>
 						<td><strong>النفسي</strong></td>
-						<td colspan="2" on:click={() => saveItem($totalNafasi[0], 'النفسي')}>{$totalNafasi[0]} </td>
+						<td colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}>{$totalNafasi[1]} </td>
 					</tr>
 					<tr>
 						<th />
@@ -119,18 +119,18 @@
 					</tr>
 					<tr>
 						<td><strong>المشرقي</strong></td>
-						<td on:click={() => saveItem($totalSmallValue[0], 'الصغير المشرقي')}
-							>{$totalSmallValue[0]}
+						<td on:click={() => saveItem($totalSmallValue[1], 'الصغير المشرقي')}
+							>{$totalSmallValue[1]}
 						</td>
-						<td on:click={() => saveItem($totalTrueValue[0], 'الكبير المشرقي')}>{$totalTrueValue[0]} </td>
+						<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}>{$totalTrueValue[1]} </td>
 					</tr>
 					<tr>
 						<td><strong>المغربي</strong></td>
-						<td on:click={() => saveItem($totalMaghribiSmallValue[0], 'الصغير المغربي')}
-							>{$totalMaghribiSmallValue[0]}
+						<td on:click={() => saveItem($totalMaghribiSmallValue[1], 'الصغير المغربي')}
+							>{$totalMaghribiSmallValue[1]}
 						</td>
-						<td on:click={() => saveItem($totalMaghribiTrueValue[0], 'الكبير المغربي')}
-							>{$totalMaghribiTrueValue[0]}
+						<td on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
+							>{$totalMaghribiTrueValue[1]}
 						</td>
 					</tr>
 				</tbody>
