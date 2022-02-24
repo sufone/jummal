@@ -11,7 +11,7 @@
 
 <Tabs>
 	<Tab label="السور" />
-	<Tab label="الأسماء الحسناء" />
+	<Tab label="الأسماء الحسنى" />
 	<Tab label="مراتب الوجود" />
 	<svelte:fragment slot="content">
 		<TabContent><Surahs /></TabContent>
