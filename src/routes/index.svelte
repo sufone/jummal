@@ -7,7 +7,6 @@
 
 <index>
 
-    <h1>حساب الجمل</h1>
 <Calculator />
 <SavedValues />
 

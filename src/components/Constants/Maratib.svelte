@@ -26,4 +26,8 @@
     li {
         margin: 3px;
     }
+    div {
+		max-height: 400px;
+		overflow: auto;
+	}
 </style>

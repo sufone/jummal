@@ -93,7 +93,7 @@
 	<div id="side-constants">
 		<Constants />
 	</div>
-	<div>
+	<div id="side-results">
 		<div id="results">
 			<table>
 				<thead>
@@ -140,7 +140,7 @@
 
 <div>
 	<textarea
-		placeholder="اكتبوا هنا النص"
+		placeholder="حساب الجمل"
 		cols="120"
 		bind:value={letterInput}
 		on:input={() => calcHandler()}
@@ -168,7 +168,13 @@
 	button {
 		text-align: center;
 	}
-	div#results {
+	div#side-results {
+		margin-right: 100px;
+		background-color: #f1fffd;
+		padding: 10px;
+		border-radius: 8px;
+	}
+	div#results  {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
