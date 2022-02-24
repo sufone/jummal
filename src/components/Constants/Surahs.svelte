@@ -1,4 +1,576 @@
 <script>
+	let surahsJson = [
+		{
+			surahName: 'الفاتحة',
+			orderNormal: '١',
+			numberAyat: '٧'
+		},
+		{
+			surahName: 'البقرة',
+			orderNormal: '٢',
+			numberAyat: '٢٨٦'
+		},
+		{
+			surahName: 'آل عمران',
+			orderNormal: '٣',
+			numberAyat: '٢٠٠'
+		},
+		{
+			surahName: 'النساء',
+			orderNormal: '٤',
+			numberAyat: '١٧٦'
+		},
+		{
+			surahName: 'المائدة',
+			orderNormal: '٥',
+			numberAyat: '١٢٠'
+		},
+		{
+			surahName: 'الأنعام',
+			orderNormal: '٦',
+			numberAyat: '١٦٥'
+		},
+		{
+			surahName: 'الأعراف',
+			orderNormal: '٧',
+			numberAyat: '٢٠٦'
+		},
+		{
+			surahName: 'الأنفال',
+			orderNormal: '٨',
+			numberAyat: '٧٥'
+		},
+		{
+			surahName: 'التوبة',
+			orderNormal: '٩',
+			numberAyat: '١٢٩'
+		},
+		{
+			surahName: 'يونس',
+			orderNormal: '١٠',
+			numberAyat: '١٠٩'
+		},
+		{
+			surahName: 'هود',
+			orderNormal: '١١',
+			numberAyat: '١٢٣'
+		},
+		{
+			surahName: 'يوسف',
+			orderNormal: '١٢',
+			numberAyat: '١١١'
+		},
+		{
+			surahName: 'الرعد',
+			orderNormal: '١٣',
+			numberAyat: '٤٣'
+		},
+		{
+			surahName: 'إبراهيم',
+			orderNormal: '١٤',
+			numberAyat: '٥٢'
+		},
+		{
+			surahName: 'الحجر',
+			orderNormal: '١٥',
+			numberAyat: '٩٩'
+		},
+		{
+			surahName: 'النحل',
+			orderNormal: '١٦',
+			numberAyat: '١٢٨'
+		},
+		{
+			surahName: 'الإسراء',
+			orderNormal: '١٧',
+			numberAyat: '١١١'
+		},
+		{
+			surahName: 'الكهف',
+			orderNormal: '١٨',
+			numberAyat: '١١٠'
+		},
+		{
+			surahName: 'مريم',
+			orderNormal: '١٩',
+			numberAyat: '٩٨'
+		},
+		{
+			surahName: 'طه',
+			orderNormal: '٢٠',
+			numberAyat: '١٣٥'
+		},
+		{
+			surahName: 'الأنبياء',
+			orderNormal: '٢١',
+			numberAyat: '١١٢'
+		},
+		{
+			surahName: 'الحج',
+			orderNormal: '٢٢',
+			numberAyat: '٧٨'
+		},
+		{
+			surahName: 'المؤمنون',
+			orderNormal: '٢٣',
+			numberAyat: '١١٨'
+		},
+		{
+			surahName: 'النور',
+			orderNormal: '٢٤',
+			numberAyat: '٦٤'
+		},
+		{
+			surahName: 'الفرقان',
+			orderNormal: '٢٥',
+			numberAyat: '٧٧'
+		},
+		{
+			surahName: 'الشعراء',
+			orderNormal: '٢٦',
+			numberAyat: '٢٢٧'
+		},
+		{
+			surahName: 'النمل',
+			orderNormal: '٢٧',
+			numberAyat: '٩٣'
+		},
+		{
+			surahName: 'القصص',
+			orderNormal: '٢٨',
+			numberAyat: '٨٨'
+		},
+		{
+			surahName: 'العنكبوت',
+			orderNormal: '٢٩',
+			numberAyat: '٦٩'
+		},
+		{
+			surahName: 'الروم',
+			orderNormal: '٣٠',
+			numberAyat: '٦٠'
+		},
+		{
+			surahName: 'لقمان',
+			orderNormal: '٣١',
+			numberAyat: '٣٤'
+		},
+		{
+			surahName: 'السجدة',
+			orderNormal: '٣٢',
+			numberAyat: '٣٠'
+		},
+		{
+			surahName: 'الأحزاب',
+			orderNormal: '٣٣',
+			numberAyat: '٧٣'
+		},
+		{
+			surahName: 'سبأ',
+			orderNormal: '٣٤',
+			numberAyat: '٥٤'
+		},
+		{
+			surahName: 'فاطر',
+			orderNormal: '٣٥',
+			numberAyat: '٤٥'
+		},
+		{
+			surahName: 'يس',
+			orderNormal: '٣٦',
+			numberAyat: '٨٣'
+		},
+		{
+			surahName: 'الصافات',
+			orderNormal: '٣٧',
+			numberAyat: '١٨٢'
+		},
+		{
+			surahName: 'ص',
+			orderNormal: '٣٨',
+			numberAyat: '٨٨'
+		},
+		{
+			surahName: 'الزمر',
+			orderNormal: '٣٩',
+			numberAyat: '٧٥'
+		},
+		{
+			surahName: 'غافر',
+			orderNormal: '٤٠',
+			numberAyat: '٨٥'
+		},
+		{
+			surahName: 'فصلت',
+			orderNormal: '٤١',
+			numberAyat: '٥٤'
+		},
+		{
+			surahName: 'الشورى',
+			orderNormal: '٤٢',
+			numberAyat: '٥٣'
+		},
+		{
+			surahName: 'الزخرف',
+			orderNormal: '٤٣',
+			numberAyat: '٨٩'
+		},
+		{
+			surahName: 'الدخان',
+			orderNormal: '٤٤',
+			numberAyat: '٥٩'
+		},
+		{
+			surahName: 'الجاثية',
+			orderNormal: '٤٥',
+			numberAyat: '٣٧'
+		},
+		{
+			surahName: 'الأحقاف',
+			orderNormal: '٤٦',
+			numberAyat: '٣٥'
+		},
+		{
+			surahName: 'محمد',
+			orderNormal: '٤٧',
+			numberAyat: '٣٨'
+		},
+		{
+			surahName: 'الفتح',
+			orderNormal: '٤٨',
+			numberAyat: '٢٩'
+		},
+		{
+			surahName: 'الحجرات',
+			orderNormal: '٤٩',
+			numberAyat: '١٨'
+		},
+		{
+			surahName: 'ق',
+			orderNormal: '٥٠',
+			numberAyat: '٤٥'
+		},
+		{
+			surahName: 'الذاريات',
+			orderNormal: '٥١',
+			numberAyat: '٦٠'
+		},
+		{
+			surahName: 'الطور',
+			orderNormal: '٥٢',
+			numberAyat: '٤٩'
+		},
+		{
+			surahName: 'النجم',
+			orderNormal: '٥٣',
+			numberAyat: '٦٢'
+		},
+		{
+			surahName: 'القمر',
+			orderNormal: '٥٤',
+			numberAyat: '٥٥'
+		},
+		{
+			surahName: 'الرحمن',
+			orderNormal: '٥٥',
+			numberAyat: '٧٨'
+		},
+		{
+			surahName: 'الواقعة',
+			orderNormal: '٥٦',
+			numberAyat: '٩٦'
+		},
+		{
+			surahName: 'الحديد',
+			orderNormal: '٥٧',
+			numberAyat: '٢٩'
+		},
+		{
+			surahName: 'المجادلة',
+			orderNormal: '٥٨',
+			numberAyat: '٢٢'
+		},
+		{
+			surahName: 'الحشر',
+			orderNormal: '٥٩',
+			numberAyat: '٢٤'
+		},
+		{
+			surahName: 'الممتحنة',
+			orderNormal: '٦٠',
+			numberAyat: '١٣'
+		},
+		{
+			surahName: 'الصف',
+			orderNormal: '٦١',
+			numberAyat: '١٤'
+		},
+		{
+			surahName: 'الجمعة',
+			orderNormal: '٦٢',
+			numberAyat: '١١'
+		},
+		{
+			surahName: 'المنافقون',
+			orderNormal: '٦٣',
+			numberAyat: '١١'
+		},
+		{
+			surahName: 'التغابن',
+			orderNormal: '٦٤',
+			numberAyat: '١٨'
+		},
+		{
+			surahName: 'الطلاق',
+			orderNormal: '٦٥',
+			numberAyat: '١٢'
+		},
+		{
+			surahName: 'التحريم',
+			orderNormal: '٦٦',
+			numberAyat: '١٢'
+		},
+		{
+			surahName: 'الملك',
+			orderNormal: '٦٧',
+			numberAyat: '٣٠'
+		},
+		{
+			surahName: 'القلم',
+			orderNormal: '٦٨',
+			numberAyat: '٥٢'
+		},
+		{
+			surahName: 'الحاقة',
+			orderNormal: '٦٩',
+			numberAyat: '٥٢'
+		},
+		{
+			surahName: 'المعارج',
+			orderNormal: '٧٠',
+			numberAyat: '٤٤'
+		},
+		{
+			surahName: 'نوح',
+			orderNormal: '٧١',
+			numberAyat: '٢٨'
+		},
+		{
+			surahName: 'الجن',
+			orderNormal: '٧٢',
+			numberAyat: '٢٨'
+		},
+		{
+			surahName: 'المزمل',
+			orderNormal: '٧٣',
+			numberAyat: '٢٠'
+		},
+		{
+			surahName: 'المدثر',
+			orderNormal: '٧٤',
+			numberAyat: '٥٦'
+		},
+		{
+			surahName: 'القيامة',
+			orderNormal: '٧٥',
+			numberAyat: '٤٠'
+		},
+		{
+			surahName: 'الإنسان',
+			orderNormal: '٧٦',
+			numberAyat: '٣١'
+		},
+		{
+			surahName: 'المرسلات',
+			orderNormal: '٧٧',
+			numberAyat: '٥٠'
+		},
+		{
+			surahName: 'النبأ',
+			orderNormal: '٧٨',
+			numberAyat: '٤٠'
+		},
+		{
+			surahName: 'النازعات',
+			orderNormal: '٧٩',
+			numberAyat: '٤٦'
+		},
+		{
+			surahName: 'عبس',
+			orderNormal: '٨٠',
+			numberAyat: '٤٢'
+		},
+		{
+			surahName: 'التكوير',
+			orderNormal: '٨١',
+			numberAyat: '٢٩'
+		},
+		{
+			surahName: 'الانفطار',
+			orderNormal: '٨٢',
+			numberAyat: '١٩'
+		},
+		{
+			surahName: 'المطففين',
+			orderNormal: '٨٣',
+			numberAyat: '٣٦'
+		},
+		{
+			surahName: 'الانشقاق',
+			orderNormal: '٨٤',
+			numberAyat: '٢٥'
+		},
+		{
+			surahName: 'البروج',
+			orderNormal: '٨٥',
+			numberAyat: '٢٢'
+		},
+		{
+			surahName: 'الطارق',
+			orderNormal: '٨٦',
+			numberAyat: '١٧'
+		},
+		{
+			surahName: 'الأعلى',
+			orderNormal: '٨٧',
+			numberAyat: '١٩'
+		},
+		{
+			surahName: 'الغاشية',
+			orderNormal: '٨٨',
+			numberAyat: '٢٦'
+		},
+		{
+			surahName: 'الفجر',
+			orderNormal: '٨٩',
+			numberAyat: '٣٠'
+		},
+		{
+			surahName: 'البلد',
+			orderNormal: '٩٠',
+			numberAyat: '٢٠'
+		},
+		{
+			surahName: 'الشمس',
+			orderNormal: '٩١',
+			numberAyat: '١٥'
+		},
+		{
+			surahName: 'الليل',
+			orderNormal: '٩٢',
+			numberAyat: '٢١'
+		},
+		{
+			surahName: 'الضحى',
+			orderNormal: '٩٣',
+			numberAyat: '١١'
+		},
+		{
+			surahName: 'الشرح',
+			orderNormal: '٩٤',
+			numberAyat: '٨'
+		},
+		{
+			surahName: 'التين',
+			orderNormal: '٩٥',
+			numberAyat: '٨'
+		},
+		{
+			surahName: 'العلق',
+			orderNormal: '٩٦',
+			numberAyat: '١٩'
+		},
+		{
+			surahName: 'القدر',
+			orderNormal: '٩٧',
+			numberAyat: '٥'
+		},
+		{
+			surahName: 'البينة',
+			orderNormal: '٩٨',
+			numberAyat: '٨'
+		},
+		{
+			surahName: 'الزلزلة',
+			orderNormal: '٩٩',
+			numberAyat: '٨'
+		},
+		{
+			surahName: 'العاديات',
+			orderNormal: '١٠٠',
+			numberAyat: '١١'
+		},
+		{
+			surahName: 'القارعة',
+			orderNormal: '١٠١',
+			numberAyat: '١١'
+		},
+		{
+			surahName: 'التكاثر',
+			orderNormal: '١٠٢',
+			numberAyat: '٨'
+		},
+		{
+			surahName: 'العصر',
+			orderNormal: '١٠٣',
+			numberAyat: '٣'
+		},
+		{
+			surahName: 'الهمزة',
+			orderNormal: '١٠٤',
+			numberAyat: '٩'
+		},
+		{
+			surahName: 'الفيل',
+			orderNormal: '١٠٥',
+			numberAyat: '٥'
+		},
+		{
+			surahName: 'قريش',
+			orderNormal: '١٠٦',
+			numberAyat: '٤'
+		},
+		{
+			surahName: 'الماعون',
+			orderNormal: '١٠٧',
+			numberAyat: '٧'
+		},
+		{
+			surahName: 'الكوثر',
+			orderNormal: '١٠٨',
+			numberAyat: '٣'
+		},
+		{
+			surahName: 'الكافرون',
+			orderNormal: '١٠٩',
+			numberAyat: '٦'
+		},
+		{
+			surahName: 'النصر',
+			orderNormal: '١١٠',
+			numberAyat: '٣'
+		},
+		{
+			surahName: 'المسد',
+			orderNormal: '١١١',
+			numberAyat: '٥'
+		},
+		{
+			surahName: 'الإخلاص',
+			orderNormal: '١١٢',
+			numberAyat: '٤'
+		},
+		{
+			surahName: 'الفلق',
+			orderNormal: '١١٣',
+			numberAyat: '٥'
+		},
+		{
+			surahName: 'الناس',
+			orderNormal: '١١٤',
+			numberAyat: '٦'
+		}
+	];
 </script>
 
 <div>
@@ -13,578 +585,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>الفاتحة</td>
-				<td>١</td>
-				<td>٧</td>
-			</tr>
-			<tr>
-				<td>البقرة</td>
-				<td>٢</td>
-				<td>٢٨٦</td>
-			</tr>
-			<tr>
-				<td>آل عمران</td>
-				<td>٣</td>
-				<td>٢٠٠</td>
-			</tr>
-			<tr>
-				<td>النساء</td>
-				<td>٤</td>
-				<td>١٧٦</td>
-			</tr>
-			<tr>
-				<td>المائدة</td>
-				<td>٥</td>
-				<td>١٢٠</td>
-			</tr>
-			<tr>
-				<td>الأنعام</td>
-				<td>٦</td>
-				<td>١٦٥</td>
-			</tr>
-			<tr>
-				<td>الأعراف</td>
-				<td>٧</td>
-				<td>٢٠٦</td>
-			</tr>
-			<tr>
-				<td>الأنفال</td>
-				<td>٨</td>
-				<td>٧٥</td>
-			</tr>
-			<tr>
-				<td>التوبة</td>
-				<td>٩</td>
-				<td>١٢٩</td>
-			</tr>
-			<tr>
-				<td>يونس</td>
-				<td>١٠</td>
-				<td>١٠٩</td>
-			</tr>
-			<tr>
-				<td>هود</td>
-				<td>١١</td>
-				<td>١٢٣</td>
-			</tr>
-			<tr>
-				<td>يوسف</td>
-				<td>١٢</td>
-				<td>١١١</td>
-			</tr>
-			<tr>
-				<td>الرعد</td>
-				<td>١٣</td>
-				<td>٤٣</td>
-			</tr>
-			<tr>
-				<td>إبراهيم</td>
-				<td>١٤</td>
-				<td>٥٢</td>
-			</tr>
-			<tr>
-				<td>الحجر</td>
-				<td>١٥</td>
-				<td>٩٩</td>
-			</tr>
-			<tr>
-				<td>النحل</td>
-				<td>١٦</td>
-				<td>١٢٨</td>
-			</tr>
-			<tr>
-				<td>الإسراء</td>
-				<td>١٧</td>
-				<td>١١١</td>
-			</tr>
-			<tr>
-				<td>الكهف</td>
-				<td>١٨</td>
-				<td>١١٠</td>
-			</tr>
-			<tr>
-				<td>مريم</td>
-				<td>١٩</td>
-				<td>٩٨</td>
-			</tr>
-			<tr>
-				<td>طه</td>
-				<td>٢٠</td>
-				<td>١٣٥</td>
-			</tr>
-			<tr>
-				<td>الأنبياء</td>
-				<td>٢١</td>
-				<td>١١٢</td>
-			</tr>
-			<tr>
-				<td>الحج</td>
-				<td>٢٢</td>
-				<td>٧٨</td>
-			</tr>
-			<tr>
-				<td>المؤمنون</td>
-				<td>٢٣</td>
-				<td>١١٨</td>
-			</tr>
-			<tr>
-				<td>النور</td>
-				<td>٢٤</td>
-				<td>٦٤</td>
-			</tr>
-			<tr>
-				<td>الفرقان</td>
-				<td>٢٥</td>
-				<td>٧٧</td>
-			</tr>
-			<tr>
-				<td>الشعراء</td>
-				<td>٢٦</td>
-				<td>٢٢٧</td>
-			</tr>
-			<tr>
-				<td>النمل</td>
-				<td>٢٧</td>
-				<td>٩٣</td>
-			</tr>
-			<tr>
-				<td>القصص</td>
-				<td>٢٨</td>
-				<td>٨٨</td>
-			</tr>
-			<tr>
-				<td>العنكبوت</td>
-				<td>٢٩</td>
-				<td>٦٩</td>
-			</tr>
-			<tr>
-				<td>الروم</td>
-				<td>٣٠</td>
-				<td>٦٠</td>
-			</tr>
-			<tr>
-				<td>لقمان</td>
-				<td>٣١</td>
-				<td>٣٤</td>
-			</tr>
-			<tr>
-				<td>السجدة</td>
-				<td>٣٢</td>
-				<td>٣٠</td>
-			</tr>
-			<tr>
-				<td>الأحزاب</td>
-				<td>٣٣</td>
-				<td>٧٣</td>
-			</tr>
-			<tr>
-				<td>سبأ</td>
-				<td>٣٤</td>
-				<td>٥٤</td>
-			</tr>
-			<tr>
-				<td>فاطر</td>
-				<td>٣٥</td>
-				<td>٤٥</td>
-			</tr>
-			<tr>
-				<td>يس</td>
-				<td>٣٦</td>
-				<td>٨٣</td>
-			</tr>
-			<tr>
-				<td>الصافات</td>
-				<td>٣٧</td>
-				<td>١٨٢</td>
-			</tr>
-			<tr>
-				<td>ص</td>
-				<td>٣٨</td>
-				<td>٨٨</td>
-			</tr>
-			<tr>
-				<td>الزمر</td>
-				<td>٣٩</td>
-				<td>٧٥</td>
-			</tr>
-			<tr>
-				<td>غافر</td>
-				<td>٤٠</td>
-				<td>٨٥</td>
-			</tr>
-			<tr>
-				<td>فصلت</td>
-				<td>٤١</td>
-				<td>٥٤</td>
-			</tr>
-			<tr>
-				<td>الشورى</td>
-				<td>٤٢</td>
-				<td>٥٣</td>
-			</tr>
-			<tr>
-				<td>الزخرف</td>
-				<td>٤٣</td>
-				<td>٨٩</td>
-			</tr>
-			<tr>
-				<td>الدخان</td>
-				<td>٤٤</td>
-				<td>٥٩</td>
-			</tr>
-			<tr>
-				<td>الجاثية</td>
-				<td>٤٥</td>
-				<td>٣٧</td>
-			</tr>
-			<tr>
-				<td>الأحقاف</td>
-				<td>٤٦</td>
-				<td>٣٥</td>
-			</tr>
-			<tr>
-				<td>محمد</td>
-				<td>٤٧</td>
-				<td>٣٨</td>
-			</tr>
-			<tr>
-				<td>الفتح</td>
-				<td>٤٨</td>
-				<td>٢٩</td>
-			</tr>
-			<tr>
-				<td>الحجرات</td>
-				<td>٤٩</td>
-				<td>١٨</td>
-			</tr>
-			<tr>
-				<td>ق</td>
-				<td>٥٠</td>
-				<td>٤٥</td>
-			</tr>
-			<tr>
-				<td>الذاريات</td>
-				<td>٥١</td>
-				<td>٦٠</td>
-			</tr>
-			<tr>
-				<td>الطور</td>
-				<td>٥٢</td>
-				<td>٤٩</td>
-			</tr>
-			<tr>
-				<td>النجم</td>
-				<td>٥٣</td>
-				<td>٦٢</td>
-			</tr>
-			<tr>
-				<td>القمر</td>
-				<td>٥٤</td>
-				<td>٥٥</td>
-			</tr>
-			<tr>
-				<td>الرحمن</td>
-				<td>٥٥</td>
-				<td>٧٨</td>
-			</tr>
-			<tr>
-				<td>الواقعة</td>
-				<td>٥٦</td>
-				<td>٩٦</td>
-			</tr>
-			<tr>
-				<td>الحديد</td>
-				<td>٥٧</td>
-				<td>٢٩</td>
-			</tr>
-			<tr>
-				<td>المجادلة</td>
-				<td>٥٨</td>
-				<td>٢٢</td>
-			</tr>
-			<tr>
-				<td>الحشر</td>
-				<td>٥٩</td>
-				<td>٢٤</td>
-			</tr>
-			<tr>
-				<td>الممتحنة</td>
-				<td>٦٠</td>
-				<td>١٣</td>
-			</tr>
-			<tr>
-				<td>الصف</td>
-				<td>٦١</td>
-				<td>١٤</td>
-			</tr>
-			<tr>
-				<td>الجمعة</td>
-				<td>٦٢</td>
-				<td>١١</td>
-			</tr>
-			<tr>
-				<td>المنافقون</td>
-				<td>٦٣</td>
-				<td>١١</td>
-			</tr>
-			<tr>
-				<td>التغابن</td>
-				<td>٦٤</td>
-				<td>١٨</td>
-			</tr>
-			<tr>
-				<td>الطلاق</td>
-				<td>٦٥</td>
-				<td>١٢</td>
-			</tr>
-			<tr>
-				<td>التحريم</td>
-				<td>٦٦</td>
-				<td>١٢</td>
-			</tr>
-			<tr>
-				<td>الملك</td>
-				<td>٦٧</td>
-				<td>٣٠</td>
-			</tr>
-			<tr>
-				<td>القلم</td>
-				<td>٦٨</td>
-				<td>٥٢</td>
-			</tr>
-			<tr>
-				<td>الحاقة</td>
-				<td>٦٩</td>
-				<td>٥٢</td>
-			</tr>
-			<tr>
-				<td>المعارج</td>
-				<td>٧٠</td>
-				<td>٤٤</td>
-			</tr>
-			<tr>
-				<td>نوح</td>
-				<td>٧١</td>
-				<td>٢٨</td>
-			</tr>
-			<tr>
-				<td>الجن</td>
-				<td>٧٢</td>
-				<td>٢٨</td>
-			</tr>
-			<tr>
-				<td>المزمل</td>
-				<td>٧٣</td>
-				<td>٢٠</td>
-			</tr>
-			<tr>
-				<td>المدثر</td>
-				<td>٧٤</td>
-				<td>٥٦</td>
-			</tr>
-			<tr>
-				<td>القيامة</td>
-				<td>٧٥</td>
-				<td>٤٠</td>
-			</tr>
-			<tr>
-				<td>الإنسان</td>
-				<td>٧٦</td>
-				<td>٣١</td>
-			</tr>
-			<tr>
-				<td>المرسلات</td>
-				<td>٧٧</td>
-				<td>٥٠</td>
-			</tr>
-			<tr>
-				<td>النبأ</td>
-				<td>٧٨</td>
-				<td>٤٠</td>
-			</tr>
-			<tr>
-				<td>النازعات</td>
-				<td>٧٩</td>
-				<td>٤٦</td>
-			</tr>
-			<tr>
-				<td>عبس</td>
-				<td>٨٠</td>
-				<td>٤٢</td>
-			</tr>
-			<tr>
-				<td>التكوير</td>
-				<td>٨١</td>
-				<td>٢٩</td>
-			</tr>
-			<tr>
-				<td>الانفطار</td>
-				<td>٨٢</td>
-				<td>١٩</td>
-			</tr>
-			<tr>
-				<td>المطففين</td>
-				<td>٨٣</td>
-				<td>٣٦</td>
-			</tr>
-			<tr>
-				<td>الانشقاق</td>
-				<td>٨٤</td>
-				<td>٢٥</td>
-			</tr>
-			<tr>
-				<td>البروج</td>
-				<td>٨٥</td>
-				<td>٢٢</td>
-			</tr>
-			<tr>
-				<td>الطارق</td>
-				<td>٨٦</td>
-				<td>١٧</td>
-			</tr>
-			<tr>
-				<td>الأعلى</td>
-				<td>٨٧</td>
-				<td>١٩</td>
-			</tr>
-			<tr>
-				<td>الغاشية</td>
-				<td>٨٨</td>
-				<td>٢٦</td>
-			</tr>
-			<tr>
-				<td>الفجر</td>
-				<td>٨٩</td>
-				<td>٣٠</td>
-			</tr>
-			<tr>
-				<td>البلد</td>
-				<td>٩٠</td>
-				<td>٢٠</td>
-			</tr>
-			<tr>
-				<td>الشمس</td>
-				<td>٩١</td>
-				<td>١٥</td>
-			</tr>
-			<tr>
-				<td>الليل</td>
-				<td>٩٢</td>
-				<td>٢١</td>
-			</tr>
-			<tr>
-				<td>الضحى</td>
-				<td>٩٣</td>
-				<td>١١</td>
-			</tr>
-			<tr>
-				<td>الشرح</td>
-				<td>٩٤</td>
-				<td>٨</td>
-			</tr>
-			<tr>
-				<td>التين</td>
-				<td>٩٥</td>
-				<td>٨</td>
-			</tr>
-			<tr>
-				<td>العلق</td>
-				<td>٩٦</td>
-				<td>١٩</td>
-			</tr>
-			<tr>
-				<td>القدر</td>
-				<td>٩٧</td>
-				<td>٥</td>
-			</tr>
-			<tr>
-				<td>البينة</td>
-				<td>٩٨</td>
-				<td>٨</td>
-			</tr>
-			<tr>
-				<td>الزلزلة</td>
-				<td>٩٩</td>
-				<td>٨</td>
-			</tr>
-			<tr>
-				<td>العاديات</td>
-				<td>١٠٠</td>
-				<td>١١</td>
-			</tr>
-			<tr>
-				<td>القارعة</td>
-				<td>١٠١</td>
-				<td>١١</td>
-			</tr>
-			<tr>
-				<td>التكاثر</td>
-				<td>١٠٢</td>
-				<td>٨</td>
-			</tr>
-			<tr>
-				<td>العصر</td>
-				<td>١٠٣</td>
-				<td>٣</td>
-			</tr>
-			<tr>
-				<td>الهمزة</td>
-				<td>١٠٤</td>
-				<td>٩</td>
-			</tr>
-			<tr>
-				<td>الفيل</td>
-				<td>١٠٥</td>
-				<td>٥</td>
-			</tr>
-			<tr>
-				<td>قريش</td>
-				<td>١٠٦</td>
-				<td>٤</td>
-			</tr>
-			<tr>
-				<td>الماعون</td>
-				<td>١٠٧</td>
-				<td>٧</td>
-			</tr>
-			<tr>
-				<td>الكوثر</td>
-				<td>١٠٨</td>
-				<td>٣</td>
-			</tr>
-			<tr>
-				<td>الكافرون</td>
-				<td>١٠٩</td>
-				<td>٦</td>
-			</tr>
-			<tr>
-				<td>النصر</td>
-				<td>١١٠</td>
-				<td>٣</td>
-			</tr>
-			<tr>
-				<td>المسد</td>
-				<td>١١١</td>
-				<td>٥</td>
-			</tr>
-			<tr>
-				<td>الإخلاص</td>
-				<td>١١٢</td>
-				<td>٤</td>
-			</tr>
-			<tr>
-				<td>الفلق</td>
-				<td>١١٣</td>
-				<td>٥</td>
-			</tr>
-			<tr>
-				<td>الناس</td>
-				<td>١١٤</td>
-				<td>٦</td>
-			</tr>
+			{#each surahsJson as surah}
+				<tr>
+					<td>{surah.surahName}</td>
+					<td>{surah.orderNormal}</td>
+					<td>{surah.numberAyat}</td>
+				</tr>
+			{/each}
 		</tbody>
 	</table>
+
 </div>
 
 <style>
