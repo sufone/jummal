@@ -601,22 +601,56 @@
 					<td>{surah.surahName}</td>
 
 					{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
-						<td style="font-weight: bold; background-color: #fcd9d7;">{surah.orderNormal}</td>
+						<td style="font-weight: bold; background-color: #fcd9d7;"
+							>{surah.orderNormal
+								.replace(/0/g, '۰')
+								.replace(/1/g, '۱')
+								.replace(/2/g, '۲')
+								.replace(/3/g, '۳')
+								.replace(/4/g, '٤')
+								.replace(/5/g, '٥')
+								.replace(/6/g, '٦')
+								.replace(/7/g, '۷')
+								.replace(/8/g, '۸')
+								.replace(/9/g, '۹')}</td
+						>
 					{:else}
-						<td>{surah.orderNormal}</td>
+						<td
+							>{surah.orderNormal
+								.replace(/0/g, '۰')
+								.replace(/1/g, '۱')
+								.replace(/2/g, '۲')
+								.replace(/3/g, '۳')
+								.replace(/4/g, '٤')
+								.replace(/5/g, '٥')
+								.replace(/6/g, '٦')
+								.replace(/7/g, '۷')
+								.replace(/8/g, '۸')
+								.replace(/9/g, '۹')}</td
+						>
 					{/if}
 
 					{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
 						<td style="font-weight: bold; background-color: #fcd9d7;">{surah.numberAyat}</td>
 					{:else}
-						<td>{surah.numberAyat}</td>
+						<td
+							>{surah.numberAyat
+								.replace(/0/g, '۰')
+								.replace(/1/g, '۱')
+								.replace(/2/g, '۲')
+								.replace(/3/g, '۳')
+								.replace(/4/g, '٤')
+								.replace(/5/g, '٥')
+								.replace(/6/g, '٦')
+								.replace(/7/g, '۷')
+								.replace(/8/g, '۸')
+								.replace(/9/g, '۹')}</td
+						>
 					{/if}
 
 					{#if parseInt($totalNafasi[0]) <= parseInt(surah.numberAyat) && parseInt($totalNafasi[0]) > 0}
 						<td
-							><a
-								target="_blank"
-								href="https://tafsir.app/{surah.orderNormal}/{$totalNafasi[0]}"
+							><a target="_blank" href="https://tafsir.app/{surah.orderNormal}/{$totalNafasi[0]}"
 								>{$totalNafasi[1]}</a
 							></td
 						>
@@ -638,9 +672,7 @@
 
 					{#if parseInt($totalTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalTrueValue[0]) > 0}
 						<td
-							><a
-								target="_blank"
-								href="https://tafsir.app/{surah.orderNormal}/{$totalTrueValue[0]}"
+							><a target="_blank" href="https://tafsir.app/{surah.orderNormal}/{$totalTrueValue[0]}"
 								>{$totalTrueValue[1]}</a
 							></td
 						>
