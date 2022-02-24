@@ -1,5 +1,9 @@
 <script>
 	import { totalNafasi } from '../../stores/totalNafasi.js';
+	import { totalSmallValue } from '../../stores/totalSmallValue.js';
+	import { totalTrueValue } from '../../stores/totalTrueValue.js';
+	import { totalMaghribiSmallValue } from '../../stores/totalMaghribiSmallValue.js';
+	import { totalMaghribiTrueValue } from '../../stores/totalMaghribiTrueValue.js';
 
 	let surahsJson = [
 		{
@@ -585,6 +589,10 @@
 				<td>ترتيب</td>
 				<td>عدد الآيات</td>
 				<td>الآية - ن</td>
+				<td>الآية - شص</td>
+				<td>الآية - شك</td>
+				<td>الآية - غص</td>
+				<td>الآية - غك</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -593,11 +601,57 @@
 					<td>{surah.surahName}</td>
 					<td>{surah.orderNormal}</td>
 					<td>{surah.numberAyat}</td>
-					<td
-						><a href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalNafasi[0]}"
-							>{$totalNafasi[1]}</a
-						></td
-					>
+
+					{#if parseInt($totalNafasi[0]) <= parseInt(surah.numberAyat) && parseInt($totalNafasi[0]) > 0}
+						<td
+							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalNafasi[0]}"
+								>{$totalNafasi[1]}</a
+							></td
+						>
+					{:else}
+						<td>-</td>
+					{/if}
+
+					{#if parseInt($totalSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalSmallValue[0]) > 0}
+						<td
+							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalSmallValue[0]}"
+								>{$totalSmallValue[1]}</a
+							></td
+						>
+					{:else}
+						<td>-</td>
+					{/if}
+
+					{#if parseInt($totalTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalTrueValue[0]) > 0}
+						<td
+							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalTrueValue[0]}"
+								>{$totalTrueValue[1]}</a
+							></td
+						>
+					{:else}
+						<td>-</td>
+					{/if}
+
+					{#if parseInt($totalMaghribiSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiSmallValue[0]) > 0}
+						<td
+							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalMaghribiSmallValue[0]}"
+								>{$totalMaghribiSmallValue[1]}</a
+							></td
+						>
+					{:else}
+						<td>-</td>
+					{/if}
+
+					{#if parseInt($totalMaghribiTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiTrueValue[0]) > 0}
+						<td
+							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalMaghribiTrueValue[0]}"
+								>{$totalMaghribiTrueValue[1]}</a
+							></td
+						>
+					{:else}
+						<td>-</td>
+					{/if}
+					
 				</tr>
 			{/each}
 		</tbody>
@@ -612,5 +666,15 @@
 	td {
 		text-align: right;
 		padding: 2px;
+	}
+	table {
+		border-collapse: collapse;
+	}
+	a {
+		text-decoration: none;
+		padding: 3px;
+		border-radius: 100px;
+		background-color: rgb(255, 255, 202);
+		color: black;
 	}
 </style>
