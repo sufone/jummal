@@ -599,12 +599,24 @@
 			{#each surahsJson as surah}
 				<tr>
 					<td>{surah.surahName}</td>
-					<td>{surah.orderNormal}</td>
-					<td>{surah.numberAyat}</td>
+
+					{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
+						<td style="font-weight: bold; background-color: #fcd9d7;">{surah.orderNormal}</td>
+					{:else}
+						<td>{surah.orderNormal}</td>
+					{/if}
+
+					{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
+						<td style="font-weight: bold; background-color: #fcd9d7;">{surah.numberAyat}</td>
+					{:else}
+						<td>{surah.numberAyat}</td>
+					{/if}
 
 					{#if parseInt($totalNafasi[0]) <= parseInt(surah.numberAyat) && parseInt($totalNafasi[0]) > 0}
 						<td
-							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalNafasi[0]}"
+							><a
+								target="_blank"
+								href="https://tafsir.app/{surah.orderNormal}/{$totalNafasi[0]}"
 								>{$totalNafasi[1]}</a
 							></td
 						>
@@ -614,7 +626,9 @@
 
 					{#if parseInt($totalSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalSmallValue[0]) > 0}
 						<td
-							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalSmallValue[0]}"
+							><a
+								target="_blank"
+								href="https://tafsir.app/{surah.orderNormal}/{$totalSmallValue[0]}"
 								>{$totalSmallValue[1]}</a
 							></td
 						>
@@ -624,7 +638,9 @@
 
 					{#if parseInt($totalTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalTrueValue[0]) > 0}
 						<td
-							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalTrueValue[0]}"
+							><a
+								target="_blank"
+								href="https://tafsir.app/{surah.orderNormal}/{$totalTrueValue[0]}"
 								>{$totalTrueValue[1]}</a
 							></td
 						>
@@ -634,7 +650,9 @@
 
 					{#if parseInt($totalMaghribiSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiSmallValue[0]) > 0}
 						<td
-							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalMaghribiSmallValue[0]}"
+							><a
+								target="_blank"
+								href="https://tafsir.app/{surah.orderNormal}/{$totalMaghribiSmallValue[0]}"
 								>{$totalMaghribiSmallValue[1]}</a
 							></td
 						>
@@ -644,14 +662,15 @@
 
 					{#if parseInt($totalMaghribiTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiTrueValue[0]) > 0}
 						<td
-							><a target="_blank" href="https://beta.quran.com/ar/{surah.orderNormal}/{$totalMaghribiTrueValue[0]}"
+							><a
+								target="_blank"
+								href="https://tafsir.app/{surah.orderNormal}/{$totalMaghribiTrueValue[0]}"
 								>{$totalMaghribiTrueValue[1]}</a
 							></td
 						>
 					{:else}
 						<td>-</td>
 					{/if}
-					
 				</tr>
 			{/each}
 		</tbody>
@@ -669,6 +688,9 @@
 	}
 	table {
 		border-collapse: collapse;
+	}
+	td {
+		border: 1px solid #999;
 	}
 	a {
 		text-decoration: none;
