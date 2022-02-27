@@ -2083,16 +2083,52 @@
 				<td>الجمل: غك</td>
 			</tr>
 		</thead>
-	
+
 		{#each names as name}
 			<tr>
 				<td>{convertToArabicNumbers(name.الرقم)}</td>
 				<td>{name.الاسم}</td>
-				<td>{convertToArabicNumbers(name.jummalNafasi)}</td>
+
+				{#if parseInt(name.jummalNafasi) == parseInt($totalNafasi[0]) || parseInt(name.jummalNafasi) == parseInt($totalSmallValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalTrueValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;"
+						>{convertToArabicNumbers(name.jummalNafasi)}</td
+					>
+				{:else}
+					<td>{convertToArabicNumbers(name.jummalNafasi)}</td>
+				{/if}
+
+				{#if parseInt(name.jummalSmall) == parseInt($totalNafasi[0]) || parseInt(name.jummalSmall) == parseInt($totalSmallValue[0]) || parseInt(name.jummalSmall) == parseInt($totalTrueValue[0]) || parseInt(name.jummalSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalSmall) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;"
+						>{convertToArabicNumbers(name.jummalSmall)}</td
+					>
+				{:else}
 				<td>{convertToArabicNumbers(name.jummalSmall)}</td>
+				{/if}
+
+				{#if parseInt(name.jummalTrue) == parseInt($totalNafasi[0]) || parseInt(name.jummalTrue) == parseInt($totalSmallValue[0]) || parseInt(name.jummalTrue) == parseInt($totalTrueValue[0]) || parseInt(name.jummalTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalTrue) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;"
+						>{convertToArabicNumbers(name.jummalTrue)}</td
+					>
+				{:else}
 				<td>{convertToArabicNumbers(name.jummalTrue)}</td>
+				{/if}
+
+				{#if parseInt(name.jummalMaghribiSmall) == parseInt($totalNafasi[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalSmallValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalTrueValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;"
+						>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td
+					>
+				{:else}
 				<td>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td>
+				{/if}
+
+				{#if parseInt(name.jummalMaghribiTrue) == parseInt($totalNafasi[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalSmallValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalTrueValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;"
+						>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td
+					>
+				{:else}
 				<td>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td>
+				{/if}
+
 			</tr>
 		{/each}
 	</table>
