@@ -5,6 +5,9 @@
 	import { totalMaghribiSmallValue } from '../../stores/totalMaghribiSmallValue.js';
 	import { totalMaghribiTrueValue } from '../../stores/totalMaghribiTrueValue.js';
 
+	import convertToArabicNumbers from '../Functions/convertToArabic.js'
+
+
 	let surahsJson = [
 		{
 			surahName: 'الفاتحة',
@@ -602,49 +605,19 @@
 
 					{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
 						<td style="font-weight: bold; background-color: #fcd9d7;"
-							>{surah.orderNormal
-								.replace(/0/g, '۰')
-								.replace(/1/g, '۱')
-								.replace(/2/g, '۲')
-								.replace(/3/g, '۳')
-								.replace(/4/g, '٤')
-								.replace(/5/g, '٥')
-								.replace(/6/g, '٦')
-								.replace(/7/g, '۷')
-								.replace(/8/g, '۸')
-								.replace(/9/g, '۹')}</td
+							>{convertToArabicNumbers(surah.orderNormal)}</td
 						>
 					{:else}
 						<td
-							>{surah.orderNormal
-								.replace(/0/g, '۰')
-								.replace(/1/g, '۱')
-								.replace(/2/g, '۲')
-								.replace(/3/g, '۳')
-								.replace(/4/g, '٤')
-								.replace(/5/g, '٥')
-								.replace(/6/g, '٦')
-								.replace(/7/g, '۷')
-								.replace(/8/g, '۸')
-								.replace(/9/g, '۹')}</td
+							>{convertToArabicNumbers(surah.orderNormal)}</td
 						>
 					{/if}
 
 					{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
-						<td style="font-weight: bold; background-color: #fcd9d7;">{surah.numberAyat}</td>
+						<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(surah.numberAyat)}</td>
 					{:else}
 						<td
-							>{surah.numberAyat
-								.replace(/0/g, '۰')
-								.replace(/1/g, '۱')
-								.replace(/2/g, '۲')
-								.replace(/3/g, '۳')
-								.replace(/4/g, '٤')
-								.replace(/5/g, '٥')
-								.replace(/6/g, '٦')
-								.replace(/7/g, '۷')
-								.replace(/8/g, '۸')
-								.replace(/9/g, '۹')}</td
+							>{convertToArabicNumbers(surah.numberAyat)}</td
 						>
 					{/if}
 

@@ -9,6 +9,7 @@
 	import { totalNafasi } from '../stores/totalNafasi.js';
 
 	import Constants from './Constants.svelte';
+	import convertToArabicNumbers from './Functions/convertToArabic.js'
 
 	// Complete list of values, easy to extend inshaAllah
 	const letters = {
@@ -50,18 +51,7 @@
 		غ: { trueValue: 1000, smallValue: 1, maghribiTrue: 900, maghribiSmall: 9, nafasi: 5 }
 	};
 
-	function convertToArabicNumbers(input) { // input MUST be string
-		return input.replace(/0/g, '۰')
-				.replace(/1/g, '۱')
-				.replace(/2/g, '۲')
-				.replace(/3/g, '۳')
-				.replace(/4/g, '٤')
-				.replace(/5/g, '٥')
-				.replace(/6/g, '٦')
-				.replace(/7/g, '۷')
-				.replace(/8/g, '۸')
-				.replace(/9/g, '۹')
-	}
+	
 	// Universal function to handle calculating from any system
 	function calc(system) {
 		let value = 0;
@@ -94,13 +84,14 @@
 	}
 
 	function sumDigitsFromString(string) {
-    string = string.split('');                 //split into individual characters
-    var sum = 0;                               //have a storage ready
-    for (var i = 0; i < string.length; i++) {  //iterate through
-        sum += parseInt(string[i],10);         //convert from string to int
-    }
-    return convertToArabicNumbers(JSON.stringify(sum))//return when done
-}
+		string = string.split(''); //split into individual characters
+		var sum = 0; //have a storage ready
+		for (var i = 0; i < string.length; i++) {
+			//iterate through
+			sum += parseInt(string[i], 10); //convert from string to int
+		}
+		return convertToArabicNumbers(JSON.stringify(sum)); //return when done
+	}
 </script>
 
 <div id="main">
@@ -140,8 +131,12 @@
 						<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}
 							>{$totalTrueValue[1]}
 						</td>
-						<td>{sumDigitsFromString($totalSmallValue[0]+$totalTrueValue[0])}</td>
-						<td>{convertToArabicNumbers(JSON.stringify(parseInt($totalSmallValue[0])+parseInt($totalTrueValue[0])))}</td>
+						<td>{sumDigitsFromString($totalSmallValue[0] + $totalTrueValue[0])}</td>
+						<td
+							>{convertToArabicNumbers(
+								JSON.stringify(parseInt($totalSmallValue[0]) + parseInt($totalTrueValue[0]))
+							)}</td
+						>
 					</tr>
 					<tr>
 						<td><strong>المغربي</strong></td>
@@ -151,39 +146,44 @@
 						<td on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
 							>{$totalMaghribiTrueValue[1]}
 						</td>
-						<td>{sumDigitsFromString($totalMaghribiSmallValue[0]+$totalMaghribiTrueValue[0])}</td>
-						<td>{convertToArabicNumbers(JSON.stringify(parseInt($totalMaghribiSmallValue[0])+parseInt($totalMaghribiTrueValue[0])))}</td>
+						<td>{sumDigitsFromString($totalMaghribiSmallValue[0] + $totalMaghribiTrueValue[0])}</td>
+						<td
+							>{convertToArabicNumbers(
+								JSON.stringify(
+									parseInt($totalMaghribiSmallValue[0]) + parseInt($totalMaghribiTrueValue[0])
+								)
+							)}</td
+						>
 					</tr>
 				</tbody>
 			</table>
 		</div>
+
+		<div>
+			<textarea
+				placeholder="حساب الجمل"
+				cols="80"
+				bind:value={$letterInput}
+				on:input={() => calcHandler()}
+			/>
+		</div>
+		<div class="details-below-textbox">
+			<button
+				on:click={() => {
+					letterInput = '';
+					letterInputCleaned = '';
+					calcHandler();
+				}}>تفريغ</button
+			>
+		</div>
 	</div>
-</div>
-
-<div>
-	<textarea
-		placeholder="حساب الجمل"
-		cols="120"
-		bind:value={$letterInput}
-		on:input={() => calcHandler()}
-	/>
-</div>
-
-<div class="details-below-textbox">
-	<button
-		on:click={() => {
-			letterInput = '';
-			letterInputCleaned = '';
-			calcHandler();
-		}}>تفريغ</button
-	>
 </div>
 
 <style>
 	textArea {
 		font-size: 2rem;
 		text-align: center;
-		max-width: 800px;
+		max-width: 400px;
 		background-color: aliceblue;
 		border-radius: 4px;
 	}
