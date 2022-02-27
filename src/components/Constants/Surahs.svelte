@@ -8,6 +8,10 @@
 	import convertToArabicNumbers from '../Functions/convertToArabic.js'
 
 
+	let ayahProvider = "https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_31"
+
+	// https://tafsir.app/{surah.orderNormal}/{$totalNafasi[0]}
+
 	let surahsJson = [
 		{
 			surahName: 'الفاتحة',
@@ -601,8 +605,6 @@
 		<tbody>
 			{#each surahsJson as surah}
 				<tr>
-					<td>{surah.surahName}</td>
-
 					{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
 						<td style="font-weight: bold; background-color: #fcd9d7;"
 							>{convertToArabicNumbers(surah.orderNormal)}</td
@@ -612,6 +614,8 @@
 							>{convertToArabicNumbers(surah.orderNormal)}</td
 						>
 					{/if}
+
+					<td>{surah.surahName}</td>
 
 					{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
 						<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(surah.numberAyat)}</td>
@@ -623,7 +627,7 @@
 
 					{#if parseInt($totalNafasi[0]) <= parseInt(surah.numberAyat) && parseInt($totalNafasi[0]) > 0}
 						<td
-							><a target="_blank" href="https://tafsir.app/{surah.orderNormal}/{$totalNafasi[0]}"
+							><a target="_blank" href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalNafasi[0]}"
 								>{$totalNafasi[1]}</a
 							></td
 						>
@@ -635,7 +639,7 @@
 						<td
 							><a
 								target="_blank"
-								href="https://tafsir.app/{surah.orderNormal}/{$totalSmallValue[0]}"
+								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalSmallValue[0]}"
 								>{$totalSmallValue[1]}</a
 							></td
 						>
@@ -645,7 +649,7 @@
 
 					{#if parseInt($totalTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalTrueValue[0]) > 0}
 						<td
-							><a target="_blank" href="https://tafsir.app/{surah.orderNormal}/{$totalTrueValue[0]}"
+							><a target="_blank" href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalTrueValue[0]}"
 								>{$totalTrueValue[1]}</a
 							></td
 						>
@@ -657,7 +661,7 @@
 						<td
 							><a
 								target="_blank"
-								href="https://tafsir.app/{surah.orderNormal}/{$totalMaghribiSmallValue[0]}"
+								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalMaghribiSmallValue[0]}"
 								>{$totalMaghribiSmallValue[1]}</a
 							></td
 						>
@@ -669,7 +673,7 @@
 						<td
 							><a
 								target="_blank"
-								href="https://tafsir.app/{surah.orderNormal}/{$totalMaghribiTrueValue[0]}"
+								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalMaghribiTrueValue[0]}"
 								>{$totalMaghribiTrueValue[1]}</a
 							></td
 						>
