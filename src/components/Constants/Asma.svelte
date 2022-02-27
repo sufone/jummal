@@ -6,7 +6,6 @@
 	import { totalMaghribiTrueValue } from '../../stores/totalMaghribiTrueValue.js';
 
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
-	
 
 	let names = [
 		{
@@ -2037,7 +2036,14 @@
 
 		{#each names as name}
 			<tr>
-				<td>{convertToArabicNumbers(name.الرقم)}</td>
+				{#if parseInt(name.الرقم) == parseInt($totalNafasi[0]) || parseInt(name.الرقم) == parseInt($totalSmallValue[0]) || parseInt(name.الرقم) == parseInt($totalTrueValue[0]) || parseInt(name.الرقم) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.الرقم) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;"
+						>{convertToArabicNumbers(name.الرقم)}</td
+					>
+				{:else}
+					<td>{convertToArabicNumbers(name.الرقم)}</td>
+				{/if}
+
 				<td>{name.الاسم}</td>
 
 				{#if parseInt(name.jummalNafasi) == parseInt($totalNafasi[0]) || parseInt(name.jummalNafasi) == parseInt($totalSmallValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalTrueValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalMaghribiTrueValue[0])}
@@ -2053,7 +2059,7 @@
 						>{convertToArabicNumbers(name.jummalSmall)}</td
 					>
 				{:else}
-				<td>{convertToArabicNumbers(name.jummalSmall)}</td>
+					<td>{convertToArabicNumbers(name.jummalSmall)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalTrue) == parseInt($totalNafasi[0]) || parseInt(name.jummalTrue) == parseInt($totalSmallValue[0]) || parseInt(name.jummalTrue) == parseInt($totalTrueValue[0]) || parseInt(name.jummalTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalTrue) == parseInt($totalMaghribiTrueValue[0])}
@@ -2061,7 +2067,7 @@
 						>{convertToArabicNumbers(name.jummalTrue)}</td
 					>
 				{:else}
-				<td>{convertToArabicNumbers(name.jummalTrue)}</td>
+					<td>{convertToArabicNumbers(name.jummalTrue)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalMaghribiSmall) == parseInt($totalNafasi[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalSmallValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalTrueValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalMaghribiTrueValue[0])}
@@ -2069,7 +2075,7 @@
 						>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td
 					>
 				{:else}
-				<td>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td>
+					<td>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalMaghribiTrue) == parseInt($totalNafasi[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalSmallValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalTrueValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalMaghribiTrueValue[0])}
@@ -2077,9 +2083,8 @@
 						>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td
 					>
 				{:else}
-				<td>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td>
+					<td>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td>
 				{/if}
-
 			</tr>
 		{/each}
 	</table>
