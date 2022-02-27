@@ -5,6 +5,8 @@
 	import { totalMaghribiSmallValue } from '../../stores/totalMaghribiSmallValue.js';
 	import { totalMaghribiTrueValue } from '../../stores/totalMaghribiTrueValue.js';
 
+    import convertToArabicNumbers from '../Functions/convertToArabic.js';
+
 	import words from '../Functions/words';
 
 	const letters = {
@@ -73,11 +75,36 @@
 		{#each words as word}
 			<tr>
 				<td>{word.verb}</td>
-				<td>{word.jummalNafasi}</td>
-				<td>{word.jummalSmall}</td>
-				<td>{word.jummalTrue}</td>
-				<td>{word.jummalMaghribiSmall}</td>
-				<td>{word.jummalMaghribiTrue}</td>
+
+				{#if parseInt(word.jummalNafasi) == parseInt($totalNafasi[0]) || parseInt(word.jummalNafasi) == parseInt($totalSmallValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalTrueValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(word.jummalNafasi)}</td>
+				{:else}
+					<td>{convertToArabicNumbers(word.jummalNafasi)}</td>
+				{/if}
+
+				{#if parseInt(word.jummalSmall) == parseInt($totalNafasi[0]) || parseInt(word.jummalSmall) == parseInt($totalSmallValue[0]) || parseInt(word.jummalSmall) == parseInt($totalTrueValue[0]) || parseInt(word.jummalSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalSmall) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(word.jummalSmall)}</td>
+				{:else}
+					<td>{convertToArabicNumbers(word.jummalSmall)}</td>
+				{/if}
+
+				{#if parseInt(word.jummalTrue) == parseInt($totalNafasi[0]) || parseInt(word.jummalTrue) == parseInt($totalSmallValue[0]) || parseInt(word.jummalTrue) == parseInt($totalTrueValue[0]) || parseInt(word.jummalTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalTrue) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(word.jummalTrue)}</td>
+				{:else}
+					<td>{convertToArabicNumbers(word.jummalTrue)}</td>
+				{/if}
+
+				{#if parseInt(word.jummalMaghribiSmall) == parseInt($totalNafasi[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalSmallValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalTrueValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(word.jummalMaghribiSmall)}</td>
+				{:else}
+					<td>{convertToArabicNumbers(word.jummalMaghribiSmall)}</td>
+				{/if}
+
+				{#if parseInt(word.jummalMaghribiTrue) == parseInt($totalNafasi[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalSmallValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalTrueValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalMaghribiTrueValue[0])}
+					<td style="font-weight: bold; background-color: #fcd9d7;">{convertToArabicNumbers(word.jummalMaghribiTrue)}</td>
+				{:else}
+					<td>{convertToArabicNumbers(word.jummalMaghribiTrue)}</td>
+				{/if}
 			</tr>
 		{/each}
 	</table>
