@@ -8,21 +8,42 @@
 	import Asma from './Constants/Asma.svelte';
 	import Maratib from './Constants/Maratib.svelte';
 	import Dictionary from './Constants/Dictionary.svelte';
+
+	let dictionary = false;
 </script>
 
 <div>
-	<Tabs>
-		<Tab label="السور" />
-		<Tab label="الأسماء الحسنى" />
-		<Tab label="مراتب الوجود" />
-		<Tab label="المعجم" />
-		<svelte:fragment slot="content">
-			<TabContent><Surahs /></TabContent>
-			<TabContent><Asma /></TabContent>
-			<TabContent><Maratib /></TabContent>
-			<TabContent><Dictionary /></TabContent>
-		</svelte:fragment>
-	</Tabs>
+
+	{#if dictionary}
+		<Tabs>
+			<Tab label="السور" />
+			<Tab label="الأسماء الحسنى" />
+			<Tab label="مراتب الوجود" />
+			<Tab label="المعجم" />
+			<svelte:fragment slot="content">
+				<TabContent><Surahs /></TabContent>
+				<TabContent><Asma /></TabContent>
+				<TabContent><Maratib /></TabContent>
+				<TabContent><Dictionary /></TabContent>
+			</svelte:fragment>
+		</Tabs>
+	{:else}
+		<Tabs>
+			<Tab label="السور" />
+			<Tab label="الأسماء الحسنى" />
+			<Tab label="مراتب الوجود" />
+			<svelte:fragment slot="content">
+				<TabContent><Surahs /></TabContent>
+				<TabContent><Asma /></TabContent>
+				<TabContent><Maratib /></TabContent>
+			</svelte:fragment>
+		</Tabs>
+	{/if}
+	
+	<label>
+		<input type="checkbox" bind:checked={dictionary} />
+		أتريدون فتح قسم المعجم
+	</label>
 </div>
 
 <style>
