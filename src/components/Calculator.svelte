@@ -103,8 +103,7 @@
 		<div class="details-below-textbox">
 			<button
 				on:click={() => {
-					letterInput = '';
-					letterInputCleaned = '';
+					$letterInput = '';
 					calcHandler();
 				}}>تفريغ</button
 			>
