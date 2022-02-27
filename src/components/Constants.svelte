@@ -7,6 +7,7 @@
 	import Surahs from './Constants/Surahs.svelte';
 	import Asma from './Constants/Asma.svelte';
 	import Maratib from './Constants/Maratib.svelte';
+	import Dictionary from './Constants/Dictionary.svelte';
 </script>
 
 <div>
@@ -14,10 +15,12 @@
 		<Tab label="السور" />
 		<Tab label="الأسماء الحسنى" />
 		<Tab label="مراتب الوجود" />
+		<Tab label="المعجم" />
 		<svelte:fragment slot="content">
 			<TabContent><Surahs /></TabContent>
 			<TabContent><Asma /></TabContent>
 			<TabContent><Maratib /></TabContent>
+			<TabContent><Dictionary /></TabContent>
 		</svelte:fragment>
 	</Tabs>
 </div>
