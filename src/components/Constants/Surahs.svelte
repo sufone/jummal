@@ -592,14 +592,14 @@
 	<table>
 		<thead>
 			<tr>
-				<td>الرقم</td>
-				<td>السورة</td>
-				<td>عدد الآيات</td>
-				<td>نفسي</td>
-				<td>مشرقي صفير</td>
-				<td>مرشقي كبير</td>
-				<td>مغربي صغير</td>
-				<td>مغربي كبير</td>
+				<th>الرقم</th>
+				<th>السورة</th>
+				<th>عدد الآيات</th>
+				<th>نفسي</th>
+				<th>مشرقي صفير</th>
+				<th>مرشقي كبير</th>
+				<th>مغربي صغير</th>
+				<th>مغربي كبير</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -693,20 +693,24 @@
 		max-height: 600px;
 		overflow: auto;
 	}
-	td {
+	td, th {
 		text-align: right;
 		padding: 2px;
+		border: 1px solid #999;
 	}
 	table {
 		border-collapse: collapse;
-	}
-	td {
-		border: 1px solid #999;
 	}
 	a {
 		text-decoration: none;
 		padding: 3px;
 		border-radius: 100px;
 		color: black;
+	}
+	th {
+		background: rgb(255, 124, 124);
+		position: sticky;
+		top: 0; 
+		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 	}
 </style>

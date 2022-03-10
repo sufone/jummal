@@ -66,12 +66,12 @@
 <div>
 	<table>
 		<tr>
-			<td>الفعل</td>
-			<td>نفسي</td>
-			<td>مشرقي صفير</td>
-			<td>مرشقي كبير</td>
-			<td>مغربي صغير</td>
-			<td>مغربي كبير</td>
+			<th>الفعل</th>
+			<th>نفسي</th>
+			<th>مشرقي صفير</th>
+			<th>مرشقي كبير</th>
+			<th>مغربي صغير</th>
+			<th>مغربي كبير</th>
 		</tr>
 		{#each words as word} <!--the monster below is a combo of all below filters. the goal: any match found-->
 			{#if parseInt(word.jummalNafasi) == parseInt($totalNafasi[0]) || parseInt(word.jummalNafasi) == parseInt($totalSmallValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalTrueValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalSmall) == parseInt($totalNafasi[0]) || parseInt(word.jummalSmall) == parseInt($totalSmallValue[0]) || parseInt(word.jummalSmall) == parseInt($totalTrueValue[0]) || parseInt(word.jummalSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalSmall) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalTrue) == parseInt($totalNafasi[0]) || parseInt(word.jummalTrue) == parseInt($totalSmallValue[0]) || parseInt(word.jummalTrue) == parseInt($totalTrueValue[0]) || parseInt(word.jummalTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalTrue) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalNafasi[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalSmallValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalTrueValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalNafasi[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalSmallValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalTrueValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalMaghribiTrueValue[0])}
@@ -128,15 +128,13 @@
 		max-height: 600px;
 		overflow: auto;
 	}
-	td {
+	td, th {
 		text-align: right;
 		padding: 2px;
+		border: 1px solid #999;
 	}
 	table {
 		border-collapse: collapse;
-	}
-	td {
-		border: 1px solid #999;
 	}
 	a {
 		text-decoration: none;
@@ -144,5 +142,11 @@
 		border-radius: 100px;
 		background-color: rgb(255, 255, 202);
 		color: black;
+	}
+	th {
+		background: rgb(255, 124, 124);
+		position: sticky;
+		top: 0; 
+		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 	}
 </style>
