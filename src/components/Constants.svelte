@@ -15,40 +15,31 @@
 
 	$: if ($letterInput) {
 		dictionary = true;
-	} else { 
+	} else {
 		dictionary = false;
 	}
 </script>
 
 <div>
-
-	{#if dictionary}
-		<Tabs autoWidth="true">
-			<Tab label="السور" />
-			<Tab label="الأسماء الحسنى" />
-			<Tab label="مراتب الوجود" />
+	<Tabs autoWidth="true">
+		<Tab label="السور" />
+		<Tab label="الأسماء الحسنى" />
+		<Tab label="مراتب الوجود" />
+		{#if dictionary}
 			<Tab label="المعجم" />
-			<svelte:fragment slot="content">
-				<TabContent><Surahs /></TabContent>
-				<TabContent><Asma /></TabContent>
-				<TabContent><Maratib /></TabContent>
-				<TabContent><Dictionary /></TabContent>
-			</svelte:fragment>
-		</Tabs>
-	{:else}
-		<Tabs autoWidth="true">
-			<Tab label="السور" />
-			<Tab label="الأسماء الحسنى" />
-			<Tab label="مراتب الوجود" />
+		{:else}
 			<Tab disabled="true" label="المعجم" />
-			<svelte:fragment slot="content">
-				<TabContent><Surahs /></TabContent>
-				<TabContent><Asma /></TabContent>
-				<TabContent><Maratib /></TabContent>
+		{/if}
+
+		<svelte:fragment slot="content">
+			<TabContent><Surahs /></TabContent>
+			<TabContent><Asma /></TabContent>
+			<TabContent><Maratib /></TabContent>
+			{#if dictionary}
 				<TabContent><Dictionary /></TabContent>
-			</svelte:fragment>
-		</Tabs>
-	{/if}
+			{/if}
+		</svelte:fragment>
+	</Tabs>
 </div>
 
 <style>
