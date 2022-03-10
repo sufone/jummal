@@ -80,6 +80,7 @@
 
 <style>
 	div {
+		min-height: 600px;
 		max-height: 600px;
 		overflow: auto;
 	}

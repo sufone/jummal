@@ -148,5 +148,6 @@
 		position: sticky;
 		top: 0; 
 		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+		padding-bottom: 7px;
 	}
 </style>
