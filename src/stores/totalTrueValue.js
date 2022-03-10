@@ -23,3 +23,14 @@ export const totalSmallValueCombined = derived(
 	],
 	['0', convertToArabicNumbers('0')]
 );
+
+export const totalMashriqiDigitsCombined = derived(
+	[totalTrueValueCombined, totalSmallValueCombined],
+	([$totalTrueValueCombined, $totalSmallValueCombined]) => [
+		sumDigitsFromString($totalTrueValueCombined[0].concat($totalSmallValueCombined[0])),
+		convertToArabicNumbers(
+			sumDigitsFromString($totalTrueValueCombined[0].concat($totalSmallValueCombined[0]))
+		)
+	],
+	['0', convertToArabicNumbers('0')]
+);

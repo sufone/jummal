@@ -4,7 +4,6 @@
 
 	import { totalTrueValue, totalSmallValue } from '../stores/totalTrueValue.js';
 	import { totalMaghribiSmallValue, totalMaghribiTrueValue } from '../stores/totalMaghribiSmallValue.js';
-	import {  } from '../stores/totalMaghribiTrueValue.js';
 	import { totalNafasi } from '../stores/totalNafasi.js';
 
 	import Results from './Results.svelte'
