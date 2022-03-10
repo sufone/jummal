@@ -5,6 +5,10 @@
 
 </script>
 
+<svelte:head>
+    <title>حساب الجمل</title>
+</svelte:head>
+
 <index>
 
 <Calculator />
