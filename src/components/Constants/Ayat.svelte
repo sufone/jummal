@@ -1,4 +1,7 @@
 <script>
+	import ayat from '../Functions/ayat';
+	import convertToArabicNumbers from '../Functions/convertToArabic.js';
+
 	let surahs = [
 		{
 			surahName: 'الفاتحة'
@@ -343,30 +346,28 @@
 			surahName: 'الناس'
 		}
 	];
+	let selectedSurah;
 
-    import ayat from '../Functions/ayat';
-    import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
-    let selectedSurah
 </script>
 
 <div>
 	<h4>آيات</h4>
 
-	<select bind:value={selectedSurah}
-		id="surahSelect"
-	>
+	<select bind:value={selectedSurah} id="surahSelect">
 		{#each surahs as surah, i}
-            {@const surahNumberIndex = JSON.stringify(i + 1)}
+			{@const surahNumberIndex = JSON.stringify(i + 1)}
 			<option value={i + 1}>
 				{convertToArabicNumbers(surahNumberIndex)}. {surah.surahName}
 			</option>
 		{/each}
 	</select>
 
-    {#each ayat.filter(item => item.surahNumber == selectedSurah) as ayah, i}
-        <p><span>{convertToArabicNumbers(ayah.ayahNumber)}. </span>{ayah.text}</p>
-    {/each}
+	<div id="ayat-div">
+		{#each ayat.filter((item) => item.surahNumber == selectedSurah) as ayah, i}
+			<p><span>{convertToArabicNumbers(ayah.ayahNumber)}. </span>{ayah.text}</p>
+		{/each}
+	</div>
 </div>
 
 <style>
@@ -374,6 +375,6 @@
 		min-height: 600px;
 		max-height: 600px;
 		overflow: auto;
-        text-align: right;
+		text-align: right;
 	}
 </style>
