@@ -6,6 +6,7 @@
 	import { Tabs, Tab, TabContent } from 'carbon-components-svelte';
 
 	import Surahs from './Constants/Surahs.svelte';
+	import Ayat from './Constants/Ayat.svelte';
 	import Asma from './Constants/Asma.svelte';
 	import Maratib from './Constants/Maratib.svelte';
 	import Dictionary from './Constants/Dictionary.svelte';
@@ -23,6 +24,7 @@
 <div>
 	<Tabs autoWidth="true">
 		<Tab label="السور" />
+		<Tab label="الآيات" />
 		<Tab label="الأسماء الحسنى" />
 		<Tab label="مراتب الوجود" />
 		{#if dictionary}
@@ -33,6 +35,7 @@
 
 		<svelte:fragment slot="content">
 			<TabContent><Surahs /></TabContent>
+			<TabContent><Ayat /></TabContent>
 			<TabContent><Asma /></TabContent>
 			<TabContent><Maratib /></TabContent>
 				<TabContent><Dictionary /></TabContent>
