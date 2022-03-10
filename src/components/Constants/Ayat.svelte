@@ -345,6 +345,7 @@
 	];
 
     import ayat from '../Functions/ayat';
+    import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
     let selectedSurah
 </script>
@@ -356,14 +357,15 @@
 		id="surahSelect"
 	>
 		{#each surahs as surah, i}
+            {@const surahNumberIndex = JSON.stringify(i + 1)}
 			<option value={i + 1}>
-				{i + 1}. {surah.surahName}
+				{convertToArabicNumbers(surahNumberIndex)}. {surah.surahName}
 			</option>
 		{/each}
 	</select>
 
     {#each ayat.filter(item => item.surahNumber == selectedSurah) as ayah, i}
-        <p><span>{ayah.ayahNumber}. </span>{ayah.text}</p>
+        <p><span>{convertToArabicNumbers(ayah.ayahNumber)}. </span>{ayah.text}</p>
     {/each}
 </div>
 
