@@ -1,7 +1,10 @@
 <script>
 	import { totalNafasi } from '../../stores/totalNafasi.js';
 	import { totalTrueValue, totalSmallValue } from '../../stores/totalTrueValue.js';
-	import { totalMaghribiSmallValue, totalMaghribiTrueValue } from '../../stores/totalMaghribiSmallValue.js';
+	import {
+		totalMaghribiSmallValue,
+		totalMaghribiTrueValue
+	} from '../../stores/totalMaghribiSmallValue.js';
 
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
@@ -592,11 +595,11 @@
 				<td>الرقم</td>
 				<td>السورة</td>
 				<td>عدد الآيات</td>
-				<td>الآية: ن</td>
-				<td>الآية: شص</td>
-				<td>الآية: شك</td>
-				<td>الآية: غص</td>
-				<td>الآية: غك</td>
+				<td>نفسي</td>
+				<td>مشرقي صفير</td>
+				<td>مرشقي كبير</td>
+				<td>مغربي صغير</td>
+				<td>مغربي كبير</td>
 			</tr>
 		</thead>
 		<tbody>

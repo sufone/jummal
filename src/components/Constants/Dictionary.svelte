@@ -67,11 +67,11 @@
 	<table>
 		<tr>
 			<td>الفعل</td>
-			<td>الجمل: ن</td>
-			<td>الجمل: شص</td>
-			<td>الجمل: شك</td>
-			<td>الجمل: غص</td>
-			<td>الجمل: غك</td>
+			<td>نفسي</td>
+			<td>مشرقي صفير</td>
+			<td>مرشقي كبير</td>
+			<td>مغربي صغير</td>
+			<td>مغربي كبير</td>
 		</tr>
 		{#each words as word} <!--the monster below is a combo of all below filters. the goal: any match found-->
 			{#if parseInt(word.jummalNafasi) == parseInt($totalNafasi[0]) || parseInt(word.jummalNafasi) == parseInt($totalSmallValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalTrueValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalNafasi) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalSmall) == parseInt($totalNafasi[0]) || parseInt(word.jummalSmall) == parseInt($totalSmallValue[0]) || parseInt(word.jummalSmall) == parseInt($totalTrueValue[0]) || parseInt(word.jummalSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalSmall) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalTrue) == parseInt($totalNafasi[0]) || parseInt(word.jummalTrue) == parseInt($totalSmallValue[0]) || parseInt(word.jummalTrue) == parseInt($totalTrueValue[0]) || parseInt(word.jummalTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalTrue) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalNafasi[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalSmallValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalTrueValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalMaghribiSmall) == parseInt($totalMaghribiTrueValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalNafasi[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalSmallValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalTrueValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(word.jummalMaghribiTrue) == parseInt($totalMaghribiTrueValue[0])}
