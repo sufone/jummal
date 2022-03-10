@@ -35,9 +35,7 @@
 			<TabContent><Surahs /></TabContent>
 			<TabContent><Asma /></TabContent>
 			<TabContent><Maratib /></TabContent>
-			{#if dictionary}
 				<TabContent><Dictionary /></TabContent>
-			{/if}
 		</svelte:fragment>
 	</Tabs>
 </div>
