@@ -690,7 +690,7 @@
 
 <style>
 	div {
-		max-height: 400px;
+		max-height: 600px;
 		overflow: auto;
 	}
 	td {
