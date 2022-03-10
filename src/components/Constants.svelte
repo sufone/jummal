@@ -4,18 +4,26 @@
 
 <script>
 	import { Tabs, Tab, TabContent } from 'carbon-components-svelte';
+
 	import Surahs from './Constants/Surahs.svelte';
 	import Asma from './Constants/Asma.svelte';
 	import Maratib from './Constants/Maratib.svelte';
 	import Dictionary from './Constants/Dictionary.svelte';
+	import { letterInput } from '../stores/letterInput.js';
 
 	let dictionary = false;
+
+	$: if ($letterInput) {
+		dictionary = true;
+	} else { 
+		dictionary = false;
+	}
 </script>
 
 <div>
 
 	{#if dictionary}
-		<Tabs>
+		<Tabs autoWidth="true">
 			<Tab label="السور" />
 			<Tab label="الأسماء الحسنى" />
 			<Tab label="مراتب الوجود" />
@@ -28,22 +36,19 @@
 			</svelte:fragment>
 		</Tabs>
 	{:else}
-		<Tabs>
+		<Tabs autoWidth="true">
 			<Tab label="السور" />
 			<Tab label="الأسماء الحسنى" />
 			<Tab label="مراتب الوجود" />
+			<Tab disabled="true" label="المعجم" />
 			<svelte:fragment slot="content">
 				<TabContent><Surahs /></TabContent>
 				<TabContent><Asma /></TabContent>
 				<TabContent><Maratib /></TabContent>
+				<TabContent><Dictionary /></TabContent>
 			</svelte:fragment>
 		</Tabs>
 	{/if}
-	
-	<label>
-		<input type="checkbox" bind:checked={dictionary} />
-		أتريدون فتح قسم المعجم
-	</label>
 </div>
 
 <style>

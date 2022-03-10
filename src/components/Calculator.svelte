@@ -1,5 +1,4 @@
 <script>
-	import { saved } from '../stores/saved.js';
 	import { letterInput, letterInputCleaned } from '../stores/letterInput.js';
 
 	import { totalTrueValue, totalSmallValue } from '../stores/totalTrueValue.js';
@@ -55,7 +54,6 @@
 	function calc(system) {
 		let value = 0;
 		for (let i = 0; i < $letterInputCleaned.length; i += 1) {
-			console.log($letterInputCleaned);
 			value += letters[$letterInputCleaned.charAt(i)][system];
 		}
 		let valueString = JSON.stringify(value);
