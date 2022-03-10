@@ -2,10 +2,9 @@
 	import { saved } from '../stores/saved.js';
 	import { letterInput, letterInputCleaned } from '../stores/letterInput.js';
 
-	import { totalSmallValue } from '../stores/totalSmallValue.js';
-	import { totalTrueValue } from '../stores/totalTrueValue.js';
-	import { totalMaghribiSmallValue } from '../stores/totalMaghribiSmallValue.js';
-	import { totalMaghribiTrueValue } from '../stores/totalMaghribiTrueValue.js';
+	import { totalTrueValue, totalSmallValue } from '../stores/totalTrueValue.js';
+	import { totalMaghribiSmallValue, totalMaghribiTrueValue } from '../stores/totalMaghribiSmallValue.js';
+	import {  } from '../stores/totalMaghribiTrueValue.js';
 	import { totalNafasi } from '../stores/totalNafasi.js';
 
 	import Results from './Results.svelte'

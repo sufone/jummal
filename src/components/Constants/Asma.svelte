@@ -1,9 +1,10 @@
 <script>
 	import { totalNafasi } from '../../stores/totalNafasi.js';
-	import { totalSmallValue } from '../../stores/totalSmallValue.js';
-	import { totalTrueValue } from '../../stores/totalTrueValue.js';
-	import { totalMaghribiSmallValue } from '../../stores/totalMaghribiSmallValue.js';
-	import { totalMaghribiTrueValue } from '../../stores/totalMaghribiTrueValue.js';
+	import { totalTrueValue, totalSmallValue } from '../../stores/totalTrueValue.js';
+	import {
+		totalMaghribiSmallValue,
+		totalMaghribiTrueValue
+	} from '../../stores/totalMaghribiSmallValue.js';
 
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 

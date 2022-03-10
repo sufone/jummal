@@ -2,11 +2,19 @@
 	import { saved } from '../stores/saved.js';
 	import { letterInput } from '../stores/letterInput.js';
 
-	import { totalSmallValue } from '../stores/totalSmallValue.js';
-	import { totalTrueValue } from '../stores/totalTrueValue.js';
-	import { totalMaghribiSmallValue } from '../stores/totalMaghribiSmallValue.js';
-	import { totalMaghribiTrueValue } from '../stores/totalMaghribiTrueValue.js';
-	import { totalNafasi } from '../stores/totalNafasi.js';
+	import {
+		totalTrueValue,
+		totalTrueValueCombined,
+		totalSmallValue,
+		totalSmallValueCombined
+	} from '../stores/totalTrueValue.js';
+	import {
+		totalMaghribiSmallValue,
+		totalMaghribiSmallValueCombined,
+		totalMaghribiTrueValue,
+		totalMaghribiTrueValueCombined
+	} from '../stores/totalMaghribiSmallValue.js';
+	import { totalNafasi, totalNafasiCombined } from '../stores/totalNafasi.js';
 
 	import convertToArabicNumbers from './Functions/convertToArabic.js';
 	function saveItem(newItem, systemUsed) {
@@ -33,8 +41,9 @@
 	<tbody>
 		<tr>
 			<td><strong>النفسي</strong></td>
-			<td colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}>{$totalNafasi[1]} </td>
-			<td colspan="2">{sumDigitsFromString($totalNafasi[0])}</td>
+			<td colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}
+				>{$totalNafasi[1]} <br /> {$totalNafasiCombined}
+			</td>
 		</tr>
 		<tr>
 			<th />
@@ -48,10 +57,12 @@
 		<tr>
 			<td><strong>المشرقي</strong></td>
 			<td on:click={() => saveItem($totalSmallValue[1], 'الصغير المشرقي')}
-				>{$totalSmallValue[1]}
+				>{$totalSmallValue[1]} <br /> {$totalSmallValueCombined[1]}
 			</td>
-			<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}>{$totalTrueValue[1]} </td>
-			<td>{sumDigitsFromString($totalSmallValue[0] + $totalTrueValue[0])}</td>
+			<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}
+				>{$totalTrueValue[1]} <br /> {$totalTrueValueCombined[1]}
+			</td>
+			<td>{sumDigitsFromString($totalSmallValue[0] + $totalTrueValue[0])} <br /> </td>
 			<td
 				>{convertToArabicNumbers(
 					JSON.stringify(parseInt($totalSmallValue[0]) + parseInt($totalTrueValue[0]))
@@ -61,10 +72,10 @@
 		<tr>
 			<td><strong>المغربي</strong></td>
 			<td on:click={() => saveItem($totalMaghribiSmallValue[1], 'الصغير المغربي')}
-				>{$totalMaghribiSmallValue[1]}
+				>{$totalMaghribiSmallValue[1]} <br /> {$totalMaghribiSmallValueCombined[1]}
 			</td>
 			<td on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
-				>{$totalMaghribiTrueValue[1]}
+				>{$totalMaghribiTrueValue[1]} <br /> {$totalMaghribiTrueValueCombined[1]}
 			</td>
 			<td>{sumDigitsFromString($totalMaghribiSmallValue[0] + $totalMaghribiTrueValue[0])}</td>
 			<td
