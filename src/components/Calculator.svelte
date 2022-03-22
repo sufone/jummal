@@ -119,7 +119,6 @@
 		text-align: center;
 	}
 	div#side-results {
-		margin-right: 100px;
 		background-color: #f1fffd;
 		padding: 10px;
 		border-radius: 8px;
@@ -154,14 +153,14 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+		gap: 20px;
 	}
 	div#side-constants {
 		min-width: 50%;
 	}
-	@media (max-width: 500px) {
+	@media (max-width: 850px) {
 		div#main {
 			display: flex;
-			gap: 20px;
 			flex-direction: column-reverse;
 		}
 		div.details-below-textbox {
