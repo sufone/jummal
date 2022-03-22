@@ -12,13 +12,6 @@
 	import Dictionary from './Constants/Dictionary.svelte';
 	import { letterInput } from '../stores/letterInput.js';
 
-	let dictionary = false;
-
-	$: if ($letterInput) {
-		dictionary = true;
-	} else {
-		dictionary = false;
-	}
 </script>
 
 <div>
@@ -27,11 +20,7 @@
 		<Tab label="الآيات" />
 		<Tab label="الأسماء الحسنى" />
 		<Tab label="مراتب الوجود" />
-		{#if dictionary}
-			<Tab label="المعجم" />
-		{:else}
-			<Tab disabled="true" label="المعجم" />
-		{/if}
+		<Tab label="المعجم" />
 
 		<svelte:fragment slot="content">
 			<TabContent><Surahs /></TabContent>
