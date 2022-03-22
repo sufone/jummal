@@ -62,11 +62,11 @@
 
 	let activateDictionary = false;
 </script>
+<div>
 
 <h4>كلمات المعجم</h4>
 
 {#if activateDictionary}
-	<div>
 		<table>
 			<tr>
 				<th>الفعل</th>
@@ -125,16 +125,18 @@
 				{/if}
 			{/each}
 		</table>
-	</div>
 {:else}
 	<label>
 		<input type="checkbox" bind:checked={activateDictionary} />
 		أتريدين تفعيل المعجم؟ قد يؤدي إلى بطء في التطبيق، خاصة في الهواتف
 	</label>
 {/if}
+</div>
+
 
 <style>
-	div {
+	div {		
+		min-height: 600px;
 		max-height: 600px;
 		overflow: auto;
 	}
