@@ -158,10 +158,11 @@
 	div#side-constants {
 		min-width: 50%;
 	}
-	@media (max-width: 360px) {
+	@media (max-width: 500px) {
 		div#main {
 			display: flex;
-			flex-direction: column;
+			gap: 20px;
+			flex-direction: column-reverse;
 		}
 		div.details-below-textbox {
 			display: flex;
