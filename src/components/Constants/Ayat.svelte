@@ -378,9 +378,14 @@
 	div {
 		min-height: 600px;
 		max-height: 600px;
-		
+		max-width: 50vw;
 		overflow: auto;
 		text-align: right;
+	}
+	@media (max-width: 850px) {
+		div {
+			max-width: 100vw;
+		}
 	}
 	span.ayah-number {
 		background-color: rgb(252, 217, 215);
