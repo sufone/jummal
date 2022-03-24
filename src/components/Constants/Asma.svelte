@@ -2038,9 +2038,7 @@
 		{#each names as name}
 			<tr>
 				{#if parseInt(name.الرقم) == parseInt($totalNafasi[0]) || parseInt(name.الرقم) == parseInt($totalSmallValue[0]) || parseInt(name.الرقم) == parseInt($totalTrueValue[0]) || parseInt(name.الرقم) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.الرقم) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(name.الرقم)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(name.الرقم)}</td>
 				{:else}
 					<td>{convertToArabicNumbers(name.الرقم)}</td>
 				{/if}
@@ -2048,41 +2046,31 @@
 				<td>{name.الاسم}</td>
 
 				{#if parseInt(name.jummalNafasi) == parseInt($totalNafasi[0]) || parseInt(name.jummalNafasi) == parseInt($totalSmallValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalTrueValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalNafasi) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(name.jummalNafasi)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(name.jummalNafasi)}</td>
 				{:else}
 					<td>{convertToArabicNumbers(name.jummalNafasi)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalSmall) == parseInt($totalNafasi[0]) || parseInt(name.jummalSmall) == parseInt($totalSmallValue[0]) || parseInt(name.jummalSmall) == parseInt($totalTrueValue[0]) || parseInt(name.jummalSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalSmall) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(name.jummalSmall)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(name.jummalSmall)}</td>
 				{:else}
 					<td>{convertToArabicNumbers(name.jummalSmall)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalTrue) == parseInt($totalNafasi[0]) || parseInt(name.jummalTrue) == parseInt($totalSmallValue[0]) || parseInt(name.jummalTrue) == parseInt($totalTrueValue[0]) || parseInt(name.jummalTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalTrue) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(name.jummalTrue)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(name.jummalTrue)}</td>
 				{:else}
 					<td>{convertToArabicNumbers(name.jummalTrue)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalMaghribiSmall) == parseInt($totalNafasi[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalSmallValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalTrueValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalMaghribiSmall) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(name.jummalMaghribiSmall)}</td>
 				{:else}
 					<td>{convertToArabicNumbers(name.jummalMaghribiSmall)}</td>
 				{/if}
 
 				{#if parseInt(name.jummalMaghribiTrue) == parseInt($totalNafasi[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalSmallValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalTrueValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalMaghribiSmallValue[0]) || parseInt(name.jummalMaghribiTrue) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(name.jummalMaghribiTrue)}</td>
 				{:else}
 					<td>{convertToArabicNumbers(name.jummalMaghribiTrue)}</td>
 				{/if}
@@ -2106,10 +2094,14 @@
 		border-collapse: collapse;
 	}
 	th {
-		background: rgb(255, 124, 124);
+		background: rgb(240, 255, 249);
 		position: sticky;
-		top: 0; 
+		top: 0;
 		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 		padding-bottom: 7px;
+	}
+	td.highlight {
+		font-weight: bold;
+		background-color: rgb(181, 255, 224);
 	}
 </style>

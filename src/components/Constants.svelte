@@ -34,7 +34,7 @@
 
 <style>
 	div {
-		background-color: rgb(255, 246, 246);
+		background-color: rgb(255, 255, 255);
 		border-radius: 8px;
 	}
 </style>

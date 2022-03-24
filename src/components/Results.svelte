@@ -42,7 +42,7 @@
 	<tbody>
 		<tr>
 			<td><strong>النفسي</strong></td>
-			<td colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}
+			<td class="results" colspan="2" on:click={() => saveItem($totalNafasi[1], 'النفسي')}
 				>{$totalNafasi[1]} <br /> {$totalNafasiCombined}
 			</td>
 		</tr>
@@ -57,18 +57,18 @@
 		</tr>
 		<tr>
 			<td><strong>المشرقي</strong></td>
-			<td on:click={() => saveItem($totalSmallValue[1], 'الصغير المشرقي')}
+			<td class="results" on:click={() => saveItem($totalSmallValue[1], 'الصغير المشرقي')}
 				>{$totalSmallValue[1]} <br /> {$totalSmallValueCombined[1]}
 			</td>
-			<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}
+			<td class="results" on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}
 				>{$totalTrueValue[1]} <br /> {$totalTrueValueCombined[1]}
 			</td>
-			<td
+			<td class="results"
 				>{sumDigitsFromString($totalSmallValue[0] + $totalTrueValue[0])}
 				<br />
 				{$totalMashriqiDigitsCombined[1]}
 			</td>
-			<td
+			<td class="results"
 				>{convertToArabicNumbers(
 					JSON.stringify(parseInt($totalSmallValue[0]) + parseInt($totalTrueValue[0]))
 				)}</td
@@ -76,18 +76,18 @@
 		</tr>
 		<tr>
 			<td><strong>المغربي</strong></td>
-			<td on:click={() => saveItem($totalMaghribiSmallValue[1], 'الصغير المغربي')}
+			<td class="results" on:click={() => saveItem($totalMaghribiSmallValue[1], 'الصغير المغربي')}
 				>{$totalMaghribiSmallValue[1]} <br /> {$totalMaghribiSmallValueCombined[1]}
 			</td>
-			<td on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
+			<td class="results" on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
 				>{$totalMaghribiTrueValue[1]} <br /> {$totalMaghribiTrueValueCombined[1]}
 			</td>
-			<td
+			<td class="results"
 				>{sumDigitsFromString($totalMaghribiSmallValue[0] + $totalMaghribiTrueValue[0])}
 				<br />
 				{$totalMashriqiDigitsCombined[1]}
 			</td>
-			<td
+			<td class="results"
 				>{convertToArabicNumbers(
 					JSON.stringify(
 						parseInt($totalMaghribiSmallValue[0]) + parseInt($totalMaghribiTrueValue[0])
@@ -106,6 +106,9 @@
 	thead,
 	tbody {
 		font-size: 1.15rem;
+	}
+	td.results {
+		background-color: rgb(181, 255, 224);
 	}
 	td,
 	th {

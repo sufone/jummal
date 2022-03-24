@@ -350,7 +350,7 @@
 </script>
 
 <div>
-	<br>
+	<br />
 	<h4>آيات سورة:</h4>
 	<select bind:value={selectedSurah} id="surahSelect">
 		{#each surahs as surah, i}
@@ -364,7 +364,11 @@
 
 	<div id="ayat-div">
 		﴿{#each ayat.filter((item) => item.surahNumber == selectedSurah) as ayah, i}
-			<p><span class="ayah-number">({convertToArabicNumbers(ayah.ayahNumber)})</span>{" " + ayah.text + " "}</p>
+			<p>
+				<span class="ayah-number">({convertToArabicNumbers(ayah.ayahNumber)})</span>{' ' +
+					ayah.text +
+					' '}
+			</p>
 		{/each}﴾
 	</div>
 </div>
@@ -391,7 +395,7 @@
 		}
 	}
 	span.ayah-number {
-		background-color: rgb(252, 217, 215);
+		background-color: rgb(240, 255, 249);
 		border-radius: 360px;
 	}
 	p {

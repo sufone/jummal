@@ -2,12 +2,15 @@
 	import { letterInput, letterInputCleaned } from '../stores/letterInput.js';
 
 	import { totalTrueValue, totalSmallValue } from '../stores/totalTrueValue.js';
-	import { totalMaghribiSmallValue, totalMaghribiTrueValue } from '../stores/totalMaghribiSmallValue.js';
+	import {
+		totalMaghribiSmallValue,
+		totalMaghribiTrueValue
+	} from '../stores/totalMaghribiSmallValue.js';
 	import { totalNafasi } from '../stores/totalNafasi.js';
 
-	import Results from './Results.svelte'
+	import Results from './Results.svelte';
 	import Constants from './Constants.svelte';
-	import convertToArabicNumbers from './Functions/convertToArabic.js'
+	import convertToArabicNumbers from './Functions/convertToArabic.js';
 
 	// Complete list of values, easy to extend inshaAllah
 	const letters = {
@@ -49,7 +52,6 @@
 		غ: { trueValue: 1000, smallValue: 1, maghribiTrue: 900, maghribiSmall: 9, nafasi: 5 }
 	};
 
-	
 	// Universal function to handle calculating from any system
 	function calc(system) {
 		let value = 0;
@@ -75,8 +77,6 @@
 
 		totalNafasi.set(calc('nafasi'));
 	}
-
-	
 </script>
 
 <div id="main">
@@ -112,13 +112,13 @@
 		font-size: 2rem;
 		text-align: center;
 		max-width: 400px;
-		background-color: aliceblue;
+		border: dashed 3px gray;
+		border-radius: 4px;
 	}
 	button {
 		text-align: center;
 	}
 	div#side-results {
-		background-color: #f1fffd;
 		padding: 10px;
 		border-radius: 8px;
 	}
@@ -130,11 +130,14 @@
 		gap: 20px;
 	}
 	button {
-		background-color: #fdd5db;
+		background-color: #fffafb;
 		border-radius: 8px;
 		border: 1px solid gray;
 		font-size: 0.75rem;
 		padding: 0 2px;
+		max-width: 200px;
+		margin: 0 auto;
+		padding: 0 10px;
 	}
 	button:hover,
 	button:focus {
@@ -147,7 +150,6 @@
 		gap: 20px;
 	}
 
-	
 	div#main {
 		display: flex;
 		flex-direction: row;
