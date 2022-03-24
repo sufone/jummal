@@ -364,8 +364,8 @@
 
 	<div id="ayat-div">
 		{#each ayat.filter((item) => item.surahNumber == selectedSurah) as ayah, i}
-			<span class="ayah-number">({convertToArabicNumbers(ayah.ayahNumber)})</span>{" " + ayah.text + " "}
 		{/each}
+			<p><span class="ayah-number">({convertToArabicNumbers(ayah.ayahNumber)})</span>{" " + ayah.text + " "}</p>
 	</div>
 </div>
 
