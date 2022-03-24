@@ -101,11 +101,11 @@
 <style>
 	thead > th {
 		font-weight: bold;
-		font-size: 1.25rem;
+		font-size: 1.15rem;
 	}
 	thead,
 	tbody {
-		font-size: 1.25rem;
+		font-size: 1.15rem;
 	}
 	td,
 	th {
@@ -118,7 +118,7 @@
 	@media (max-width: 850px) {
 		td,
 		th {
-			font-size: 0.9rem !important;
+			font-size: 0.85rem !important;
 		}
 	}
 </style>
