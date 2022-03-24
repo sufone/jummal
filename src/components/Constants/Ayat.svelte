@@ -375,8 +375,11 @@
 		position: sticky;
 		margin-top: 5px;
 	}
+	div#ayat-div {
+		max-height: 500px;
+	}
 	div {
-		min-height: 600px;
+		min-height: 500px;
 		max-height: 600px;
 		max-width: 50vw;
 		overflow: auto;
@@ -390,5 +393,8 @@
 	span.ayah-number {
 		background-color: rgb(252, 217, 215);
 		border-radius: 360px;
+	}
+	p {
+		display: inline;
 	}
 </style>
