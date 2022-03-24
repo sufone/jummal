@@ -169,5 +169,14 @@
 			justify-content: center;
 			gap: 0px;
 		}
+		textArea {
+			font-size: 1.2rem;
+			max-width: 350px;
+		}
+	}
+	@media (max-width: 400px) {
+		textarea {
+			max-width: 300px;
+		}
 	}
 </style>

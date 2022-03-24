@@ -63,8 +63,10 @@
 			<td on:click={() => saveItem($totalTrueValue[1], 'الكبير المشرقي')}
 				>{$totalTrueValue[1]} <br /> {$totalTrueValueCombined[1]}
 			</td>
-			<td>{sumDigitsFromString($totalSmallValue[0] + $totalTrueValue[0])}
-				<br> {$totalMashriqiDigitsCombined[1]}
+			<td
+				>{sumDigitsFromString($totalSmallValue[0] + $totalTrueValue[0])}
+				<br />
+				{$totalMashriqiDigitsCombined[1]}
 			</td>
 			<td
 				>{convertToArabicNumbers(
@@ -80,9 +82,11 @@
 			<td on:click={() => saveItem($totalMaghribiTrueValue[1], 'الكبير المغربي')}
 				>{$totalMaghribiTrueValue[1]} <br /> {$totalMaghribiTrueValueCombined[1]}
 			</td>
-			<td>{sumDigitsFromString($totalMaghribiSmallValue[0] + $totalMaghribiTrueValue[0])}
-				<br> {$totalMashriqiDigitsCombined[1]}
-		</td>
+			<td
+				>{sumDigitsFromString($totalMaghribiSmallValue[0] + $totalMaghribiTrueValue[0])}
+				<br />
+				{$totalMashriqiDigitsCombined[1]}
+			</td>
 			<td
 				>{convertToArabicNumbers(
 					JSON.stringify(
@@ -110,5 +114,11 @@
 	}
 	table {
 		border-collapse: collapse;
+	}
+	@media (max-width: 850px) {
+		td,
+		th {
+			font-size: 0.9rem !important;
+		}
 	}
 </style>
