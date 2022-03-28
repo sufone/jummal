@@ -2,7 +2,7 @@
 	import ayat from '../Functions/ayat';
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
-	let searchFilter = 'فرط';
+	let searchFilter = 'فرطنا';
     let showAyahReference = true
 </script>
 
@@ -21,7 +21,11 @@
 		{#each ayat.filter((ayah) => ayah.text
 				.replace(/[ًٌٍَُِّْ]+/g, '')
 				.includes(searchFilter.replace(/[ًٌٍَُِّْ]+/g, ''))) as ayah, i}
-			<li>﴿{ayah.text}﴾ [{ayah.surahName}: {convertToArabicNumbers(ayah.ayahNumber)}]</li>
+			<li>﴿{ayah.text}﴾ 
+                {#if showAyahReference}
+                [{ayah.surahName}: {convertToArabicNumbers(ayah.ayahNumber)}]
+                {/if}
+            </li>
 		{/each}
 	</ol>
 </div>
