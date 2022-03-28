@@ -3,47 +3,49 @@
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
 	let searchFilter = 'فرطنا';
-    let showAyahReference = true
+	let showAyahReference = true;
 </script>
 
 <div>
 	<br />
 	<h4>آيات</h4>
-    <div class="top-box-container">
-        <textarea bind:value={searchFilter} />
-        <label>
-            <input type=checkbox bind:checked={showAyahReference}>
-            عمض اسم السورة
-        </label>
-
-    </div>
+	<div class="top-box-container">
+		<textarea bind:value={searchFilter} />
+		<label>
+			<input type="checkbox" bind:checked={showAyahReference} />
+			عمض اسم السورة
+		</label>
+	</div>
 	<ol>
-		{#each ayat.filter((ayah) => ayah.text
-				.replace(/[ًٌٍَُِّْ]+/g, '')
-				.includes(searchFilter.replace(/[ًٌٍَُِّْ]+/g, ''))) as ayah, i}
-			<li>﴿{ayah.text}﴾ 
-                {#if showAyahReference}
-                [{ayah.surahName}: {convertToArabicNumbers(ayah.ayahNumber)}]
-                {/if}
-            </li>
-		{/each}
+		{#if searchFilter.length > 1}
+			{#each ayat.filter((ayah) => ayah.text
+					.replace(/[ًٌٍَُِّْ]+/g, '')
+					.includes(searchFilter.replace(/[ًٌٍَُِّْ]+/g, ''))) as ayah, i}
+				<li>
+					﴿{ayah.text}﴾
+					{#if showAyahReference}
+						[{ayah.surahName}: {convertToArabicNumbers(ayah.ayahNumber)}]
+					{/if}
+				</li>
+			{/each}
+		{/if}
 	</ol>
 </div>
 
 <style>
 	ol {
 		text-align: right;
-        list-style: arabic-indic;
+		list-style: arabic-indic;
 	}
 	div {
 		max-height: 600px;
 		overflow: auto;
 	}
-    div.top-box-container {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
+	div.top-box-container {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+	}
 	@media (max-width: 600px) {
 		div {
 			margin-bottom: 120px;
