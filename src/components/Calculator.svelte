@@ -180,11 +180,14 @@
 		textarea {
 			font-size: 1.2rem;
 			max-width: 255px;
+			border: solid 1px gray;
 		}
 		div.text-box-holder {
 			position: fixed;
 			bottom: 10px;
-			background-color: rgba(240, 255, 249, 0.397);
+			background-color: rgba(240, 255, 249, 0.965);
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			border-radius: 8px;
 		}
 	}
 	@media (max-width: 400px) {

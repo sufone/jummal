@@ -19,7 +19,7 @@
 
 <style>
 	h1 {
-		margin-bottom: 0;
+		margin: 0;
 	}
 	index {
 		text-align: center;
