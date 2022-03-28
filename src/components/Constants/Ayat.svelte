@@ -394,6 +394,11 @@
 			max-width: 100vw;
 		}
 	}
+	@media (max-width: 600px) {
+		div {
+			margin-bottom: 120px;
+		}
+	}
 	span.ayah-number {
 		background-color: rgb(240, 255, 249);
 		border-radius: 360px;

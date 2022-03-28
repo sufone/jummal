@@ -88,21 +88,21 @@
 			<Results />
 		</div>
 
-		<div>
+		<div class="text-box-holder">
 			<textarea
 				placeholder="حساب الجمل"
 				cols="80"
 				bind:value={$letterInput}
 				on:input={() => calcHandler()}
 			/>
-		</div>
-		<div class="details-below-textbox">
-			<button
-				on:click={() => {
-					$letterInput = '';
-					calcHandler();
-				}}>تفريغ</button
-			>
+			<div class="details-below-textbox">
+				<button
+					on:click={() => {
+						$letterInput = '';
+						calcHandler();
+					}}>تفريغ</button
+				>
+			</div>
 		</div>
 	</div>
 </div>
@@ -112,8 +112,9 @@
 		font-size: 2rem;
 		text-align: center;
 		max-width: 400px;
-		border: dashed 3px gray;
+		border: dashed 2px gray;
 		border-radius: 4px;
+		background-color: rgb(240, 255, 249);
 	}
 	button {
 		text-align: center;
@@ -177,8 +178,13 @@
 	}
 	@media (max-width: 600px) {
 		textarea {
-			font-size: 1rem;
+			font-size: 1.2rem;
 			max-width: 255px;
+		}
+		div.text-box-holder {
+			position: fixed;
+			bottom: 10px;
+			background-color: rgba(240, 255, 249, 0.397);
 		}
 	}
 	@media (max-width: 400px) {

@@ -91,4 +91,9 @@
 	table {
 		border-collapse: collapse;
 	}
+	@media (max-width: 600px) {
+		div {
+			margin-bottom: 120px;
+		}
+	}
 </style>

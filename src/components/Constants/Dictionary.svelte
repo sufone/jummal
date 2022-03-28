@@ -156,4 +156,9 @@
 		font-weight: bold;
 		background-color: rgb(181, 255, 224);
 	}
+	@media (max-width: 600px) {
+		div {
+			margin-bottom: 120px;
+		}
+	}
 </style>
