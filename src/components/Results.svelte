@@ -34,11 +34,6 @@
 </script>
 
 <table>
-	<thead>
-		<th />
-		<th colspan="2">الحساب</th>
-		<th colspan="2">المجموع</th>
-	</thead>
 	<tbody>
 		<tr>
 			<td><strong>النفسي</strong></td>
