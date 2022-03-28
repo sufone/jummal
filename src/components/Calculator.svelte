@@ -200,6 +200,7 @@
 		textarea {
 			background-color: white;
 			border: dashed 2px rgb(54, 54, 54);
+			color: black;
 		}
 		button {
 			background-color: rgb(31, 46, 40);
