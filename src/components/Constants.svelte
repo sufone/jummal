@@ -16,9 +16,9 @@
 
 <div>
 	<Tabs autoWidth="true">
+		<Tab label="أسماء السور" />
 		<Tab label="السور" />
-		<Tab label="الآيات" />
-		<Tab label="بحث الآيات" />
+		<Tab label="بحث في القرآن" />
 		<Tab label="الأسماء الحسنى" />
 		<Tab label="مراتب الوجود" />
 		<Tab label="المعجم" />
