@@ -1,12 +1,15 @@
 <script>
 	import ayat from '../Functions/ayat';
+	import quranTextRaw from '../Functions/quranRaw';
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
 	let searchFilter = 'فرطنا';
 	let showAyahReference = true;
 	$: ayatFiltered = ayat.filter((ayah) =>
-		ayah.text.replace(/[ًٌٍَُِّْ]+/g, '').includes(searchFilter.replace(/[ًٌٍَُِّْ]+/g, ''))
+		ayah.text.replace(/[ًٌٍَُِّْـٰ]+/g, '').includes(searchFilter.replace(/[ًٌٍَُِّْـٰ]+/g, ''))
 	);
+
+	$: numberOfMatches = (quranTextRaw.match(new RegExp(searchFilter, 'g')) || [""]).length;
 </script>
 
 <div id="container">
@@ -19,18 +22,20 @@
 			عرض اسم السورة
 		</label>
 	</div>
-	{#if searchFilter.length > 1}
+	{#if searchFilter.length > 1 && ayatFiltered}
 		<span>عدد الآيات: {ayatFiltered.length}</span>
-		{#each ayatFiltered as ayah, i}
-			<ol>
+		|
+		<span>عدد هذه الكلمة: {numberOfMatches}</span>
+		<ol>
+			{#each ayatFiltered as ayah, i}
 				<li>
 					﴿{ayah.text}﴾
 					{#if showAyahReference}
 						[{ayah.surahName}: {convertToArabicNumbers(ayah.ayahNumber)}]
 					{/if}
 				</li>
-			</ol>
-		{/each}
+			{/each}
+		</ol>
 	{/if}
 </div>
 
@@ -44,6 +49,7 @@
 		max-width: 644px;
 		overflow: auto;
 		text-align: right;
+		padding-right: 4px;
 	}
 	div.top-box-container {
 		display: flex;
