@@ -25,6 +25,7 @@
   "dependencies": {
     "gridjs": "^5.0.2",
     "gridjs-svelte": "^2.1.0",
-    "svelte-local-storage-store": "^0.2.6"
+    "svelte-local-storage-store": "^0.2.6",
+    "svelte-themes": "0.0.98"
   }
 }

@@ -196,4 +196,20 @@
 			max-width: 250px;
 		}
 	}
+	@media (prefers-color-scheme: dark) {
+		textarea {
+			background-color: white;
+			border: dashed 2px rgb(54, 54, 54);
+		}
+		button {
+			background-color: rgb(31, 46, 40);
+		}
+		button:hover,
+		button:focus {
+			background-color: rgb(70, 70, 70);
+		}
+		div.text-box-holder {
+			background-color: rgb(31, 46, 40);
+		}
+	}
 </style>

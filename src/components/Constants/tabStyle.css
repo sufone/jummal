@@ -292,6 +292,11 @@ a.bx--tabs__nav-link {
     transition: border 70ms cubic-bezier(0.2, 0, 0.38, 0.9), outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
     white-space: nowrap
 }
+@media (prefers-color-scheme: dark) {
+    a.bx--tabs__nav-link {
+        color: rgb(199, 199, 199);
+    }
+}
 
 a.bx--tabs__nav-link:focus,
 a.bx--tabs__nav-link:active {

@@ -94,11 +94,6 @@
 </table>
 
 <style>
-	thead > th {
-		font-weight: bold;
-		font-size: 1.15rem;
-	}
-	thead,
 	tbody {
 		font-size: 1.15rem;
 	}
@@ -118,6 +113,11 @@
 		th {
 			font-size: 1rem !important;
 			padding: 0.15rem;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		td.results {
+			background-color: rgb(50, 95, 77);
 		}
 	}
 </style>

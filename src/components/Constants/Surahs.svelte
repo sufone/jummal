@@ -606,9 +606,7 @@
 			{#each surahsJson as surah}
 				<tr>
 					{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
-						<td class="highlight"
-							>{convertToArabicNumbers(surah.orderNormal)}</td
-						>
+						<td class="highlight">{convertToArabicNumbers(surah.orderNormal)}</td>
 					{:else}
 						<td>{convertToArabicNumbers(surah.orderNormal)}</td>
 					{/if}
@@ -616,9 +614,7 @@
 					<td>{surah.surahName}</td>
 
 					{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
-						<td class="highlight"
-							>{convertToArabicNumbers(surah.numberAyat)}</td
-						>
+						<td class="highlight">{convertToArabicNumbers(surah.numberAyat)}</td>
 					{:else}
 						<td>{convertToArabicNumbers(surah.numberAyat)}</td>
 					{/if}
@@ -693,7 +689,8 @@
 		max-height: 600px;
 		overflow: auto;
 	}
-	td, th {
+	td,
+	th {
 		text-align: right;
 		padding: 2px;
 		border: 1px solid #999;
@@ -710,7 +707,7 @@
 	th {
 		background: rgb(240, 255, 249);
 		position: sticky;
-		top: 0; 
+		top: 0;
 		box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 		padding-bottom: 7px;
 	}
@@ -721,6 +718,21 @@
 	@media (max-width: 600px) {
 		div {
 			margin-bottom: 120px;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		td.highlight {
+			background-color: rgb(50, 95, 77);
+			color: white;
+		}
+		th {
+			background: rgb(31, 46, 40);
+		}
+		td, th {
+			border: 1px solid rgb(70, 70, 70);
+		}
+		a {
+			color: white;
 		}
 	}
 </style>

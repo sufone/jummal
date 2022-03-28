@@ -66,13 +66,12 @@
 		{#each maratib as martaba}
 			<tr>
 				{#if parseInt(martaba.number) == parseInt($totalNafasi[0]) || parseInt(martaba.number) == parseInt($totalSmallValue[0]) || parseInt(martaba.number) == parseInt($totalTrueValue[0]) || parseInt(martaba.number) == parseInt($totalMaghribiSmallValue[0]) || parseInt(martaba.number) == parseInt($totalMaghribiTrueValue[0])}
-					<td style="font-weight: bold; background-color: #fcd9d7;"
-						>{convertToArabicNumbers(martaba.number)}</td
-					>
+					<td class="highlight">{convertToArabicNumbers(martaba.number)}</td>
+					<td class="highlight">{martaba.rank}</td>
 				{:else}
 					<td>{convertToArabicNumbers(martaba.number)}</td>
+					<td>{martaba.rank}</td>
 				{/if}
-				<td>{martaba.rank}</td>
 			</tr>
 		{/each}
 	</table>
@@ -94,6 +93,12 @@
 	@media (max-width: 600px) {
 		div {
 			margin-bottom: 120px;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		td.highlight {
+			font-weight: bold;
+			background-color: rgb(50, 95, 77);
 		}
 	}
 </style>

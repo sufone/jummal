@@ -2104,4 +2104,19 @@
 		font-weight: bold;
 		background-color: rgb(181, 255, 224);
 	}
+	@media (prefers-color-scheme: dark) {
+		td.highlight {
+			background-color: rgb(50, 95, 77);
+			color: white;
+		}
+		th {
+			background: rgb(31, 46, 40);
+		}
+		td, th {
+			border: 1px solid rgb(70, 70, 70);
+		}
+		a {
+			color: white;
+		}
+	}
 </style>

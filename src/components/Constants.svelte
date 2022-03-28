@@ -39,4 +39,9 @@
 		background-color: rgb(255, 255, 255);
 		border-radius: 8px;
 	}
+	@media (prefers-color-scheme: dark) {
+		div {
+			background-color: rgb(28, 29, 28);
+		}
+	}
 </style>
