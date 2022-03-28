@@ -31,7 +31,7 @@
 				<li>
 					﴿{ayah.text}﴾
 					{#if showAyahReference}
-						[{ayah.surahName}: {convertToArabicNumbers(ayah.ayahNumber)}]
+						[{ayah.surahName} {convertToArabicNumbers(ayah.surahNumber)}: {convertToArabicNumbers(ayah.ayahNumber)}]
 					{/if}
 				</li>
 			{/each}
