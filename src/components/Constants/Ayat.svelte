@@ -383,7 +383,7 @@
 	div {
 		min-height: 500px;
 		max-height: 600px;
-		max-width: 50vw;
+		max-width: 644px;
 		overflow: auto;
 		text-align: right;
 	}
