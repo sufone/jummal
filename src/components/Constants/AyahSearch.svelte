@@ -21,7 +21,7 @@
 
 <div id="container">
 	<br />
-	<h4>آيات</h4>
+	<h4>بحث في القرآن (قيد التطوير والتأكد)</h4>
 	<div class="top-box-container">
 		<textarea bind:value={searchFilter} />
 		<label>
