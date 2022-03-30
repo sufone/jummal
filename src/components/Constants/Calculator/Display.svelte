@@ -24,6 +24,7 @@
 
 <style>
 	.calculator {
+    font-family: sans-serif;
 		display: grid;
 		grid-template-columns: 24% 24% 24% 24%;
 		grid-gap: 4px;
@@ -76,7 +77,7 @@
 
 	button {
 		height: 40px;
-		font-weight: 700;
+    font-family: sans-serif;
 		font-size: 1.2em;
 		border-radius: 8px;
     color: black;
