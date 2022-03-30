@@ -8,7 +8,7 @@
 	<div id="display">
 		{#if total !== 'err'}
 			<div>
-				<div class="top">{totalArr.join(' ')}</div>
+				<div dir="ltr" class="top">{totalArr.join(' ')}</div>
 			</div>
 			<div>
 				<div class="bottom">{total}</div>
