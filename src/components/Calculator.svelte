@@ -112,9 +112,10 @@
 		font-size: 2rem;
 		text-align: center;
 		max-width: 400px;
-		border: dashed 2px gray;
-		border-radius: 4px;
+		border: solid 1px rgb(180, 216, 202);
+		border-radius: 8px;
 		background-color: rgb(240, 255, 249);
+		box-shadow: rgba(93, 122, 111, 0.15) 0px 5px 15px 0px;
 	}
 	button {
 		text-align: center;

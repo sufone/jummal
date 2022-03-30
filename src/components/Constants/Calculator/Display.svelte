@@ -42,7 +42,6 @@
 	#display {
 		grid-column: 1 / span 4;
 		height: 60px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 		border: solid 1px rgb(132, 187, 164);
 		background-color: rgb(181, 255, 224);
 		border-radius: 8px;
