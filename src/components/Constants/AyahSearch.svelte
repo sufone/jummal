@@ -71,6 +71,7 @@
 		overflow: auto;
 		text-align: right;
 		padding-right: 4px;
+		min-height: 600px;
 	}
 	div.top-box-container {
 		display: flex;
