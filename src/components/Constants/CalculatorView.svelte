@@ -8,8 +8,8 @@
 
 <style>
 	div {
-        padding-top: 10px;
-        min-height: 600px;
+		padding-top: 10px;
+		min-height: 600px;
 		max-height: 600px;
 		overflow: auto;
 	}
@@ -32,6 +32,9 @@
 	td.highlight {
 		font-weight: bold;
 		background-color: rgb(181, 255, 224);
+	}
+	:global(input, textarea, button, select, a, div) {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
 	@media (prefers-color-scheme: dark) {
 		td.highlight {

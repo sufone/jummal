@@ -26,13 +26,13 @@
 	.calculator {
 		display: grid;
 		grid-template-columns: 24% 24% 24% 24%;
-		grid-gap: 3px;
+		grid-gap: 4px;
 		color: #444;
-		border: solid 1px black;
 		width: 215px;
 		padding: 5px;
-		background-color: #bbb;
-		cursor: pointer;
+    border-radius: 8px;
+		background-color: rgb(251, 255, 253);
+    padding: 20px;
 		user-select: none;
     margin: 0 auto;
 
@@ -41,12 +41,11 @@
 	#display {
 		grid-column: 1 / span 4;
 		height: 60px;
-		border: solid 1px black;
-		background-color: #ddd;
-		border-radius: 2px;
-		cursor: initial;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+		border: solid 1px rgb(132, 187, 164);
+		background-color: rgb(181, 255, 224);
+		border-radius: 8px;
 		padding: 0 5px;
-		background: linear-gradient(135deg, #fefefe 0%, #d1d1d1 37%, #dbdbdb 58%, #e2e2e2 100%);
 	}
 
 	#display > div {
@@ -79,9 +78,20 @@
 		height: 40px;
 		font-weight: 700;
 		font-size: 1.2em;
-		cursor: pointer;
 		border-radius: 8px;
+    color: black;
+    border: 1px solid rgb(175, 229, 208);
+    background-color: rgb(240, 255, 249);
+    box-shadow: rgb(175, 229, 208, 0.4) 0px 1px, rgb(175, 229, 208, 0.3) 0px 2px, rgb(175, 229, 208, 0.2) 0px 3px, rgb(175, 229, 208, 0.1) 0px 4px, rgb(175, 229, 208, 0.05) 0px 5px;
+    transition: all 0.1s ease; 
 	}
+  button:hover {
+    background-color: rgb(219, 255, 240);
+  }
+  button:active {
+    background-color: rgb(181, 255, 224);
+    box-shadow: rgb(175, 229, 208, 0.4) 0px 1px;
+  }
 
 	#ac {
 		grid-column: 1 / span 2;
