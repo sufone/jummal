@@ -5,6 +5,7 @@
 <script>
 	import { Tabs, Tab, TabContent } from 'carbon-components-svelte';
 	import CalculatorView from './Constants/CalculatorView.svelte';
+	import TableValues from './Constants/TableValues.svelte';
 	import Surahs from './Constants/Surahs.svelte';
 	import AyahSearch from './Constants/AyahSearch.svelte';
 	import Ayat from './Constants/Ayat.svelte';
@@ -17,6 +18,7 @@
 <div>
 	<Tabs autoWidth="true">
 		<Tab label="الحاسبة" />
+		<Tab label="جدول الأعداد" />
 		<Tab label="أسماء السور" />
 		<Tab label="السور" />
 		<Tab label="بحث في القرآن" />
@@ -26,6 +28,7 @@
 
 		<svelte:fragment slot="content">
 			<TabContent><CalculatorView /></TabContent>
+			<TabContent><TableValues /></TabContent>
 			<TabContent><Surahs /></TabContent>
 			<TabContent><Ayat /></TabContent>
 			<TabContent><AyahSearch /></TabContent>
