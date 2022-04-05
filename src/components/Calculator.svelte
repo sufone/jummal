@@ -7,6 +7,7 @@
 		totalMaghribiTrueValue
 	} from '../stores/totalMaghribiSmallValue.js';
 	import { totalNafasi } from '../stores/totalNafasi.js';
+	import { historyStore } from '../stores/historyStore.js';
 
 	import Results from './Results.svelte';
 	import Constants from './Constants.svelte';
@@ -76,6 +77,22 @@
 		totalMaghribiTrueValue.set(calc('maghribiTrue'));
 
 		totalNafasi.set(calc('nafasi'));
+
+		// SCHEMA: {input, nafasivalue...}
+		historyStore.set({
+			text: $letterInputCleaned,
+			nafasiReal: $totalNafasi[0],
+			nafasiDisplay: $totalNafasi[1],
+			mashriqiSmallReal: $totalSmallValue[0],
+			mashriqiSmallDisplay: $totalSmallValue[1],
+			mashriqiTrueReal: $totalTrueValue[0],
+			mashriqiTrueDisplay: $totalTrueValue[1],
+			maghribiSmallReal: $totalMaghribiSmallValue[0],
+			maghribiSmallDisplay: $totalMaghribiSmallValue[1],
+			maghribiTrueReal: $totalMaghribiTrueValue[0],
+			maghribiTrueDisplay: $totalMaghribiTrueValue[1]
+		});
+		console.log($historyStore);
 	}
 </script>
 
