@@ -2015,6 +2015,15 @@
 			jummalTrue: '284',
 			jummalMaghribiSmall: '14',
 			jummalMaghribiTrue: '284'
+		},
+		{
+			الرقم: '224',
+			الاسم: 'رمضان',
+			jummalNafasi: '69',
+			jummalSmall: '20',
+			jummalTrue: '1091',
+			jummalMaghribiSmall: '21',
+			jummalMaghribiTrue: '381'
 		}
 	];
 </script>
@@ -2112,7 +2121,8 @@
 		th {
 			background: rgb(31, 46, 40);
 		}
-		td, th {
+		td,
+		th {
 			border: 1px solid rgb(70, 70, 70);
 		}
 		a {
