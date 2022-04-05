@@ -24,21 +24,19 @@
 
 <style>
 	.calculator {
-    font-family: sans-serif;
+		font-family: sans-serif;
 		display: grid;
 		grid-template-columns: 24% 24% 24% 24%;
 		grid-gap: 4px;
 		color: #444;
 		width: 215px;
 		padding: 5px;
-    border-radius: 8px;
+		border-radius: 8px;
 		background-color: rgb(251, 255, 253);
-    padding: 20px;
+		padding: 20px;
 		user-select: none;
-    margin: 0 auto;
-
+		margin: 0 auto;
 	}
-
 	#display {
 		grid-column: 1 / span 4;
 		height: 60px;
@@ -47,7 +45,6 @@
 		border-radius: 8px;
 		padding: 0 5px;
 	}
-
 	#display > div {
 		text-align: right;
 		box-sizing: border-box;
@@ -76,22 +73,24 @@
 
 	button {
 		height: 40px;
-    font-family: sans-serif;
+		font-family: sans-serif;
 		font-size: 1.2em;
 		border-radius: 8px;
-    color: black;
-    border: 1px solid rgb(175, 229, 208);
-    background-color: rgb(240, 255, 249);
-    box-shadow: rgb(175, 229, 208, 0.4) 0px 1px, rgb(175, 229, 208, 0.3) 0px 2px, rgb(175, 229, 208, 0.2) 0px 3px, rgb(175, 229, 208, 0.1) 0px 4px, rgb(175, 229, 208, 0.05) 0px 5px;
-    transition: all 0.1s ease; 
+		color: black;
+		border: 1px solid rgb(175, 229, 208);
+		background-color: rgb(240, 255, 249);
+		box-shadow: rgb(175, 229, 208, 0.4) 0px 1px, rgb(175, 229, 208, 0.3) 0px 2px,
+			rgb(175, 229, 208, 0.2) 0px 3px, rgb(175, 229, 208, 0.1) 0px 4px,
+			rgb(175, 229, 208, 0.05) 0px 5px;
+		transition: all 0.1s ease;
 	}
-  button:hover {
-    background-color: rgb(219, 255, 240);
-  }
-  button:active {
-    background-color: rgb(181, 255, 224);
-    box-shadow: rgb(175, 229, 208, 0.4) 0px 1px;
-  }
+	button:hover {
+		background-color: rgb(219, 255, 240);
+	}
+	button:active {
+		background-color: rgb(181, 255, 224);
+		box-shadow: rgb(175, 229, 208, 0.4) 0px 1px;
+	}
 
 	#ac {
 		grid-column: 1 / span 2;
@@ -113,5 +112,17 @@
 	}
 	#zero {
 		grid-column: 1 / span 2;
+	}
+	@media (prefers-color-scheme: dark) {
+		.calculator {
+			background-color: rgb(67, 70, 67);
+		}
+		button {
+			background-color: rgb(53, 73, 65);
+			color: white;
+		}
+		button:hover {
+			background-color: rgb(0, 0, 0);
+		}
 	}
 </style>
