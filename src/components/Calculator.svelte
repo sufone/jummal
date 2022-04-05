@@ -189,6 +189,7 @@
 			background-color: rgba(240, 255, 249, 0.965);
 			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 			border-radius: 8px;
+			z-index: 10;
 		}
 	}
 	@media (max-width: 400px) {

@@ -13,10 +13,12 @@
 	import Maratib from './Constants/Maratib.svelte';
 	import Dictionary from './Constants/Dictionary.svelte';
 	import { letterInput } from '../stores/letterInput.js';
+
+	export let selectedTab;
 </script>
 
 <div>
-	<Tabs autoWidth="true">
+	<Tabs autoWidth="true" selected={selectedTab}>
 		<Tab label="الحاسبة" />
 		<Tab label="جدول الأعداد" />
 		<Tab label="أسماء السور" />

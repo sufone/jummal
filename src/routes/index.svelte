@@ -2,6 +2,7 @@
 	import SavedValues from '../components/SavedValues.svelte';
 
 	import Calculator from '../components/Calculator.svelte';
+import ConstantView from '../components/ConstantView.svelte';
 </script>
 
 <svelte:head>
@@ -11,6 +12,7 @@
 <index>
 	<h1>حساب الجمل</h1>
 	<Calculator />
+	<ConstantView />
 
 	<!-- till it's developed
     <SavedValues />
