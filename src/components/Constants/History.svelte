@@ -1,5 +1,4 @@
 <script>
-	import { letterInputCleaned } from '../../stores/letterInput.js';
 	import { totalNafasi } from '../../stores/totalNafasi.js';
 	import { totalTrueValue, totalSmallValue } from '../../stores/totalTrueValue.js';
 	import {
@@ -10,7 +9,6 @@
 	import { historyStore } from '../../stores/historyStore.js';
 	const history = historyStore.z.history; // needed for the store thing
 
-	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 </script>
 
 <div>
