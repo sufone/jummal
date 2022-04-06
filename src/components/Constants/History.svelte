@@ -60,6 +60,8 @@
 
 <style>
 	div {
+		padding-top: 10px;
+		min-height: 600px;
 		max-height: 600px;
 		overflow: auto;
 	}
