@@ -78,21 +78,21 @@
 
 		totalNafasi.set(calc('nafasi'));
 
-		// SCHEMA: {input, nafasivalue...}
-		historyStore.set({
-			text: $letterInputCleaned,
-			nafasiReal: $totalNafasi[0],
-			nafasiDisplay: $totalNafasi[1],
-			mashriqiSmallReal: $totalSmallValue[0],
-			mashriqiSmallDisplay: $totalSmallValue[1],
-			mashriqiTrueReal: $totalTrueValue[0],
-			mashriqiTrueDisplay: $totalTrueValue[1],
-			maghribiSmallReal: $totalMaghribiSmallValue[0],
-			maghribiSmallDisplay: $totalMaghribiSmallValue[1],
-			maghribiTrueReal: $totalMaghribiTrueValue[0],
-			maghribiTrueDisplay: $totalMaghribiTrueValue[1]
-		});
-		console.log($historyStore);
+		if ($letterInputCleaned != '') {
+			historyStore.set({
+				text: $letterInputCleaned,
+				nafasiReal: $totalNafasi[0],
+				nafasiDisplay: $totalNafasi[1],
+				mashriqiSmallReal: $totalSmallValue[0],
+				mashriqiSmallDisplay: $totalSmallValue[1],
+				mashriqiTrueReal: $totalTrueValue[0],
+				mashriqiTrueDisplay: $totalTrueValue[1],
+				maghribiSmallReal: $totalMaghribiSmallValue[0],
+				maghribiSmallDisplay: $totalMaghribiSmallValue[1],
+				maghribiTrueReal: $totalMaghribiTrueValue[0],
+				maghribiTrueDisplay: $totalMaghribiTrueValue[1]
+			});
+		}
 	}
 </script>
 
@@ -111,6 +111,7 @@
 				cols="80"
 				bind:value={$letterInput}
 				on:input={() => calcHandler()}
+				autofocus
 			/>
 			<div class="details-below-textbox">
 				<button
