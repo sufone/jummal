@@ -22,10 +22,10 @@
 	<Tabs autoWidth="true" selected={selectedTab}>
 		<Tab label="التاريخ" />
 		<Tab label="الحاسبة" />
+		<Tab label="الأسماء الحسنى" />
 		<Tab label="آيات من السور" />
 		<Tab label="السور" />
 		<Tab label="بحث في القرآن" />
-		<Tab label="الأسماء الحسنى" />
 		<Tab label="مراتب الوجود" />
 		<Tab label="المعجم" />
 		<Tab label="حسابات الأحرف" />
@@ -33,10 +33,10 @@
 		<svelte:fragment slot="content">
 			<TabContent><History /></TabContent>
 			<TabContent><CalculatorView /></TabContent>
+			<TabContent><Asma /></TabContent>
 			<TabContent><Surahs /></TabContent>
 			<TabContent><Ayat /></TabContent>
 			<TabContent><AyahSearch /></TabContent>
-			<TabContent><Asma /></TabContent>
 			<TabContent><Maratib /></TabContent>
 			<TabContent><Dictionary /></TabContent>
 			<TabContent><TableValues /></TabContent>
