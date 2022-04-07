@@ -22,7 +22,7 @@
 	<Tabs autoWidth="true" selected={selectedTab}>
 		<Tab label="التاريخ" />
 		<Tab label="الحاسبة" />
-		<Tab label="أسماء السور" />
+		<Tab label="آيات من السور" />
 		<Tab label="السور" />
 		<Tab label="بحث في القرآن" />
 		<Tab label="الأسماء الحسنى" />
