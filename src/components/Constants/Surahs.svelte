@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import { totalNafasi } from '../../stores/totalNafasi.js';
 	import { totalTrueValue, totalSmallValue } from '../../stores/totalTrueValue.js';
 	import {
@@ -7,6 +9,12 @@
 	} from '../../stores/totalMaghribiSmallValue.js';
 
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
+
+	let activateModule = false;
+
+	onMount(() => {
+		activateModule = true;
+	});
 
 	let ayahProvider = 'https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_31';
 
@@ -589,99 +597,103 @@
 <div>
 	<h4>آيات من السور</h4>
 
-	<table>
-		<thead>
-			<tr>
-				<th>الرقم</th>
-				<th>السورة</th>
-				<th>عدد الآيات</th>
-				<th>نفسي</th>
-				<th>مشرقي صغير</th>
-				<th>مشرقي كبير</th>
-				<th>مغربي صغير</th>
-				<th>مغربي كبير</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each surahsJson as surah}
+	{#if !activateModule}
+		<p>قيد التحميل...</p>
+	{:else}
+		<table>
+			<thead>
 				<tr>
-					{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
-						<td class="highlight">{convertToArabicNumbers(surah.orderNormal)}</td>
-					{:else}
-						<td>{convertToArabicNumbers(surah.orderNormal)}</td>
-					{/if}
-
-					<td>{surah.surahName}</td>
-
-					{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
-						<td class="highlight">{convertToArabicNumbers(surah.numberAyat)}</td>
-					{:else}
-						<td>{convertToArabicNumbers(surah.numberAyat)}</td>
-					{/if}
-
-					{#if parseInt($totalNafasi[0]) <= parseInt(surah.numberAyat) && parseInt($totalNafasi[0]) > 0}
-						<td class="highlight"
-							><a
-								target="_blank"
-								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalNafasi[0]}"
-								>{$totalNafasi[1]}</a
-							></td
-						>
-					{:else}
-						<td>-</td>
-					{/if}
-
-					{#if parseInt($totalSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalSmallValue[0]) > 0}
-						<td class="highlight"
-							><a
-								target="_blank"
-								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalSmallValue[0]}"
-								>{$totalSmallValue[1]}</a
-							></td
-						>
-					{:else}
-						<td>-</td>
-					{/if}
-
-					{#if parseInt($totalTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalTrueValue[0]) > 0}
-						<td class="highlight"
-							><a
-								target="_blank"
-								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalTrueValue[0]}"
-								>{$totalTrueValue[1]}</a
-							></td
-						>
-					{:else}
-						<td>-</td>
-					{/if}
-
-					{#if parseInt($totalMaghribiSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiSmallValue[0]) > 0}
-						<td class="highlight"
-							><a
-								target="_blank"
-								href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalMaghribiSmallValue[0]}"
-								>{$totalMaghribiSmallValue[1]}</a
-							></td
-						>
-					{:else}
-						<td>-</td>
-					{/if}
-
-					{#if parseInt($totalMaghribiTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiTrueValue[0]) > 0}
-						<td class="highlight"
-							><a
-								target="_blank"
-								href="https://tafsir.app/{surah.orderNormal}/{$totalMaghribiTrueValue[0]}"
-								>{$totalMaghribiTrueValue[1]}</a
-							></td
-						>
-					{:else}
-						<td>-</td>
-					{/if}
+					<th>الرقم</th>
+					<th>السورة</th>
+					<th>عدد الآيات</th>
+					<th>نفسي</th>
+					<th>مشرقي صغير</th>
+					<th>مشرقي كبير</th>
+					<th>مغربي صغير</th>
+					<th>مغربي كبير</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#each surahsJson as surah}
+					<tr>
+						{#if parseInt(surah.orderNormal) == parseInt($totalNafasi[0]) || parseInt(surah.orderNormal) == parseInt($totalSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalTrueValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.orderNormal) == parseInt($totalMaghribiTrueValue[0])}
+							<td class="highlight">{convertToArabicNumbers(surah.orderNormal)}</td>
+						{:else}
+							<td>{convertToArabicNumbers(surah.orderNormal)}</td>
+						{/if}
+
+						<td>{surah.surahName}</td>
+
+						{#if parseInt(surah.numberAyat) == parseInt($totalNafasi[0]) || parseInt(surah.numberAyat) == parseInt($totalSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalTrueValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiSmallValue[0]) || parseInt(surah.numberAyat) == parseInt($totalMaghribiTrueValue[0])}
+							<td class="highlight">{convertToArabicNumbers(surah.numberAyat)}</td>
+						{:else}
+							<td>{convertToArabicNumbers(surah.numberAyat)}</td>
+						{/if}
+
+						{#if parseInt($totalNafasi[0]) <= parseInt(surah.numberAyat) && parseInt($totalNafasi[0]) > 0}
+							<td class="highlight"
+								><a
+									target="_blank"
+									href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalNafasi[0]}"
+									>{$totalNafasi[1]}</a
+								></td
+							>
+						{:else}
+							<td>-</td>
+						{/if}
+
+						{#if parseInt($totalSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalSmallValue[0]) > 0}
+							<td class="highlight"
+								><a
+									target="_blank"
+									href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalSmallValue[0]}"
+									>{$totalSmallValue[1]}</a
+								></td
+							>
+						{:else}
+							<td>-</td>
+						{/if}
+
+						{#if parseInt($totalTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalTrueValue[0]) > 0}
+							<td class="highlight"
+								><a
+									target="_blank"
+									href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalTrueValue[0]}"
+									>{$totalTrueValue[1]}</a
+								></td
+							>
+						{:else}
+							<td>-</td>
+						{/if}
+
+						{#if parseInt($totalMaghribiSmallValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiSmallValue[0]) > 0}
+							<td class="highlight"
+								><a
+									target="_blank"
+									href="https://quran.ksu.edu.sa/index.php#aya={surah.orderNormal}_{$totalMaghribiSmallValue[0]}"
+									>{$totalMaghribiSmallValue[1]}</a
+								></td
+							>
+						{:else}
+							<td>-</td>
+						{/if}
+
+						{#if parseInt($totalMaghribiTrueValue[0]) <= parseInt(surah.numberAyat) && parseInt($totalMaghribiTrueValue[0]) > 0}
+							<td class="highlight"
+								><a
+									target="_blank"
+									href="https://tafsir.app/{surah.orderNormal}/{$totalMaghribiTrueValue[0]}"
+									>{$totalMaghribiTrueValue[1]}</a
+								></td
+							>
+						{:else}
+							<td>-</td>
+						{/if}
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	{/if}
 </div>
 
 <style>
@@ -728,7 +740,8 @@
 		th {
 			background: rgb(31, 46, 40);
 		}
-		td, th {
+		td,
+		th {
 			border: 1px solid rgb(70, 70, 70);
 		}
 		a {

@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import ayat from '../Functions/ayat';
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
 
@@ -347,6 +349,12 @@
 		}
 	];
 	let selectedSurah;
+
+	let activateModule = false;
+
+	onMount(() => {
+		activateModule = true;
+	});
 </script>
 
 <div>
@@ -361,18 +369,22 @@
 			</option>
 		{/each}
 	</select>
-
-	<div id="ayat-div">
-		{#if selectedSurah !== 9 && selectedSurah !== 1}
-			<span>بسم الله الرحمن الرحيم</span>
-		{/if}
-		﴿{#each ayat.filter((item) => item.surahNumber == selectedSurah) as ayah, i}
-			<p>
-				{ayah.text + ' '}<span class="ayah-number">({convertToArabicNumbers(ayah.ayahNumber)})</span
-				>
-			</p>
-		{/each}﴾
-	</div>
+	{#if !activateModule}
+		<p>قيد التحميل...</p>
+	{:else}
+		<div id="ayat-div">
+			{#if selectedSurah !== 9 && selectedSurah !== 1}
+				<span>بسم الله الرحمن الرحيم</span>
+			{/if}
+			﴿{#each ayat.filter((item) => item.surahNumber == selectedSurah) as ayah, i}
+				<p>
+					{ayah.text + ' '}<span class="ayah-number"
+						>({convertToArabicNumbers(ayah.ayahNumber)})</span
+					>
+				</p>
+			{/each}﴾
+		</div>
+	{/if}
 </div>
 
 <style>

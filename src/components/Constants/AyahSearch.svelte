@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { totalNafasi } from '../../stores/totalNafasi.js';
 	import { totalTrueValue, totalSmallValue } from '../../stores/totalTrueValue.js';
 	import {
@@ -9,6 +10,12 @@
 	import ayat from '../Functions/ayat';
 	import quranTextRaw from '../Functions/quranRaw';
 	import convertToArabicNumbers from '../Functions/convertToArabic.js';
+
+	let activateModule = false;
+
+	onMount(() => {
+		activateModule = true;
+	});
 
 	let searchFilter = 'فرطنا';
 	let showAyahReference = true;
@@ -22,41 +29,46 @@
 <div id="container">
 	<br />
 	<h4>بحث في القرآن (قيد التطوير والتأكد)</h4>
-	<div class="top-box-container">
-		<textarea bind:value={searchFilter} />
-		<label>
-			<input type="checkbox" bind:checked={showAyahReference} />
-			عرض اسم السورة
-		</label>
-	</div>
-	{#if searchFilter.length > 1 && ayatFiltered}
-		<span>عدد الآيات: {ayatFiltered.length}</span>
-		|
-		<span>عدد هذه الكلمة: {numberOfMatches}</span>
-		<ol>
-			{#each ayatFiltered as ayah, i}
-				<li>
-					﴿{ayah.text}﴾
-					{#if showAyahReference}
-						{#if parseInt(ayah.surahNumber) == parseInt($totalNafasi[0]) || parseInt(ayah.surahNumber) == parseInt($totalSmallValue[0]) || parseInt(ayah.surahNumber) == parseInt($totalTrueValue[0]) || parseInt(ayah.surahNumber) == parseInt($totalMaghribiSmallValue[0]) || parseInt(ayah.surahNumber) == parseInt($totalMaghribiTrueValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalNafasi[0]) || parseInt(ayah.ayahNumber) == parseInt($totalSmallValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalTrueValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalMaghribiSmallValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalMaghribiTrueValue[0])}
-							<span class="highlight"
-								>[{ayah.surahName}
-								{convertToArabicNumbers(ayah.surahNumber)}: {convertToArabicNumbers(
-									ayah.ayahNumber
-								)}]</span
-							>
-						{:else}
-							<span
-								>[{ayah.surahName}
-								{convertToArabicNumbers(ayah.surahNumber)}: {convertToArabicNumbers(
-									ayah.ayahNumber
-								)}]</span
-							>
+
+	{#if !activateModule}
+		<p>قيد التحميل...</p>
+	{:else}
+		<div class="top-box-container">
+			<textarea bind:value={searchFilter} />
+			<label>
+				<input type="checkbox" bind:checked={showAyahReference} />
+				عرض اسم السورة
+			</label>
+		</div>
+		{#if searchFilter.length > 1 && ayatFiltered}
+			<span>عدد الآيات: {ayatFiltered.length}</span>
+			|
+			<span>عدد هذه الكلمة: {numberOfMatches}</span>
+			<ol>
+				{#each ayatFiltered as ayah, i}
+					<li>
+						﴿{ayah.text}﴾
+						{#if showAyahReference}
+							{#if parseInt(ayah.surahNumber) == parseInt($totalNafasi[0]) || parseInt(ayah.surahNumber) == parseInt($totalSmallValue[0]) || parseInt(ayah.surahNumber) == parseInt($totalTrueValue[0]) || parseInt(ayah.surahNumber) == parseInt($totalMaghribiSmallValue[0]) || parseInt(ayah.surahNumber) == parseInt($totalMaghribiTrueValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalNafasi[0]) || parseInt(ayah.ayahNumber) == parseInt($totalSmallValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalTrueValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalMaghribiSmallValue[0]) || parseInt(ayah.ayahNumber) == parseInt($totalMaghribiTrueValue[0])}
+								<span class="highlight"
+									>[{ayah.surahName}
+									{convertToArabicNumbers(ayah.surahNumber)}: {convertToArabicNumbers(
+										ayah.ayahNumber
+									)}]</span
+								>
+							{:else}
+								<span
+									>[{ayah.surahName}
+									{convertToArabicNumbers(ayah.surahNumber)}: {convertToArabicNumbers(
+										ayah.ayahNumber
+									)}]</span
+								>
+							{/if}
 						{/if}
-					{/if}
-				</li>
-			{/each}
-		</ol>
+					</li>
+				{/each}
+			</ol>
+		{/if}
 	{/if}
 </div>
 
