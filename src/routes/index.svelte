@@ -12,7 +12,10 @@ import ConstantView from '../components/ConstantView.svelte';
 <index>
 	<h1>حساب الجمل</h1>
 	<Calculator />
+
+	<!-- till speed is fixed
 	<ConstantView />
+	-->
 
 	<!-- till it's developed
     <SavedValues />
